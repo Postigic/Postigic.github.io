@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
     margin: 0;
@@ -238,7 +237,7 @@ footer .cols .spacer {
 }
 
 footer .cols .links-col {
-    flex: 2;
+    margin-right: 40px;
 }
 
 footer .cols .links-col a {
