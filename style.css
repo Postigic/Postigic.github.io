@@ -343,6 +343,12 @@ footer .cols .links-col h4 {
         font-size: 14px;
     }
 
+    .main {
+        margin-top: 50px;
+        height: 320px;
+        justify-content: start;
+    }
+
     .main h4 {
         font-size: 20px;
     }
