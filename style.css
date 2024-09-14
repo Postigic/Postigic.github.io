@@ -18,16 +18,23 @@ h4 {
     line-height: 1.6;
 }
 
-.navbar {
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav .navbar {
     background: #18181b;
+    opacity: 0.95;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 80px;
     padding: 0 50px;
 }
 
-.navbar .logo {
+nav .navbar .logo {
     color: #ff9742;
     font-size: 35px;
     height: 64px;
@@ -35,20 +42,24 @@ h4 {
     background: #18181b;
     border: 1px solid #27272a;
     border-radius: 48px;
+    left: 20px;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.navbar ul {
+nav .navbar ul {
     display: flex;
+    flex-grow: 1;
+    justify-content: center;
 }
 
-.navbar ul li {
+nav .navbar ul li {
     list-style: none;
 }
 
-.navbar ul li a {
+nav .navbar ul li a {
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
@@ -58,11 +69,11 @@ h4 {
     position: relative;
 }
 
-.navbar ul li:hover a {
+nav .navbar ul li:hover a {
     color: #ff9742;
 }
 
-.navbar ul li:last-child a {
+nav .navbar ul li:last-child a {
     margin: 0;
 }
 
@@ -77,7 +88,7 @@ h4 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("assets/image-cropped.png") no-repeat center center;
     background-size: cover;
-    height: 640px;
+    height: 850px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,7 +194,7 @@ h4 {
     background-color: #18181b;
     border: 1px solid #27272a;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 80px;
     border-radius: 48px;
@@ -192,6 +203,7 @@ h4 {
 
 .about img {
     width: 280px;
+    margin: 20px;
     border-radius: 12px;
 }
 
@@ -221,14 +233,10 @@ h4 {
     padding: 0 80px;
 }
 
-.skills .info {
-    width: 1500px;
-    padding: 20px;
-}
-
 .skills .info h3 {
     color: #fff;
     font-size: 28px;
+    font-weight: 600;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -236,10 +244,12 @@ h4 {
 .skills .info p {
     color: #ccc;
     font-size: 14px;
+    margin-bottom: 50px;
 }
 
 .skills img {
     width: 400px;
+    margin: 20px;
     border-radius: 12px;
 }
 
@@ -281,30 +291,27 @@ footer .cols .spacer {
     flex: 5;
 }
 
-footer .cols .links-col,
 footer .cols .social-col {
     margin-right: 40px;
 }
 
-footer .cols .links-col a:hover,
 footer .cols .social-col a:hover {
     color: #ff9742;
 }
 
-footer .cols .links-col h4,
 footer .cols .social-col h4 {
     color: #fff;
     margin-bottom: 20px;
 }
 
-footer .cols .links-col a {
+/* footer .cols .links-col a {
     display: block;
     text-decoration: none;
     color: #7b7b7b;
     font-size: 14px;
     line-height: 26px;
     transition: color 0.3s ease;
-}
+} */
 
 footer .cols .social-col a {
     display: block;
@@ -349,16 +356,16 @@ footer .cols .social-col a {
     }
 }
 
-@media screen and (max-width: 780px) {
-    .main h4 {
+@media screen and (max-width: 900px) {
+    .main .main-content h4 {
         font-size: 24px;
     }
 
-    .main p.title {
+    .main .main-content p.title {
         font-size: 36px;
     }
 
-    .main p.subtitle {
+    .main .main-content p.subtitle {
         font-size: 14px;
     }
 
@@ -380,7 +387,7 @@ footer .cols .social-col a {
         justify-content: center;
     }
 
-    footer .cols .spacer {
+    /* footer .cols .spacer {
         flex: 2;
     }
 
@@ -390,28 +397,25 @@ footer .cols .social-col a {
         margin-right: 25px;
     }
 
-    footer .cols .links-col {
-        flex-basis: 100%;
-        margin-bottom: 20px;
-    }
-
     footer .cols .social-col {
         flex-basis: 100%;
         margin-bottom: 20px;
+    } */
+}
+
+@media screen and (max-width: 800px) {
+    nav .navbar .logo {
+        display: none;
     }
 }
 
-@media screen and (max-width: 700px) {
-    .navbar {
-        justify-content: center;
-    }
-
-    .navbar .logo {
-        display: none;
-    }
-
-    .navbar ul li a {
+@media screen and (max-width: 740px) {
+    nav .navbar ul li a {
         font-size: 14px;
+    }
+
+    .main {
+        height: 550px;
     }
 
     .main .main-content {
