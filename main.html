@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
         <link
             href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
             rel="stylesheet"
@@ -13,8 +14,7 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
-        <link rel="stylesheet" href="style.css" />
-        <title>Personal Portfolio</title>
+        <title>Personal Website</title>
     </head>
 
     <body>
@@ -28,8 +28,10 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#skills">Skills</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <a href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -39,13 +41,12 @@
             <section class="main">
                 <div class="main-content">
                     <h4>heya, i'm <span>Postigic</span></h4>
-                    <img src="assets/pfp.png" alt="Profile Picture" />
+                    <img src="assets/pfp.png" alt="Inabakumori plushie pfp" />
                     <p class="title">Software Developer</p>
                     <p class="subtitle">
                         i like creating cool and sometimes niche stuff
                     </p>
                     <a
-                        class="main-button"
                         href="https://github.com/Postigic"
                         target="_blank"
                         aria-label="GitHub"
@@ -100,86 +101,94 @@
                 </div>
             </section>
 
-            <section class="about" id="about">
-                <img src="assets/inabakumori_1.png" alt="About section image" />
-                <article class="info">
-                    <h3>About Me</h3>
-                    <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua."
-                    </p>
-                    <h3>Education</h3>
-                    <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua."
-                    </p>
-                    <h3>Co-Curricular Activities (CCA)</h3>
-                    <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua."
-                    </p>
-                    <h3>Personal Goals</h3>
-                    <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua."
-                    </p>
-                </article>
-            </section>
-
-            <section class="skills" id="skills">
-                <div class="left">
+            <div class="main-container">
+                <section class="about" id="about">
+                    <img
+                        src="assets/inabakumori-pom-poms.gif"
+                        alt="Inabakumori with pom poms gif"
+                    />
                     <article class="info">
-                        <h3>What Skills Do I Have?</h3>
+                        <h3>About Me</h3>
+                        <p>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua."
+                        </p>
+                        <h3>Education</h3>
+                        <p>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua."
+                        </p>
+                        <h3>Co-Curricular Activities (CCA)</h3>
+                        <p>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua."
+                        </p>
+                        <h3>Personal Goals</h3>
                         <p>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua."
                         </p>
                     </article>
-                    <img
-                        src="assets/inabakumori_2.png"
-                        alt="Skills section image"
-                    />
-                </div>
+                </section>
 
-                <div class="right">
-                    <div class="item">
-                        <i class="bx bxl-visual-studio"></i>
+                <section class="skills" id="skills">
+                    <div class="left">
+                        <article class="info">
+                            <h3>What Skills Do I Have?</h3>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua."
+                            </p>
+                        </article>
+                        <img
+                            src="assets/inabakumori_2.png"
+                            alt="Inabakumori image"
+                        />
                     </div>
-                    <div class="item">
-                        <i class="bx bxl-javascript"></i>
-                    </div>
-                    <div class="item">
-                        <i class="bx bxl-python"></i>
-                    </div>
-                    <div class="item">
-                        <i class="bx bxl-html5"></i>
-                    </div>
-                    <div class="item">
-                        <i class="bx bxl-css3"></i>
-                    </div>
-                    <div class="item">
-                        <i class="bx bxl-c-plus-plus"></i>
-                    </div>
-                    <div class="item">
-                        <i class="devicon-azuresqldatabase-plain"></i>
-                    </div>
-                </div>
-            </section>
 
-            <section class="portfolio" id="portfolio">
-                <!-- Portfolio content will go here -->
-            </section>
+                    <div class="right">
+                        <div class="item">
+                            <i class="bx bxl-visual-studio"></i>
+                        </div>
+                        <div class="item">
+                            <i class="bx bxl-javascript"></i>
+                        </div>
+                        <div class="item">
+                            <i class="bx bxl-python"></i>
+                        </div>
+                        <div class="item">
+                            <i class="bx bxl-html5"></i>
+                        </div>
+                        <div class="item">
+                            <i class="bx bxl-css3"></i>
+                        </div>
+                        <div class="item">
+                            <i class="bx bxl-c-plus-plus"></i>
+                        </div>
+                        <div class="item"><i class="devicon-c-plain"></i></div>
+                        <div class="item">
+                            <i class="devicon-csharp-plain"></i>
+                        </div>
+                        <div class="item">
+                            <i class="devicon-azuresqldatabase-plain"></i>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
 
         <footer>
             <div class="cols">
                 <div class="about-col">
-                    <img src="assets/pfp.png" alt="Footer profile picture" />
+                    <img
+                        src="assets/pfp.png"
+                        alt="Footer inabakumori plushie pfp"
+                    />
                     <h3>Postigic</h3>
                     <p>Software Developer</p>
                 </div>

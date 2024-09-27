@@ -14,7 +14,7 @@
 
 :root {
     --primary-color: #ff9742;
-    --background-color: #18181b;
+    --background-color: #131212;
     --accent-color: #27272a;
 }
 
@@ -23,8 +23,9 @@ html {
 }
 
 body {
+    padding-top: 80px;
     height: 100vh;
-    background: #171717;
+    background: var(--background-color);
     animation: fadeInAnimation ease 2s;
 }
 
@@ -39,6 +40,7 @@ a {
 
 nav {
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -174,8 +176,8 @@ nav .navbar ul li:hover a {
 }
 
 .language {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px auto;
+    max-width: 100em;
     padding: 0 50px;
     display: flex;
     flex-wrap: nowrap;
@@ -224,8 +226,12 @@ nav .navbar ul li:hover a {
     font-weight: 600;
 }
 
+.main-container {
+    margin: 0 40px;
+}
+
 .about {
-    margin: 0 50px;
+    margin: 0 auto;
     border: 1px solid var(--accent-color);
     display: flex;
     justify-content: flex-start;
@@ -233,6 +239,7 @@ nav .navbar ul li:hover a {
     gap: 80px;
     border-radius: 48px;
     padding: 40px 80px;
+    max-width: 100em;
 }
 
 .about img {
@@ -244,7 +251,7 @@ nav .navbar ul li:hover a {
     color: #fff;
     font-size: 28px;
     font-weight: 600;
-    margin-top: 15px 5px;
+    margin: 15px 5px 0;
 }
 
 .about .info p {
@@ -254,12 +261,12 @@ nav .navbar ul li:hover a {
 }
 
 .skills {
-    margin: 10px;
+    margin: 10px auto;
+    max-width: 100em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px;
     gap: 20px;
 }
 
@@ -281,7 +288,6 @@ nav .navbar ul li:hover a {
 .skills .left .info h3 {
     color: #fff;
     font-size: 30px;
-    margin-top: 15px 5px;
 }
 
 .skills .left .info p {
@@ -292,7 +298,7 @@ nav .navbar ul li:hover a {
 .skills img {
     width: 400px;
     border-radius: 12px;
-    margin: 20px;
+    margin-top: 50px;
 }
 
 .skills .right {
@@ -471,8 +477,13 @@ footer .cols .social-col a {
 }
 
 @media screen and (max-width: 740px) {
+    nav .navbar {
+        justify-content: center;
+    }
+
     nav .navbar ul li a {
         font-size: 14px;
+        margin-right: 0;
     }
 
     .main {
@@ -501,6 +512,15 @@ footer .cols .social-col a {
         width: 150px;
     }
 
+    .main .main-content a {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .main .main-content a i {
+        font-size: 18px;
+    }
+
     .about img {
         width: 180px;
     }
@@ -516,7 +536,7 @@ footer .cols .social-col a {
     }
 
     .skills .left img {
-        width: 200px;
+        width: 250px;
     }
 }
 
@@ -533,10 +553,6 @@ footer .cols .social-col a {
         flex-basis: 100%;
         margin-top: 20px;
         margin-bottom: 20px;
-    }
-
-    .skills .left img {
-        width: 100px;
     }
 }
 
