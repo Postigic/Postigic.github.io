@@ -116,6 +116,7 @@ nav .navbar a:hover {
     justify-content: center;
     align-items: center;
     position: relative;
+    box-shadow: #000000 0 0 50px;
 }
 
 .hero .hero-content {
@@ -199,7 +200,7 @@ nav .navbar a:hover {
     gap: 80px;
     border-radius: 48px;
     padding: 40px 80px;
-    max-width: 100em;
+    max-width: 70em;
     position: relative;
 }
 
@@ -226,7 +227,7 @@ nav .navbar a:hover {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 100em;
+    max-width: 70em;
     position: relative;
 }
 
