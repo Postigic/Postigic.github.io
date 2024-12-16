@@ -1,0 +1,28 @@
+{
+    "skills": {
+        "📚 Languages": [
+            {
+                "name": "JavaScript",
+                "icon": "bx bxl-javascript",
+                "color": "#f7df1e"
+            },
+            { "name": "Python", "icon": "bx bxl-python", "color": "#306998" },
+            { "name": "HTML5", "icon": "bx bxl-html5", "color": "#e34f26" },
+            { "name": "CSS3", "icon": "bx bxl-css3", "color": "#264de4" },
+            { "name": "C++", "icon": "bx bxl-c-plus-plus", "color": "#5c2d91" },
+            { "name": "C", "icon": "devicon-c-plain", "color": "#00599c" }
+        ],
+        "🛠️ Tools": [
+            {
+                "name": "Visual Studio",
+                "icon": "bx bxl-visual-studio",
+                "color": "#0480c8"
+            },
+            {
+                "name": "Azure SQL Database",
+                "icon": "devicon-azuresqldatabase-plain",
+                "color": "#0078d4"
+            }
+        ]
+    }
+}

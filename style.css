@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: "Work Sans", sans-serif;
     box-sizing: border-box;
 }
 
@@ -434,16 +433,6 @@ footer .cols .social-col a {
     .skills {
         justify-content: space-between;
         gap: 20px;
-    }
-
-    .about .info h3,
-    .skills .left .info h3 {
-        font-size: 22px;
-    }
-
-    .about .info p,
-    .skills .left .info p {
-        font-size: 13px;
     }
 
     footer .cols {
