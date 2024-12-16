@@ -12,57 +12,15 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div class="navbar">
-                    <div class="logo">
-                        <i class="bx bx-code-alt" aria-label="Code Icon"></i>
-                    </div>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li>
-                            <a href="portfolio.html">Portfolio</a>
-                        </li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-            </nav>
+            <nav id="navbar"></nav>
         </header>
 
-        <footer>
-            <div class="cols">
-                <div class="about-col">
-                    <img
-                        src="https://github.com/Postigic.png"
-                        alt="GitHub pfp"
-                    />
-                    <h3>Postigic</h3>
-                    <p>Software Developer</p>
-                </div>
-
-                <div class="spacer"></div>
-
-                <div class="social-col">
-                    <h4>Social Media</h4>
-                    <a
-                        href="https://www.youtube.com/@Postigic"
-                        target="_blank"
-                        aria-label="YouTube"
-                        ><i class="bx bxl-youtube"></i
-                    ></a>
-                    <a
-                        href="https://twitter.com/Postigic"
-                        target="_blank"
-                        aria-label="Twitter"
-                        ><i class="bx bxl-twitter"></i
-                    ></a>
-                    <a
-                        href="https://github.com/Postigic"
-                        target="_blank"
-                        aria-label="GitHub"
-                        ><i class="bx bxl-github"></i
-                    ></a>
-                </div>
-            </div>
-        </footer>
+        <footer id="footer"></footer>
     </body>
+
+    <script src="js/common.js"></script>
+    <script>
+        loadNavbar();
+        loadFooter();
+    </script>
 </html>

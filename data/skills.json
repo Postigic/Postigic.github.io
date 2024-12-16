@@ -14,14 +14,24 @@
         ],
         "🛠️ Tools": [
             {
-                "name": "Visual Studio",
+                "name": "Visual Studio Code",
                 "icon": "bx bxl-visual-studio",
                 "color": "#0480c8"
             },
             {
-                "name": "Azure SQL Database",
-                "icon": "devicon-azuresqldatabase-plain",
-                "color": "#0078d4"
+                "name": "MySQL",
+                "icon": "devicon-mysql-original",
+                "color": "#00758F"
+            },
+            {
+                "name": "Git",
+                "icon": "devicon-git-plain",
+                "color": "#F05032"
+            },
+            {
+                "name": "GitHub",
+                "icon": "devicon-github-plain",
+                "color": "#ffffff"
             }
         ]
     }

@@ -250,19 +250,18 @@ nav .navbar a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 15px;
 }
 
 .skill-item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-self: flex-start;
+    gap: 5px;
     background-color: #1d1d1d;
     padding: 10px 20px;
     border: 1px solid var(--accent-color);
     border-radius: 12px;
-    min-width: 200px;
-    justify-content: flex-start;
 }
 
 .icon {
@@ -271,7 +270,6 @@ nav .navbar a:hover {
     border-radius: 12px;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .icon i {
@@ -285,7 +283,7 @@ nav .navbar a:hover {
     margin: 0;
 }
 
-.trail {
+/* .trail {
     background: rgba(59, 59, 59, 0.467);
     width: 20px;
     height: 5px;
@@ -294,6 +292,40 @@ nav .navbar a:hover {
     offset-path: border-box;
     offset-anchor: 100% 50%;
     animation: trail 6s linear infinite;
+} unused, but could be useful */
+
+.portfolio {
+    padding-top: 10em;
+    max-width: 70em;
+    margin: 0 auto;
+}
+
+.year-container {
+    margin-bottom: 30px;
+    padding: 40px 80px;
+    border: 1px solid var(--accent-color);
+    border-radius: 48px;
+    background-color: var(--item_background_color);
+}
+
+.year-container h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.year-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.year-container ul li {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.year-container ul li:hover {
+    color: var(--primary-color);
+    transition: color 0.3s;
 }
 
 footer {
