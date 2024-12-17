@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Project One",
+        "description": "A brief description of Project One.",
+        "link": "https://example.com",
+        "image": "assets/inabakumori_2.png",
+        "languages": [
+            {
+                "name": "JavaScript",
+                "icon": "bx bxl-javascript",
+                "color": "#f7df1e"
+            },
+            { "name": "Python", "icon": "bx bxl-python", "color": "#306998" }
+        ]
+    },
+    {
+        "name": "Project Two",
+        "description": "A brief description of Project Two.",
+        "link": "https://example.com",
+        "image": "assets/inabakumori_2.png",
+        "languages": [
+            {
+                "name": "JavaScript",
+                "icon": "bx bxl-javascript",
+                "color": "#f7df1e"
+            },
+            { "name": "Python", "icon": "bx bxl-python", "color": "#306998" }
+        ]
+    }
+]

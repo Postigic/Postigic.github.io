@@ -28,5 +28,25 @@ function generatePortfolio(data) {
 
         yearContainer.appendChild(list);
         portfolioSection.appendChild(yearContainer);
+
+        observeElement(yearContainer);
     });
+}
+
+function observeElement(element) {
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0,
+        }
+    );
+
+    observer.observe(element);
 }

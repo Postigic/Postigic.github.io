@@ -1,0 +1,145 @@
+@media screen and (max-width: 1230px) {
+    .language {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .language .item {
+        flex-basis: 49%;
+    }
+
+    .skills {
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    footer .cols {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main .main-content h4 {
+        font-size: 24px;
+    }
+
+    .main .main-content p.title {
+        font-size: 36px;
+    }
+
+    .main .main-content p.subtitle {
+        font-size: 14px;
+    }
+
+    .language .item {
+        flex-basis: 100%;
+    }
+
+    .about {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about img {
+        width: 200px;
+    }
+
+    .skills {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .skills .left img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    nav .navbar .logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    nav .navbar ul {
+        margin-left: 0;
+    }
+
+    nav .navbar ul li a {
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    nav .navbar a {
+        font-size: 20px;
+    }
+
+    .main {
+        height: 550px;
+    }
+
+    .main .main-content {
+        margin-top: 50px;
+        height: 340px;
+        justify-content: start;
+    }
+
+    .main .main-content h4 {
+        font-size: 20px;
+    }
+
+    .main .main-content p.title {
+        font-size: 28px;
+    }
+
+    .main .main-content p.subtitle {
+        font-size: 12px;
+    }
+
+    .main .main-content img {
+        width: 150px;
+    }
+
+    .main .main-content a {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .main .main-content a i {
+        font-size: 18px;
+    }
+
+    .about img {
+        width: 180px;
+    }
+
+    .skills {
+        flex-direction: column;
+    }
+
+    .skills .left,
+    .skills .right {
+        width: 100%;
+    }
+
+    .skills .left img {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .language .item .info h3 {
+        font-size: 20px;
+    }
+
+    .language .item .info p {
+        font-size: 12px;
+    }
+
+    footer .cols .social-col {
+        flex-basis: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

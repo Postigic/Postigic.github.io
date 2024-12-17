@@ -1,0 +1,40 @@
+/* footer .cols .links-col a {
+    display: block;
+    color: #7b7b7b;
+    font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+} */
+
+/*
+.btn {
+    background: var(--primary-color);
+    padding: 6px 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #ff8f33;
+}
+*/
+
+/* footer .cols .about-col {
+        flex-basis: 100%;
+        margin-bottom: 40px;
+        margin-right: 25px;
+    } */
+
+/* .trail {
+    background: rgba(59, 59, 59, 0.467);
+    width: 20px;
+    height: 5px;
+    border-radius: 25%;
+    position: absolute;
+    offset-path: border-box;
+    offset-anchor: 100% 50%;
+    animation: trail 6s linear infinite;
+} */
