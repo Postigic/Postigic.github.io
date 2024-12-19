@@ -12,7 +12,8 @@
     --background-color: #0f0f0f;
     --item_background_color: rgba(29, 29, 29, 0.25);
     --accent-color: #27272a;
-    --text-color: #fff;
+    --title-text-color: #fff;
+    --text-color: #ccc;
 }
 
 html {

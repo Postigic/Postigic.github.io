@@ -45,8 +45,7 @@ nav .navbar ul li {
 }
 
 nav .navbar ul li a {
-    padding: 10px 15px;
-    color: var(--text-color);
+    color: var(--title-text-color);
     font-size: 18px;
     margin-right: 25px;
     transition: color 0.3s ease;
@@ -103,7 +102,7 @@ nav .navbar a:hover {
 
 .hero .hero-content h1 {
     font-size: 2.5rem;
-    color: var(--text-color);
+    color: var(--title-text-color);
     font-weight: 600;
 }
 
@@ -115,13 +114,13 @@ nav .navbar a:hover {
 .hero .hero-content p.title {
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--title-text-color);
     margin-top: 10px;
 }
 
 .hero .hero-content p.subtitle {
     font-size: 1.2rem;
-    color: #ccc;
+    color: var(--text-color);
     margin-top: 10px;
 }
 
@@ -141,7 +140,7 @@ nav .navbar a:hover {
 .hero .social-media-icons a {
     margin: 0 15px;
     font-size: 2rem;
-    color: var(--text-color);
+    color: var(--title-text-color);
     transition: color 0.3s;
 }
 
@@ -173,15 +172,13 @@ nav .navbar a:hover {
 }
 
 .about .info h3 {
-    color: var(--text-color);
+    color: var(--title-text-color);
     font-size: 28px;
     font-weight: 600;
-    margin: 15px 5px 0;
 }
 
 .about .info p {
-    color: #ccc;
-    font-size: 15px;
+    color: var(--text-color);
     margin-bottom: 30px;
 }
 
@@ -205,7 +202,7 @@ nav .navbar a:hover {
 
 .skill-category h3 {
     font-size: 28px;
-    color: var(--text-color);
+    color: var(--title-text-color);
     font-weight: 600;
     margin-bottom: 30px;
 }
@@ -221,30 +218,20 @@ nav .navbar a:hover {
     display: flex;
     align-items: center;
     justify-self: flex-start;
-    gap: 5px;
     background-color: #1d1d1d;
     padding: 10px 20px;
     border: 1px solid var(--accent-color);
     border-radius: 12px;
+    gap: 10px;
 }
 
 .skill-item p {
     font-size: 1.2rem;
-    color: var(--text-color);
-    margin: 0;
-}
-
-.icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
+    color: var(--title-text-color);
 }
 
 .icon i {
     font-size: 40px;
-    color: var(--text-color);
 }
 
 .page-intro {
@@ -262,7 +249,7 @@ nav .navbar a:hover {
 .page-intro h1 {
     font-size: 2.5rem;
     margin-top: 15px;
-    color: var(--text-color);
+    color: var(--title-text-color);
 }
 
 .page-intro h1 span {
@@ -293,7 +280,7 @@ nav .navbar a:hover {
 }
 
 .year-container h3 {
-    color: var(--text-color);
+    color: var(--title-text-color);
     margin-bottom: 10px;
 }
 
@@ -310,8 +297,8 @@ nav .navbar a:hover {
 .projects {
     padding-top: 5em;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+    gap: 30px;
 }
 
 .project {
@@ -321,28 +308,37 @@ nav .navbar a:hover {
     flex-direction: column;
     border: 1px solid var(--accent-color);
     border-radius: 48px;
-    padding: 20px;
+    padding: 25px;
     background: var(--item_background_color);
-    color: var(--text-color);
+    color: var(--title-text-color);
     gap: 15px;
+    animation: slideUp 0.5s ease-out;
     transition: all 0.3s ease;
 }
 
 .project:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .project h3 a {
-    color: var(--text-color);
+    font-size: 1.8rem;
+    color: var(--title-text-color);
+    transition: all 0.3s ease;
 }
 
 .project h3 a:hover {
     color: var(--primary-color);
-    transition: all 0.3s ease;
+}
+
+.project p {
+    color: var(--text-color);
 }
 
 .project img {
-    width: 250px;
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .languages {
@@ -354,8 +350,8 @@ nav .navbar a:hover {
     display: flex;
     align-items: center;
     text-align: center;
-    gap: 5px;
-    font-size: 0.9rem;
+    gap: 10px;
+    font-size: 1.2rem;
     background: var(--item_background_color);
     border: 1px solid var(--accent-color);
     border-radius: 12px;
@@ -363,17 +359,11 @@ nav .navbar a:hover {
 }
 
 .language-item i {
-    font-size: 2rem;
-    transition: transform 0.3s ease;
+    font-size: 40px;
 }
 
 .language-item p {
-    margin-top: 5px;
-    color: var(--text-color);
-}
-
-.language-item:hover i {
-    transform: scale(1.1);
+    color: var(--title-text-color);
 }
 
 footer {
@@ -408,7 +398,7 @@ footer .cols .about-col h3 {
 }
 
 footer .cols .about-col p {
-    color: #ccc;
+    color: var(--text-color);
     font-size: 13px;
 }
 
@@ -425,7 +415,7 @@ footer .cols .social-col a:hover {
 }
 
 footer .cols .social-col h4 {
-    color: var(--text-color);
+    color: var(--title-text-color);
     margin-bottom: 20px;
 }
 
