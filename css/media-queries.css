@@ -1,25 +1,9 @@
-@media screen and (max-width: 1230px) {
-    .language {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .language .item {
-        flex-basis: 49%;
-    }
-
-    .skills {
-        justify-content: space-between;
-        gap: 20px;
-    }
-
+/* Large devices (tablets and up) */
+@media screen and (max-width: 1024px) {
     footer .cols {
         flex-wrap: wrap;
     }
-}
 
-@media screen and (max-width: 900px) {
     .main .main-content h4 {
         font-size: 24px;
     }
@@ -30,10 +14,6 @@
 
     .main .main-content p.subtitle {
         font-size: 14px;
-    }
-
-    .language .item {
-        flex-basis: 100%;
     }
 
     .about {
@@ -55,24 +35,24 @@
     }
 }
 
-@media screen and (max-width: 850px) {
-    nav .navbar .logo {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 740px) {
-    nav .navbar ul {
-        margin-left: 0;
+/* Small devices (phones) */
+@media screen and (max-width: 600px) {
+    nav .navbar .nav-links {
+        margin: 0;
+        flex-grow: 0;
     }
 
-    nav .navbar ul li a {
-        font-size: 16px;
+    nav .navbar .nav-links li .nav-link {
+        margin-right: 20px;
+        font-size: clamp(14px, 4vw, 18px);
+    }
+
+    nav .navbar .nav-links li:last-child .nav-link {
         margin-right: 0;
     }
 
-    nav .navbar a {
-        font-size: 20px;
+    nav .navbar .social-links {
+        display: none;
     }
 
     .main {
@@ -110,35 +90,28 @@
         font-size: 18px;
     }
 
+    .about {
+        padding: 30px;
+    }
+
     .about img {
         width: 180px;
     }
 
-    .skills {
-        flex-direction: column;
+    .year-container {
+        padding: 40px 40px;
     }
 
-    .skills .left,
-    .skills .right {
-        width: 100%;
+    .projects {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
-    .skills .left img {
-        width: 250px;
+    .project img {
+        max-width: 300px;
     }
 
-    .page-intro .intro-img {
-        width: 300px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .language .item .info h3 {
-        font-size: 20px;
-    }
-
-    .language .item .info p {
-        font-size: 12px;
+    .languages {
+        gap: 10px;
     }
 
     footer .cols .social-col {

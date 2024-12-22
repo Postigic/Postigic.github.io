@@ -13,60 +13,71 @@ nav .navbar {
     border-radius: 50px;
     opacity: 0.95;
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 80px;
     padding: 0 50px;
 }
 
-nav .navbar .logo {
-    color: var(--primary-color);
-    font-size: 35px;
-    height: 64px;
-    width: 64px;
-    background: var(--background-color);
-    border: 1px solid var(--accent-color);
-    border-radius: 48px;
-    left: 20px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-nav .navbar ul {
+nav .navbar .nav-links {
     display: flex;
     flex-grow: 1;
     justify-content: left;
-    margin-left: 2em;
+    align-items: center;
+}
+
+nav .navbar .social-links {
+    display: flex;
+    justify-content: left;
 }
 
 nav .navbar ul li {
     list-style: none;
 }
 
-nav .navbar ul li a {
+nav .navbar .nav-links li .nav-link {
     color: var(--title-text-color);
     font-size: 18px;
-    margin-right: 25px;
+    margin-right: 30px;
     transition: color 0.3s ease;
     position: relative;
 }
 
-nav .navbar ul li:hover a {
+nav .navbar .nav-links li:hover .nav-link {
     color: var(--primary-color);
 }
 
-nav .navbar a {
+nav .navbar .nav-links li .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 0;
+    height: 1.7px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav .navbar .nav-links li:hover .nav-link::after {
+    width: 100%;
+}
+
+nav .navbar .social-links li .social-link {
     display: flex;
     margin-left: 20px;
     color: #7b7b7b;
     font-size: 24px;
     line-height: 30px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-nav .navbar a:hover {
+nav .navbar .social-links li .social-link:hover {
     color: var(--primary-color);
+    scale: 1.5;
+}
+
+nav .navbar .social-links li .social-link:active {
+    scale: 1;
 }
 
 .hero {
@@ -240,14 +251,14 @@ nav .navbar a:hover {
 
 .page-intro .intro-img {
     margin-top: 5em;
-    width: 500px;
+    width: clamp(300px, 40vw, 500px);
     height: auto;
     border-radius: 16px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .page-intro h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-top: 15px;
     color: var(--title-text-color);
 }
@@ -321,8 +332,9 @@ nav .navbar a:hover {
 }
 
 .project h3 a {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--title-text-color);
+    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -330,13 +342,30 @@ nav .navbar a:hover {
     color: var(--primary-color);
 }
 
+.project h3 a:hover::after {
+    width: 100%;
+}
+
+.project h3 a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.7px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
 .project p {
     color: var(--text-color);
 }
 
 .project img {
-    height: 350px;
-    width: 350px;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    height: auto;
     object-fit: cover;
     object-position: top center;
 }
@@ -344,6 +373,8 @@ nav .navbar a:hover {
 .languages {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .language-item {
@@ -351,7 +382,7 @@ nav .navbar a:hover {
     align-items: center;
     text-align: center;
     gap: 10px;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     background: var(--item_background_color);
     border: 1px solid var(--accent-color);
     border-radius: 12px;
@@ -359,7 +390,7 @@ nav .navbar a:hover {
 }
 
 .language-item i {
-    font-size: 40px;
+    font-size: clamp(30px, 5vw, 40px);
 }
 
 .language-item p {
