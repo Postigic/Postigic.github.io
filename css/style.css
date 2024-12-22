@@ -240,10 +240,10 @@ nav .navbar a:hover {
 
 .page-intro .intro-img {
     margin-top: 5em;
-    max-width: 100%;
+    width: 500px;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0px 4px 6px #000000;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .page-intro h1 {
@@ -489,5 +489,20 @@ footer .cols .social-col a {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
     }
 }
