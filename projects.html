@@ -13,6 +13,10 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"
+            async
+        ></script>
         <title>projects</title>
     </head>
     <body>
@@ -31,6 +35,16 @@
                     <h1>discover some of my <span>projects</span></h1>
                 </section>
 
+                <section class="filter-panel">
+                    <button id="toggleFilters">
+                        <i class="bx bx-chevron-down"></i>Filters
+                    </button>
+                    <div id="filterContainer" class="hidden">
+                        <div id="languageFilter"></div>
+                        <button id="clearFilters">Clear Filters</button>
+                    </div>
+                </section>
+
                 <section class="projects"></section>
             </div>
         </main>
@@ -38,10 +52,11 @@
         <footer id="footer"></footer>
     </body>
 
+    <script>
+        document.addEventListener("turbolinks:load", function () {
+            console.log("Page loaded with Turbolinks!");
+        });
+    </script>
     <script src="js/projects.js"></script>
     <script src="js/common.js"></script>
-    <script>
-        loadNavbar();
-        loadFooter();
-    </script>
 </html>

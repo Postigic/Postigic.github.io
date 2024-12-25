@@ -1,13 +1,76 @@
 fetch("data/projects.json")
     .then((response) => response.json())
-    .then((data) => generateProjects(data));
+    .then((data) => {
+        generateProjects(data);
 
-function generateProjects(data) {
+        document
+            .getElementById("languageFilter")
+            .addEventListener("click", () => {
+                const selectedLanguages = Array.from(
+                    document.querySelectorAll(
+                        "#languageFilter .language-button.active"
+                    )
+                ).map((button) => button.value);
+
+                generateProjects(data, selectedLanguages);
+            });
+
+        document
+            .getElementById("clearFilters")
+            .addEventListener("click", () => {
+                document
+                    .querySelectorAll("#languageFilter .language-button.active")
+                    .forEach((button) => {
+                        button.classList.remove("active");
+                    });
+                generateProjects(data);
+            });
+    });
+
+fetch("data/skills.json")
+    .then((response) => response.json())
+    .then((data) => {
+        populateLanguageFilter(data);
+    });
+
+function populateLanguageFilter(skillsData) {
+    const languageFilter = document.getElementById("languageFilter");
+    const languages = skillsData.skills["📚 Languages"];
+
+    languages.forEach((language) => {
+        const container = document.createElement("div");
+        container.className = "checkbox-container";
+
+        const button = document.createElement("button");
+        button.className = "language-button";
+        button.value = language.name;
+        button.id = `filter-${language.name}`;
+        button.innerText = language.name;
+
+        button.addEventListener("click", function () {
+            button.classList.toggle("active");
+        });
+
+        container.appendChild(button);
+        languageFilter.appendChild(container);
+    });
+}
+
+function generateProjects(data, selectedLanguages = []) {
     const projectsContainer = document.querySelector(".projects");
+
+    projectsContainer.innerHTML = "";
 
     const sortedProjects = data.sort((a, b) => a.name.localeCompare(b.name));
 
-    const projectPromises = sortedProjects.map((project) => {
+    const filteredProjects = sortedProjects.filter((project) => {
+        if (selectedLanguages.length === 0) return true;
+        return selectedLanguages.some((selected) =>
+            project.languages.some((language) => language.name === selected)
+        );
+    });
+
+    const projectPromises = filteredProjects.map((project) => {
         return getProjectImage(project.image).then((imageUrl) => {
             const projectElement = document.createElement("div");
             projectElement.classList.add("project");
@@ -21,10 +84,10 @@ function generateProjects(data) {
                 <div class="languages">
                 ${project.languages
                     .map(
-                        (lang) =>
+                        (language) =>
                             `<div class="language-item">
-                                <i class="${lang.icon}" style="color: ${lang.color}"></i>
-                                <p>${lang.name}</p>
+                                <i class="${language.icon}" style="color: ${language.color}"></i>
+                                <p>${language.name}</p>
                             </div>`
                     )
                     .join("")}
@@ -64,3 +127,17 @@ function getProjectImage(projectLink) {
             return defaultImageUrl;
         });
 }
+
+document.getElementById("toggleFilters").addEventListener("click", () => {
+    const filterContainer = document.getElementById("filterContainer");
+    const toggleButton = document.getElementById("toggleFilters");
+    const body = document.body;
+
+    if (filterContainer.classList.contains("hidden")) {
+        filterContainer.classList.remove("hidden");
+        toggleButton.innerHTML = "<i class='bx bx-chevron-up'></i>Filters";
+    } else {
+        filterContainer.classList.add("hidden");
+        toggleButton.innerHTML = "<i class='bx bx-chevron-down'></i>Filters";
+    }
+});

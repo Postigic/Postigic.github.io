@@ -8,9 +8,9 @@
 }
 
 :root {
-    --primary-color: #ff9742;
+    --primary-color: #ff8200;
     --background-color: #0f0f0f;
-    --item_background_color: rgba(29, 29, 29, 0.25);
+    --item-background-color: #141414;
     --accent-color: #27272a;
     --title-text-color: #fff;
     --text-color: #ccc;
@@ -23,7 +23,7 @@ html {
 body {
     height: 100vh;
     background-color: var(--background-color);
-    animation: fadeInAnimation ease 1.5s;
+    animation: fadeInAnimation ease 1s;
 }
 
 h1,

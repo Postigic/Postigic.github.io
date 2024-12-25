@@ -114,6 +114,10 @@
         gap: 10px;
     }
 
+    #languageFilter {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     footer .cols .social-col {
         flex-basis: 100%;
         margin-top: 20px;
