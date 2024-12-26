@@ -313,8 +313,8 @@
     {
         "name": "world.execute(me);",
         "description": "Plays 'world.execute(me);' with lyrics and decorators.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world.execute(me)%3B",
-        "image": "https://raw.githubusercontent.com/Postigic/code-dump-lmao/refs/heads/main/Python/world.execute(me)%3B/README.md",
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world_execute_me",
+        "image": "https://raw.githubusercontent.com/Postigic/code-dump-lmao/refs/heads/main/Python/world_execute_me/README.md",
         "languages": [
             {
                 "name": "Python",
