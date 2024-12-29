@@ -454,5 +454,18 @@
                 "color": "#306998"
             }
         ]
+    },
+    {
+        "name": "Algorithms",
+        "description": "A collection of data algorithms.",
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/algorithms",
+        "image": "https://raw.githubusercontent.com/Postigic/code-dump-lmao/refs/heads/main/Python/algorithms/README.md",
+        "languages": [
+            {
+                "name": "Python",
+                "icon": "devicon-python-plain",
+                "color": "#306998"
+            }
+        ]
     }
 ]

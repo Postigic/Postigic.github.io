@@ -4,55 +4,70 @@
             {
                 "name": "JavaScript",
                 "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
+                "color": "#f7df1e",
+                "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             },
             {
                 "name": "Python",
                 "icon": "devicon-python-plain",
-                "color": "#306998"
+                "color": "#306998",
+                "documentation": "https://docs.python.org/3/"
             },
             {
                 "name": "HTML5",
                 "icon": "devicon-html5-plain",
-                "color": "#e34f26"
+                "color": "#e34f26",
+                "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML"
             },
             {
                 "name": "CSS3",
                 "icon": "devicon-css3-plain",
-                "color": "#264de4"
+                "color": "#264de4",
+                "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS"
             },
             {
                 "name": "C++",
                 "icon": "devicon-cplusplus-plain",
-                "color": "#5c2d91"
+                "color": "#5c2d91",
+                "documentation": "https://en.cppreference.com/w/"
             },
-            { "name": "C", "icon": "devicon-c-plain", "color": "#00599c" }
+            {
+                "name": "C",
+                "icon": "devicon-c-plain",
+                "color": "#00599c",
+                "documentation": "https://en.cppreference.com/w/"
+            }
         ],
         "🛠️ Tools": [
             {
                 "name": "Visual Studio Code",
                 "icon": "devicon-vscode-plain",
-                "color": "#0480c8"
+                "color": "#0480c8",
+                "documentation": "https://code.visualstudio.com/docs"
             },
             {
                 "name": "MySQL",
                 "icon": "devicon-mysql-original",
-                "color": "#00758F"
+                "color": "#00758F",
+                "documentation": "https://dev.mysql.com/doc/"
             },
             {
                 "name": "Git",
                 "icon": "devicon-git-plain",
-                "color": "#F05032"
+                "color": "#F05032",
+                "documentation": "https://git-scm.com/doc"
             },
             {
                 "name": "GitHub",
                 "icon": "devicon-github-plain",
-                "color": "#ffffff"
+                "color": "#ffffff",
+                "documentation": "https://docs.github.com/en"
             },
             {
                 "name": "JSON",
                 "icon": "devicon-json-plain",
-                "color": "#4caf50"
+                "color": "#4caf50",
+                "documentation": "https://www.json.org/json-en.html"
             }
         ]
     }

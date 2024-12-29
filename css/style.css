@@ -77,7 +77,7 @@ nav .navbar .social-links li .social-link:hover {
 }
 
 nav .navbar .social-links li .social-link:active {
-    scale: 1;
+    scale: 0.95;
 }
 
 .hero {
@@ -233,6 +233,15 @@ nav .navbar .social-links li .social-link:active {
     border: 1px solid var(--accent-color);
     border-radius: 12px;
     gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    scale: 1.1;
+}
+
+.skill-item:active {
+    scale: 0.95;
 }
 
 .skill-item p {

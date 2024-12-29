@@ -18,8 +18,10 @@ function generateSkills(data) {
         );
 
         sortedSkills.forEach((skill) => {
-            const skillItem = document.createElement("div");
+            const skillItem = document.createElement("a");
             skillItem.classList.add("skill-item");
+            skillItem.href = skill.documentation;
+            skillItem.target = "_blank";
 
             skillItem.innerHTML = `
               <div class="icon">
