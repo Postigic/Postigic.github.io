@@ -71,7 +71,7 @@ function generateProjects(data, selectedLanguages = []) {
     });
 
     const projectPromises = filteredProjects.map((project) => {
-        return getProjectImage(project.image).then((imageUrl) => {
+        return getProjectImage(project.link).then((imageUrl) => {
             const projectElement = document.createElement("div");
             projectElement.classList.add("project");
 
@@ -106,32 +106,43 @@ function generateProjects(data, selectedLanguages = []) {
 }
 
 function getProjectImage(projectLink) {
-    const readmeUrl = `${projectLink}`;
-    const defaultImageUrl = "assets/inabakumori-pom-poms.gif";
+    const repoName = projectLink.split("/").pop();
+    const extensions = [".png", ".jpg", ".gif"];
 
-    return fetch(readmeUrl)
-        .then((response) => response.text())
-        .then((data) => {
-            const imageUrlMatch = data.match(
-                /!\[image\]\((https:\/\/(?:github\.com\/user-attachments\/assets\/[^\)]+|github\.com\/Postigic\/code-dump-lmao\/assets\/[^\)]+))\)/
-            );
-            if (imageUrlMatch) {
-                return imageUrlMatch[1];
+    const defaultImageUrls = [
+        "assets/inabakumori-pom-poms.gif",
+        "assets/gfl-neural-cloud.gif",
+        "assets/inabakumori-rainy-boots.gif",
+    ];
+
+    const randomDefaultImageUrl =
+        defaultImageUrls[Math.floor(Math.random() * defaultImageUrls.length)];
+
+    const checkImage = (index) => {
+        if (index >= extensions.length) {
+            console.error(`No image found for ${repoName}`);
+            return Promise.resolve(defaultImageUrl);
+        }
+
+        const imageUrl = `assets/project_images/${repoName}${extensions[index]}`;
+        return fetch(imageUrl).then((response) => {
+            if (response.ok) {
+                return imageUrl;
             } else {
-                console.error(`Image not found for project: ${projectLink}`);
-                return defaultImageUrl;
+                return checkImage(index + 1);
             }
-        })
-        .catch((error) => {
-            console.error("Error fetching README:", error);
-            return defaultImageUrl;
         });
+    };
+
+    return checkImage(0).catch((error) => {
+        console.error("Error fetching project image:", error);
+        return randomDefaultImageUrl;
+    });
 }
 
 document.getElementById("toggleFilters").addEventListener("click", () => {
     const filterContainer = document.getElementById("filterContainer");
     const toggleButton = document.getElementById("toggleFilters");
-    const body = document.body;
 
     if (filterContainer.classList.contains("hidden")) {
         filterContainer.classList.remove("hidden");

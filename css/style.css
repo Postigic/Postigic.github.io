@@ -266,7 +266,7 @@ nav .navbar .social-links li .social-link:active {
 }
 
 .page-intro h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     margin-top: 15px;
     color: var(--title-text-color);
 }
@@ -321,6 +321,7 @@ nav .navbar .social-links li .social-link:active {
 }
 
 .project {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -345,11 +346,11 @@ nav .navbar .social-links li .social-link:active {
     transition: all 0.3s ease;
 }
 
-.project h3 a:hover {
+.project:hover h3 a {
     color: var(--primary-color);
 }
 
-.project h3 a:hover::after {
+.project:hover h3 a::after {
     width: 100%;
 }
 
@@ -366,12 +367,13 @@ nav .navbar .social-links li .social-link:active {
 
 .project p {
     font-size: clamp(1rem, 2vw, 1.2rem);
+    text-align: center;
     color: var(--text-color);
 }
 
 .project img {
     width: 100%;
-    max-width: 300px;
+    max-width: clamp(300px, 350px, 400px);
     aspect-ratio: 1;
     height: auto;
     object-fit: cover;
