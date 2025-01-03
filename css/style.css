@@ -376,6 +376,7 @@ nav .navbar .social-links li .social-link:active {
     height: auto;
     object-fit: cover;
     object-position: top center;
+    border-radius: 12px;
 }
 
 .languages {
