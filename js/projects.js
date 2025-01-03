@@ -121,7 +121,7 @@ function getProjectImage(projectLink) {
     const checkImage = (index) => {
         if (index >= extensions.length) {
             console.error(`No image found for ${repoName}`);
-            return Promise.resolve(defaultImageUrl);
+            return Promise.resolve(randomDefaultImageUrl);
         }
 
         const imageUrl = `assets/project_images/${repoName}${extensions[index]}`;
