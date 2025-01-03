@@ -259,7 +259,7 @@ nav .navbar .social-links li .social-link:active {
 
 .page-intro .intro-img {
     margin-top: 5em;
-    width: clamp(300px, 40vw, 500px);
+    width: clamp(300px, 30vw, 500px);
     height: auto;
     border-radius: 16px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
