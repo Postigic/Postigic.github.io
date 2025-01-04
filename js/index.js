@@ -5,6 +5,8 @@ fetch("data/skills.json")
 function generateSkills(data) {
     const skillsSection = document.querySelector(".skills");
 
+    skillsSection.innerHTML = "";
+
     for (const category in data.skills) {
         const skillCategory = document.createElement("div");
         skillCategory.classList.add("skill-category");

@@ -37,6 +37,8 @@ function populateLanguageFilter(skillsData) {
     const languageFilter = document.getElementById("languageFilter");
     const languages = skillsData.skills["📚 Languages"];
 
+    languageFilter.innerHTML = "";
+
     languages.forEach((language) => {
         const container = document.createElement("div");
         container.className = "checkbox-container";
@@ -59,6 +61,9 @@ function populateLanguageFilter(skillsData) {
 function generateProjects(data, selectedLanguages = []) {
     const projectsContainer = document.querySelector(".projects");
 
+    if (projectsContainer.dataset.generating === "true") return;
+    projectsContainer.dataset.generating = "true";
+
     projectsContainer.innerHTML = "";
 
     const sortedProjects = data.sort((a, b) => a.name.localeCompare(b.name));
@@ -66,42 +71,53 @@ function generateProjects(data, selectedLanguages = []) {
     const filteredProjects = sortedProjects.filter((project) => {
         if (selectedLanguages.length === 0) return true;
         return selectedLanguages.some((selected) =>
-            project.languages.some((language) => language.name === selected)
+            project.languages?.some((language) => language.name === selected)
         );
     });
 
     const projectPromises = filteredProjects.map((project) => {
-        return getProjectImage(project.link).then((imageUrl) => {
-            const projectElement = document.createElement("div");
-            projectElement.classList.add("project");
+        return getProjectImage(project.link)
+            .then((imageUrl) => {
+                const projectElement = document.createElement("div");
+                projectElement.classList.add("project");
 
-            projectElement.innerHTML = `
+                projectElement.innerHTML = `
                 <h3><a href="${project.link}" target="_blank">${
-                project.name
-            }</a></h3>
-                <p>${project.description}</p>
+                    project.name
+                }</a></h3>
+                <p>${project.description || "No description available"}</p>
                 <img src="${imageUrl}" alt="${project.name}">
                 <div class="languages">
-                ${project.languages
-                    .map(
-                        (language) =>
-                            `<div class="language-item">
+                ${
+                    project.languages
+                        ?.map(
+                            (language) =>
+                                `<div class="language-item">
                                 <i class="${language.icon}" style="color: ${language.color}"></i>
                                 <p>${language.name}</p>
                             </div>`
-                    )
-                    .join("")}
+                        )
+                        .join("") || "No languages available"
+                }
                 </div>
             `;
 
-            return projectElement;
-        });
+                return projectElement;
+            })
+            .catch((error) => {
+                console.error("Error generating project element:", error);
+                return null;
+            });
     });
 
     Promise.all(projectPromises).then((projectElements) => {
         projectElements.forEach((projectElement) => {
-            projectsContainer.appendChild(projectElement);
+            if (projectElement) {
+                projectsContainer.appendChild(projectElement);
+            }
         });
+
+        projectsContainer.dataset.generating = "false";
     });
 }
 
