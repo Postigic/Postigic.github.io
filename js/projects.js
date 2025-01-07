@@ -1,7 +1,9 @@
-fetch("data/projects.json")
-    .then((response) => response.json())
-    .then((data) => {
-        generateProjects(data);
+Promise.all([
+    fetch("data/projects.json").then((response) => response.json()),
+    fetch("data/skills.json").then((response) => response.json()),
+])
+    .then(([projectsData, skillsData]) => {
+        generateProjects(projectsData, skillsData);
 
         document
             .getElementById("languageFilter")
@@ -12,7 +14,7 @@ fetch("data/projects.json")
                     )
                 ).map((button) => button.value);
 
-                generateProjects(data, selectedLanguages);
+                generateProjects(projectsData, skillsData, selectedLanguages);
             });
 
         document
@@ -23,19 +25,18 @@ fetch("data/projects.json")
                     .forEach((button) => {
                         button.classList.remove("active");
                     });
-                generateProjects(data);
+                generateProjects(projectsData, skillsData);
             });
+
+        populateLanguageFilter(skillsData);
+    })
+    .catch((error) => {
+        console.error("Error fetching projects or skills data:", error);
     });
 
-fetch("data/skills.json")
-    .then((response) => response.json())
-    .then((data) => {
-        populateLanguageFilter(data);
-    });
-
-function populateLanguageFilter(skillsData) {
+function populateLanguageFilter(skills) {
     const languageFilter = document.getElementById("languageFilter");
-    const languages = skillsData.skills["📚 Languages"];
+    const languages = skills["📚 Languages"];
 
     languageFilter.innerHTML = "";
 
@@ -58,7 +59,7 @@ function populateLanguageFilter(skillsData) {
     });
 }
 
-function generateProjects(data, selectedLanguages = []) {
+function generateProjects(data, skills, selectedLanguages = []) {
     const projectsContainer = document.querySelector(".projects");
 
     if (projectsContainer.dataset.generating === "true") return;
@@ -90,13 +91,20 @@ function generateProjects(data, selectedLanguages = []) {
                 <div class="languages">
                 ${
                     project.languages
-                        ?.map(
-                            (language) =>
-                                `<div class="language-item">
-                                <i class="${language.icon}" style="color: ${language.color}"></i>
-                                <p>${language.name}</p>
-                            </div>`
-                        )
+                        ?.map((languageName) => {
+                            const language = skills["📚 Languages"]
+                                .concat(skills["🛠️ Tools"])
+                                .find((skill) => skill.name === languageName);
+                            if (language) {
+                                return `
+                                    <div class="language-item">
+                                        <i class="${language.icon}" style="color: ${language.color}"></i>
+                                        <p>${language.name}</p>
+                                    </div>
+                                `;
+                            }
+                            return "";
+                        })
                         .join("") || "No languages available"
                 }
                 </div>

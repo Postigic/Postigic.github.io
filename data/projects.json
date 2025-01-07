@@ -3,443 +3,162 @@
         "name": "Bouncy Ball Simulator",
         "description": "Simulates bouncy balls using Matter.js.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/bouncy_ball_simulator",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Calculator",
         "description": "Simple scientific calculator website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/calculator",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Chart Generator",
         "description": "Generates charts using Chart.js.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/chart_generator",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Coin Flipper",
         "description": "Simple coin flipper website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/coin_flipper",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Data Unit Converter",
         "description": "Simple data unit converter website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/data_unit_converter",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Dice Roller",
         "description": "Simple dice roller website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/dice_roller",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Interest Calculator",
         "description": "Simple interest calculator website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/interest_calculator",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Password Generator",
         "description": "Simple password generator website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/password_generator",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Rotating ASCII Donut",
         "description": "Simple rotating ASCII donut website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/rotating_ascii_donut",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Solar System",
         "description": "Simulates a simple 2D solar system.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            { "name": "CSS3", "icon": "devicon-css3-plain", "color": "#264de4" }
-        ]
+        "languages": ["HTML5", "CSS3"]
     },
     {
         "name": "Tic Tac Toe",
         "description": "Simple Tic-Tac-Toe game website.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/tic_tac_toe",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Wikipedia Searcher",
         "description": "Returns relevant articles using Wikipedia's API.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/wikipedia_searcher",
-        "languages": [
-            {
-                "name": "HTML5",
-                "icon": "devicon-html5-plain",
-                "color": "#e34f26"
-            },
-            {
-                "name": "CSS3",
-                "icon": "devicon-css3-plain",
-                "color": "#264de4"
-            },
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     },
     {
         "name": "Benford's Law",
         "description": "Displays real occurences of Benford's Law.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/benfords_law",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
     },
     {
         "name": "Rabbit Hole ASCII",
         "description": "Plays the Rabbit Hole animation in ASCII characters.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/rabbit_hole_ascii",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
     },
     {
         "name": "Snake Game",
         "description": "Snake game program using only standard libraries.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/snake_game",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            },
-            {
-                "name": "JSON",
-                "icon": "devicon-json-plain",
-                "color": "#4caf50"
-            }
-        ]
+        "languages": ["Python", "JSON"]
     },
     {
         "name": "world.execute(me);",
         "description": "Plays 'world.execute(me);' with lyrics and decorators.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world_execute_me",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
     },
     {
         "name": "Terminal Games (PY)",
         "description": "A collection of simple terminal games.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terminal_games",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
     },
     {
         "name": "Terminal Games (JS)",
         "description": "A collection of simple terminal games.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/terminal_games",
-        "languages": [
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            }
-        ]
+        "languages": ["JavaScript"]
     },
     {
         "name": "Terminal Games (C)",
         "description": "A collection of simple terminal games.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
-        "languages": [
-            {
-                "name": "C",
-                "icon": "devicon-c-plain",
-                "color": "#00599c"
-            }
-        ]
+        "languages": ["C"]
     },
     {
         "name": "Terminal Games (C++)",
         "description": "A collection of simple terminal games.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C%2B%2B/terminal_games",
-        "languages": [
-            {
-                "name": "C++",
-                "icon": "devicon-cplusplus-plain",
-                "color": "#5c2d91"
-            }
-        ]
+        "languages": ["C++"]
     },
     {
         "name": "Song and Lyrics Player",
         "description": "Plays a song and prints its lyrics.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/song_and_lyrics_player",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            },
-            {
-                "name": "JSON",
-                "icon": "devicon-json-plain",
-                "color": "#4caf50"
-            }
-        ]
+        "languages": ["Python", "JSON"]
     },
     {
         "name": "Student Man. Sys. (PY)",
         "description": "A terminal-based student management system.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/student_management_system",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            },
-            {
-                "name": "JSON",
-                "icon": "devicon-json-plain",
-                "color": "#4caf50"
-            }
-        ]
+        "languages": ["Python", "JSON"]
     },
     {
         "name": "Student Man. Sys. (JS)",
         "description": "A terminal-based student management system.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/student_management_system",
-        "languages": [
-            {
-                "name": "JavaScript",
-                "icon": "devicon-javascript-plain",
-                "color": "#f7df1e"
-            },
-            {
-                "name": "JSON",
-                "icon": "devicon-json-plain",
-                "color": "#4caf50"
-            }
-        ]
+        "languages": ["JavaScript", "JSON"]
     },
     {
         "name": "Defusal Automation",
         "description": "Automated calculation process for ROBLOX Defusal.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/defusal_automation",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
     },
     {
         "name": "Ciphers",
         "description": "A collection of cryptographic ciphers.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/ciphers",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
     },
     {
         "name": "Algorithms",
         "description": "A collection of data algorithms.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/algorithms",
-        "languages": [
-            {
-                "name": "Python",
-                "icon": "devicon-python-plain",
-                "color": "#306998"
-            }
-        ]
+        "languages": ["Python"]
+    },
+    {
+        "name": "Trig. Wave Generator",
+        "description": "Generates a sine wave with adjustable variables.",
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/trig_wave_generator",
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     }
 ]
