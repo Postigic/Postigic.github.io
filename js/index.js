@@ -7,7 +7,7 @@ function generateSkills(data) {
 
     skillsSection.innerHTML = "";
 
-    for (const category in data.skills) {
+    for (const category in data) {
         const skillCategory = document.createElement("div");
         skillCategory.classList.add("skill-category");
 
@@ -15,7 +15,7 @@ function generateSkills(data) {
         const skillsContainer = document.createElement("div");
         skillsContainer.classList.add("skills-container");
 
-        const sortedSkills = data.skills[category].sort((a, b) =>
+        const sortedSkills = data[category].sort((a, b) =>
             a.name.localeCompare(b.name)
         );
 
