@@ -84,7 +84,8 @@ nav .navbar .social-links li .social-link:active {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url("../assets/image-cropped.png") no-repeat center center;
     background-size: cover;
-    height: 60rem;
+    background-attachment: fixed;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -547,7 +548,7 @@ nav .navbar .social-links li .social-link:active {
 footer {
     position: relative;
     background-color: var(--background-color);
-    border: 1px solid var(--accent-color);
+    border-top: 1px solid var(--accent-color);
     padding: 80px 50px 40px;
     margin-top: 100px;
 }
@@ -572,24 +573,17 @@ footer .cols .about-col img {
 footer .cols .about-col h3 {
     color: var(--primary-color);
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 footer .cols .about-col p {
     color: var(--text-color);
     font-size: 13px;
+    margin-bottom: 10px;
 }
 
 footer .cols .spacer {
-    flex: 5;
-}
-
-footer .cols .social-col {
-    margin-right: 40px;
-}
-
-footer .cols .social-col a:hover {
-    color: var(--primary-color);
+    flex: 1;
 }
 
 footer .cols .social-col h4 {
@@ -597,12 +591,55 @@ footer .cols .social-col h4 {
     margin-bottom: 20px;
 }
 
-footer .cols .social-col a {
-    display: block;
+footer .cols .social-col ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+footer .cols .social-col .social-link {
+    display: flex;
     color: #7b7b7b;
     font-size: 24px;
     line-height: 30px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+footer .cols .social-col .social-link:hover {
+    color: var(--primary-color);
+    scale: 1.5;
+}
+
+footer .cols .social-col .social-link:active {
+    scale: 0.95;
+}
+
+footer .footer-separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 20px 0;
+    opacity: 0.6;
+}
+
+footer .footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+footer .footer-bottom .footer-text {
+    margin: 0;
+    font-size: clamp(11px, 2vw, 14px);
+    color: var(--text-color);
+}
+
+footer .footer-bottom .footer-text strike {
+    color: #313131;
 }
 
 @keyframes fadeInAnimation {
