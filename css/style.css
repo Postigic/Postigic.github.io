@@ -634,7 +634,7 @@ footer .footer-bottom {
 
 footer .footer-bottom .footer-text {
     margin: 0;
-    font-size: clamp(11px, 2vw, 14px);
+    font-size: clamp(12px, 2vw, 14px);
     color: var(--text-color);
 }
 
