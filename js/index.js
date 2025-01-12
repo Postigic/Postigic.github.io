@@ -39,3 +39,16 @@ function generateSkills(data) {
         skillsSection.appendChild(skillCategory);
     }
 }
+
+function updateTime() {
+    const timeElement = document.getElementById("current-time");
+    const currentTime = new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+    timeElement.innerHTML = `<i class="bx bxs-time-five"></i> ${currentTime}`;
+}
+
+setInterval(updateTime, 1000);
+
+updateTime();
