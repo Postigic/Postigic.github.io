@@ -45,6 +45,7 @@ function updateTime() {
     const currentTime = new Date().toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
+        hour12: false,
     });
     timeElement.innerHTML = `<i class="bx bxs-time-five"></i> ${currentTime}`;
 }

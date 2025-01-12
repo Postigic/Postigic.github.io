@@ -37,6 +37,10 @@
 
 /* Small devices (phones) */
 @media screen and (max-width: 600px) {
+    nav .navbar {
+        height: 65px;
+    }
+
     nav .navbar .nav-links {
         margin: 0;
         flex-grow: 0;
@@ -53,6 +57,10 @@
 
     nav .navbar .social-links {
         display: none;
+    }
+
+    .minor-info {
+        gap: 15px;
     }
 
     .main {
