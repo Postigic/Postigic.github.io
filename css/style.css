@@ -86,14 +86,14 @@ nav .navbar .social-links li .social-link:active {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    height: 100vh;
+    height: 65em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     box-shadow: 0 0 50px #000000;
-    padding: 100px 20px 30px;
+    padding: 0 20px;
 }
 
 .hero .hero-content {
@@ -141,7 +141,7 @@ nav .navbar .social-links li .social-link:active {
 }
 
 .hero .hero-content img {
-    width: 250px;
+    width: clamp(150px, 20vw, 300px);
     margin-top: 20px;
     border-radius: 50%;
     border: 10px solid var(--accent-color);
@@ -392,7 +392,7 @@ nav .navbar .social-links li .social-link:active {
 
 .project img {
     width: 100%;
-    max-width: clamp(300px, 350px, 400px);
+    max-width: clamp(300px, 50vw, 400px);
     aspect-ratio: 1;
     height: auto;
     object-fit: cover;
