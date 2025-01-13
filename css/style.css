@@ -89,11 +89,11 @@ nav .navbar .social-links li .social-link:active {
     height: 65em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     box-shadow: 0 0 50px #000000;
-    padding: 0 20px;
+    padding: 180px 20px 0;
 }
 
 .hero .hero-content {
