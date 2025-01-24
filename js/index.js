@@ -43,6 +43,7 @@ function generateSkills(data) {
 function updateTime() {
     const timeElement = document.getElementById("current-time");
     const currentTime = new Date().toLocaleTimeString([], {
+        timeZone: "Asia/Singapore",
         hour: "2-digit",
         minute: "2-digit",
         hour12: false,

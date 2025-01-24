@@ -86,14 +86,14 @@ nav .navbar .social-links li .social-link:active {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    height: 65em;
+    height: max(65em, 100vh);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     position: relative;
     box-shadow: 0 0 50px #000000;
-    padding: 180px 20px 0;
+    padding: 25vh 20px 0;
 }
 
 .hero .hero-content {
