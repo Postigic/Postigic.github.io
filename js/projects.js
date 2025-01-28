@@ -72,7 +72,7 @@ function generateProjects(data, skills, selectedLanguages = []) {
     const filteredProjects = sortedProjects.filter((project) => {
         if (selectedLanguages.length === 0) return true;
         return selectedLanguages.some((selected) =>
-            project.languages?.some((language) => language.name === selected)
+            project.languages?.some((language) => language === selected)
         );
     });
 
