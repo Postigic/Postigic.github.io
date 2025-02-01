@@ -166,5 +166,11 @@
         "description": "A collection of check digit algorithms.",
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/check_digits",
         "languages": ["Python"]
+    },
+    {
+        "name": "Datetime Clock",
+        "description": "A configurable clock that shows the date and time.",
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/datetime_clock",
+        "languages": ["HTML5", "CSS3", "JavaScript"]
     }
 ]
