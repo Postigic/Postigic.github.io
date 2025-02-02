@@ -170,7 +170,7 @@
     {
         "name": "Datetime Clock",
         "description": "A configurable clock that shows the date and time.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/datetime_clock",
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/datetime_clock",
         "languages": ["HTML5", "CSS3", "JavaScript"]
     }
 ]
