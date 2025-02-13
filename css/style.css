@@ -50,7 +50,7 @@ nav .navbar .nav-links li:hover .nav-link {
 nav .navbar .nav-links li .nav-link::after {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: -1px;
     left: 0;
     width: 0;
     height: 1.7px;
@@ -80,6 +80,58 @@ nav .navbar .social-links li .social-link:hover {
 nav .navbar .social-links li .social-link:active {
     scale: 0.95;
     rotate: 0deg;
+}
+
+.noscript-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: var(--background-color);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 2.5em;
+    z-index: 9999;
+}
+
+.noscript-warning p {
+    background: #ff4444;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.code-comment {
+    position: absolute;
+    color: var(--accent-color);
+    opacity: 0.1;
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.code-comment:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.code-comment:hover::after {
+    content: attr(data-comment);
+    position: absolute;
+    left: 25px;
+    background: var(--item-background-color);
+    padding: 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-size: 0.9em;
+    border: 1px solid var(--accent-color);
+}
+
+#code-comment-1 {
+    bottom: 30px;
+    left: 100px;
 }
 
 .hero {
@@ -226,7 +278,7 @@ nav .navbar .social-links li .social-link:active {
     rotate: -5deg;
 }
 
-.about .info h3 {
+.about .info h2 {
     color: var(--title-text-color);
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     margin-bottom: 10px;
@@ -256,7 +308,7 @@ nav .navbar .social-links li .social-link:active {
     width: 100%;
 }
 
-.skill-category h3 {
+.skill-category h2 {
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--title-text-color);
     font-weight: 600;
@@ -359,7 +411,7 @@ nav .navbar .social-links li .social-link:active {
     );
 }
 
-.year-container h3 {
+.year-container h2 {
     color: var(--title-text-color);
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     margin-bottom: 10px;
@@ -401,22 +453,22 @@ nav .navbar .social-links li .social-link:active {
     transform: scale(1.05);
 }
 
-.project h3 a {
+.project h2 a {
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--title-text-color);
     position: relative;
     transition: all 0.3s ease;
 }
 
-.project:hover h3 a {
+.project:hover h2 a {
     color: var(--primary-color);
 }
 
-.project:hover h3 a::after {
+.project:hover h2 a::after {
     width: 100%;
 }
 
-.project h3 a::after {
+.project h2 a::after {
     content: "";
     position: absolute;
     bottom: 0;

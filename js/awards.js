@@ -12,7 +12,7 @@ function generateAchievements(data) {
         const yearContainer = document.createElement("div");
         yearContainer.classList.add("year-container");
 
-        const yearHeader = document.createElement("h3");
+        const yearHeader = document.createElement("h2");
         yearHeader.textContent = year;
         yearContainer.appendChild(yearHeader);
 

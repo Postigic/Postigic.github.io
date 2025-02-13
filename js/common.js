@@ -1,8 +1,31 @@
+function loadSocials(container) {
+    fetch("data/socials.json")
+        .then((response) => response.json())
+        .then((data) => {
+            const socialsHTML = data
+                .map(
+                    ({ url, label, icon }) => `
+                    <li>
+                        <a class="social-link" href="${url}" 
+                           target="_blank" 
+                           aria-label="${label}">
+                            <i class="${icon}"></i>
+                        </a>
+                    </li>
+                `
+                )
+                .join("");
+            container.querySelector(".social-links").innerHTML = socialsHTML;
+        });
+}
+
 function loadNavbar() {
     fetch("partials/navbar.html")
         .then((response) => response.text())
         .then((data) => {
-            document.getElementById("navbar").innerHTML = data;
+            const container = document.getElementById("navbar");
+            container.innerHTML = data;
+            loadSocials(container);
         })
         .catch((error) => console.error("Error loading navbar:", error));
 }
@@ -11,7 +34,12 @@ function loadFooter() {
     fetch("partials/footer.html")
         .then((response) => response.text())
         .then((data) => {
-            document.getElementById("footer").innerHTML = data;
+            const container = document.getElementById("footer");
+            container.innerHTML = data;
+            loadSocials(container);
+            document.querySelector(
+                ".footer-text"
+            ).innerHTML += `&copy;${new Date().getFullYear()}`;
         })
         .catch((error) => console.error("Error loading footer:", error));
 }
@@ -40,6 +68,11 @@ function loadBackToTop() {
         })
         .catch((error) => console.error("Error loading back-to-top:", error));
 }
+
+document.addEventListener("turbo:load", () => {
+    const noscriptWarning = document.querySelector(".noscript-warning");
+    if (noscriptWarning) noscriptWarning.remove();
+});
 
 loadNavbar();
 loadFooter();

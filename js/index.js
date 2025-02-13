@@ -11,7 +11,7 @@ function generateSkills(data) {
         const skillCategory = document.createElement("div");
         skillCategory.classList.add("skill-category");
 
-        skillCategory.innerHTML = `<h3>${category}</h3>`;
+        skillCategory.innerHTML = `<h2>${category}</h2>`;
         const skillsContainer = document.createElement("div");
         skillsContainer.classList.add("skills-container");
 

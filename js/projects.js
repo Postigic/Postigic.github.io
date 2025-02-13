@@ -83,9 +83,9 @@ function generateProjects(data, skills, selectedLanguages = []) {
                 projectElement.classList.add("project");
 
                 projectElement.innerHTML = `
-                <h3><a href="${project.link}" target="_blank">${
+                <h2><a href="${project.link}" target="_blank">${
                     project.name
-                }</a></h3>
+                }</a></h2>
                 <p>${project.description || "No description available"}</p>
                 <img src="${imageUrl}" alt="${project.name}">
                 <div class="languages">

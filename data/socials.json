@@ -1,0 +1,22 @@
+[
+    {
+        "url": "https://discord.com/users/654593782670426124",
+        "icon": "bx bxl-discord-alt",
+        "label": "Discord"
+    },
+    {
+        "url": "https://github.com/Postigic",
+        "icon": "bx bxl-github",
+        "label": "GitHub"
+    },
+    {
+        "url": "https://www.youtube.com/@Postigic",
+        "icon": "bx bxl-youtube",
+        "label": "YouTube"
+    },
+    {
+        "url": "https://twitter.com/Postigic",
+        "icon": "bx bxl-twitter",
+        "label": "Twitter"
+    }
+]
