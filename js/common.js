@@ -7,8 +7,9 @@ function loadSocials(container) {
                     ({ url, label, icon }) => `
                     <li>
                         <a class="social-link" href="${url}" 
-                           target="_blank" 
-                           aria-label="${label}">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="${label}">
                             <i class="${icon}"></i>
                         </a>
                     </li>

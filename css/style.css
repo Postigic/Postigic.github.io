@@ -53,7 +53,7 @@ nav .navbar .nav-links li .nav-link::after {
     bottom: -1px;
     left: 0;
     width: 0;
-    height: 1.7px;
+    height: 1.05px;
     background-color: var(--primary-color);
     transition: width 0.3s ease;
 }
@@ -136,7 +136,7 @@ nav .navbar .social-links li .social-link:active {
 
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../assets/image-cropped.png") no-repeat center center;
+        url("../assets/916703.jpg") no-repeat center center;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
