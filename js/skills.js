@@ -22,8 +22,6 @@ function generateSkills(data) {
         sortedSkills.forEach((skill) => {
             const skillItem = document.createElement("div");
             skillItem.classList.add("skill-item");
-            skillItem.href = skill.documentation;
-            skillItem.target = "_blank";
 
             skillItem.innerHTML = `
                 <div class="icon">

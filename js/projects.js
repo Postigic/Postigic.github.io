@@ -79,13 +79,14 @@ function generateProjects(data, skills, selectedLanguages = []) {
     const projectPromises = filteredProjects.map((project) => {
         return getProjectImage(project.link)
             .then((imageUrl) => {
-                const projectElement = document.createElement("div");
+                const projectElement = document.createElement("a");
                 projectElement.classList.add("project");
+                projectElement.href = project.link;
+                projectElement.target = "_blank";
+                projectElement.rel = "noopener noreferrer";
 
                 projectElement.innerHTML = `
-                <h2><a href="${project.link}" target="_blank">${
-                    project.name
-                }</a></h2>
+                <h2>${project.name}</h2>
                 <p>${project.description || "No description available"}</p>
                 <img src="${imageUrl}" alt="${project.name}">
                 <div class="languages">

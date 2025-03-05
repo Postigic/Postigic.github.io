@@ -523,25 +523,25 @@ nav .navbar .social-links li .social-link:active {
     transform: scale(1.05);
 }
 
-.project h2 a {
+.project h2 {
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--title-text-color);
     position: relative;
     transition: all 0.3s ease;
 }
 
-.project:hover h2 a {
+.project:hover h2 {
     color: var(--primary-color);
 }
 
-.project:hover h2 a::after {
+.project:hover h2::after {
     width: 100%;
 }
 
-.project h2 a::after {
+.project h2::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
     left: 0;
     width: 0;
     height: 1.7px;
