@@ -34,7 +34,7 @@ if (typeof words === "undefined") {
 
         setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
     }
-}
+} // i'mma be honest i don't know why this if statement fixes it but honestly? i don't care
 
 function updateTime() {
     const timeElement = document.getElementById("current-time");
