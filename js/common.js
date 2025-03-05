@@ -25,8 +25,14 @@ function loadNavbar() {
         .then((response) => response.text())
         .then((data) => {
             const container = document.getElementById("navbar");
+            const currentPath = window.location.pathname.split("/").pop();
             container.innerHTML = data;
             loadSocials(container);
+            document.querySelectorAll(".nav-link").forEach((link) => {
+                if (link.getAttribute("href") === currentPath) {
+                    link.classList.add("active");
+                }
+            });
         })
         .catch((error) => console.error("Error loading navbar:", error));
 }

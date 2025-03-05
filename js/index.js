@@ -1,43 +1,31 @@
-fetch("data/skills.json")
-    .then((response) => response.json())
-    .then((data) => generateSkills(data));
+const words = ["a Student", "a Developer"];
+const typewriterElement = document.getElementById("typewriter");
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
 
-function generateSkills(data) {
-    const skillsSection = document.querySelector(".skills");
+function typeEffect() {
+    const currentWord = words[wordIndex];
 
-    skillsSection.innerHTML = "";
-
-    for (const category in data) {
-        const skillCategory = document.createElement("div");
-        skillCategory.classList.add("skill-category");
-
-        skillCategory.innerHTML = `<h2>${category}</h2>`;
-        const skillsContainer = document.createElement("div");
-        skillsContainer.classList.add("skills-container");
-
-        const sortedSkills = data[category].sort((a, b) =>
-            a.name.localeCompare(b.name)
-        );
-
-        sortedSkills.forEach((skill) => {
-            const skillItem = document.createElement("a");
-            skillItem.classList.add("skill-item");
-            skillItem.href = skill.documentation;
-            skillItem.target = "_blank";
-
-            skillItem.innerHTML = `
-              <div class="icon">
-                <i class="${skill.icon}" style="color: ${skill.color}"></i>
-              </div>
-              <p>${skill.name}</p>
-            `;
-
-            skillsContainer.appendChild(skillItem);
-        });
-
-        skillCategory.appendChild(skillsContainer);
-        skillsSection.appendChild(skillCategory);
+    if (!isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentWord.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 2500);
+            return;
+        }
+    } else {
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
     }
+
+    setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
 }
 
 function updateTime() {
@@ -71,6 +59,7 @@ function calculateAge() {
 }
 
 setInterval(updateTime, 1000);
+typeEffect();
 updateTime();
 calculateAge();
 

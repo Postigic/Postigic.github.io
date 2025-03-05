@@ -23,7 +23,7 @@ html {
 body {
     height: 100vh;
     background-color: var(--background-color);
-    animation: fadeInAnimation ease 1s;
+    animation: fadeInAnimation ease 1.1s;
 }
 
 h1,

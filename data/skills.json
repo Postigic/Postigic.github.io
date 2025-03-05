@@ -4,69 +4,87 @@
             "name": "JavaScript",
             "icon": "devicon-javascript-plain",
             "color": "#f7df1e",
-            "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            "description": "the one that started it all... and the one that i don't remember how to write in anymore..."
         },
         {
             "name": "Python",
             "icon": "devicon-python-plain",
             "color": "#306998",
-            "documentation": "https://docs.python.org/3/"
+            "documentation": "https://docs.python.org/3/",
+            "description": "python, oh python... my favourite language... what would i ever do without you?"
         },
         {
             "name": "HTML5",
             "icon": "devicon-html5-plain",
             "color": "#e34f26",
-            "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+            "description": "hey wait a second, this isn't a programming language... eh, close enough"
         },
         {
             "name": "CSS3",
             "icon": "devicon-css3-plain",
             "color": "#264de4",
-            "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+            "description": "how do i center a div again? uhh... let me just google it real quick..."
         },
         {
             "name": "C++",
             "icon": "devicon-cplusplus-plain",
             "color": "#5c2d91",
-            "documentation": "https://en.cppreference.com/w/"
+            "documentation": "https://en.cppreference.com/w/",
+            "description": "C.... but incremented by 1... does that make it C+1?"
         },
         {
             "name": "C",
             "icon": "devicon-c-plain",
             "color": "#00599c",
-            "documentation": "https://en.cppreference.com/w/"
+            "documentation": "https://en.cppreference.com/w/",
+            "description": "C.... wait, where did the ++ go? does that mean it's C+1-1? wait, that's just C... never mind"
+        },
+        {
+            "name": "Markdown",
+            "icon": "devicon-markdown-plain",
+            "color": "#007acc",
+            "documentation": "https://www.markdownguide.org/basic-syntax/",
+            "description": "if html and css had a baby, it would be markdown... i think"
         }
     ],
     "🛠️ Tools": [
         {
-            "name": "Visual Studio Code",
+            "name": "VSCode",
             "icon": "devicon-vscode-plain",
             "color": "#0480c8",
-            "documentation": "https://code.visualstudio.com/docs"
+            "documentation": "https://code.visualstudio.com/docs",
+            "description": "you can't spell outside without IDE.... (i know it's not even an IDE but shh...)"
         },
         {
             "name": "MySQL",
             "icon": "devicon-mysql-original",
             "color": "#00758F",
-            "documentation": "https://dev.mysql.com/doc/"
+            "documentation": "https://dev.mysql.com/doc/",
+            "description": "i can't remember the last time i used this... but i'm sure it was fun"
         },
         {
             "name": "Git",
             "icon": "devicon-git-plain",
             "color": "#F05032",
-            "documentation": "https://git-scm.com/doc"
+            "documentation": "https://git-scm.com/doc",
+            "description": "git commit -m 'i have no idea what i'm doing'"
         },
         {
             "name": "GitHub",
             "icon": "devicon-github-plain",
             "color": "#ffffff",
-            "documentation": "https://docs.github.com/en"
+            "documentation": "https://docs.github.com/en",
+            "description": "i'm not sure what i'd do without GitHub... probably have a lot of unorganised code"
         },
         {
             "name": "JSON",
             "icon": "devicon-json-plain",
             "color": "#4caf50",
-            "documentation": "https://www.json.org/json-en.html"
+            "documentation": "https://www.json.org/json-en.html",
+            "description": "i dynamically loaded this using a JSON, is this JSON-ception?"
         }
     ]
 }
