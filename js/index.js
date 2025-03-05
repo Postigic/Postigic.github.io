@@ -1,31 +1,39 @@
-const words = ["a Student", "a Developer"];
-const typewriterElement = document.getElementById("typewriter");
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100;
+if (typeof words === "undefined") {
+    const words = ["Student", "Developer"];
+    const typewriterElement = document.getElementById("typewriter");
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
 
-function typeEffect() {
-    const currentWord = words[wordIndex];
+    function typeEffect() {
+        const currentWord = words[wordIndex];
 
-    if (!isDeleting) {
-        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === currentWord.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 2500);
-            return;
+        if (!isDeleting) {
+            typewriterElement.textContent = currentWord.substring(
+                0,
+                charIndex + 1
+            );
+            charIndex++;
+            if (charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2500);
+                return;
+            }
+        } else {
+            typewriterElement.textContent = currentWord.substring(
+                0,
+                charIndex - 1
+            );
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
         }
-    } else {
-        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-        }
+
+        setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
     }
-
-    setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
 }
 
 function updateTime() {
