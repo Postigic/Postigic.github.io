@@ -1,0 +1,177 @@
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../assets/916703.jpg") no-repeat center center;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: max(65em, 100vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 50px #000000;
+    padding: 25vh 20px 0;
+}
+
+.hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.65);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0px 0px 20px 4px rgba(255, 170, 0, 0.8),
+        0px 0px 30px 6px rgba(255, 170, 0, 0.6),
+        0px 0px 40px 8px rgba(255, 170, 0, 0.4),
+        0px 0px 50px 10px rgba(255, 170, 0, 0.2);
+    animation: flicker 2s infinite;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-delay: calc(-0.5s * 7);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.hero .hero-content h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    color: var(--title-text-color);
+    font-weight: 600;
+}
+
+.hero .hero-content h1 span {
+    background: linear-gradient(
+        120deg,
+        var(--primary-color),
+        var(--accent-color)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.hero .hero-content h1 span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        120deg,
+        var(--primary-color),
+        var(--accent-color)
+    );
+}
+
+.hero .hero-content p.title {
+    font-size: clamp(1rem, 6vw, 2.5rem);
+    font-weight: 600;
+    font-style: italic;
+    -webkit-text-stroke: 1px var(--title-text-color);
+    margin-top: 10px;
+}
+
+.hero .hero-content p.title #typewriter::after {
+    content: "|";
+    display: inline-block;
+    animation: blink 0.8s infinite;
+}
+
+.hero .hero-content p.subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+.hero .hero-content img {
+    width: clamp(150px, 20vw, 300px);
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 10px solid var(--accent-color);
+}
+
+.minor-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 50px;
+    text-align: center;
+}
+
+.minor-info .info {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--accent-color);
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 0px 20px 4px rgba(255, 170, 0, 0.8),
+        0px 0px 30px 6px rgba(255, 170, 0, 0.6),
+        0px 0px 40px 8px rgba(255, 170, 0, 0.4),
+        0px 0px 50px 10px rgba(255, 170, 0, 0.2);
+    animation: flicker 2s infinite;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-delay: calc(-0.5s * var(--random));
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 100px;
+    border-radius: 12px;
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+.minor-info .info:nth-child(1) {
+    --duration: 1.5s;
+    --random: 1;
+}
+.minor-info .info:nth-child(2) {
+    --duration: 2s;
+    --random: 2;
+}
+.minor-info .info:nth-child(3) {
+    --duration: 1.8s;
+    --random: 3;
+}
+
+.about {
+    margin: 0 auto 5em;
+    border: 1px solid var(--accent-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+    border-radius: 48px;
+    padding: 40px 80px;
+    max-width: 70em;
+    position: relative;
+}
+
+.about img {
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    rotate: -5deg;
+    transform: perspective(600px) rotateY(10deg);
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.about .info h2 {
+    color: var(--title-text-color);
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.about .info p {
+    color: var(--text-color);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 30px;
+}

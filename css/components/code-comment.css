@@ -1,0 +1,29 @@
+.code-comment {
+    position: absolute;
+    color: var(--accent-color);
+    opacity: 0.1;
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.code-comment:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.code-comment:hover::after {
+    content: attr(data-comment);
+    position: absolute;
+    left: 25px;
+    background: var(--item-background-color);
+    padding: 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-size: 0.9em;
+    border: 1px solid var(--accent-color);
+}
+
+#code-comment-1 {
+    bottom: 30px;
+    left: 100px;
+}

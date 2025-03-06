@@ -28,15 +28,21 @@ Promise.all([
                 generateProjects(projectsData, skillsData);
             });
 
-        populateLanguageFilter(skillsData);
+        populateLanguageFilter(projectsData);
     })
     .catch((error) => {
         console.error("Error fetching projects or skills data:", error);
     });
 
-function populateLanguageFilter(skills) {
+function populateLanguageFilter(projects) {
     const languageFilter = document.getElementById("languageFilter");
-    const languages = skills["📚 Languages"];
+    const languages = new Set();
+
+    projects.forEach((project) => {
+        project.languages.forEach((language) => {
+            languages.add(language);
+        });
+    });
 
     languageFilter.innerHTML = "";
 
@@ -46,9 +52,9 @@ function populateLanguageFilter(skills) {
 
         const button = document.createElement("button");
         button.className = "language-button";
-        button.value = language.name;
-        button.id = `filter-${language.name}`;
-        button.innerText = language.name;
+        button.value = language;
+        button.id = `filter-${language}`;
+        button.innerText = language;
 
         button.addEventListener("click", function () {
             button.classList.toggle("active");

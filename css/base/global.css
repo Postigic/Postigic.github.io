@@ -1,0 +1,25 @@
+.noscript-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: var(--background-color);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 2.5em;
+    z-index: 9999;
+}
+
+.noscript-warning p {
+    background: #ff4444;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.main-container {
+    margin: 5em 40px;
+}

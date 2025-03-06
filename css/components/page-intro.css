@@ -1,0 +1,23 @@
+.page-intro {
+    text-align: center;
+}
+
+.page-intro .intro-img {
+    margin-top: 5em;
+    width: clamp(300px, 30vw, 500px);
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.page-intro h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-top: 15px;
+    color: var(--title-text-color);
+}
+
+.page-intro h1 span {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-style: italic;
+}

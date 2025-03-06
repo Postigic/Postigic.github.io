@@ -1,0 +1,113 @@
+.skills {
+    margin: 5em auto 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 70em;
+    position: relative;
+    animation: slideUp 0.5s ease-out;
+}
+
+.skill-category {
+    border: 1px solid var(--accent-color);
+    padding: 40px 80px;
+    border-radius: 48px;
+    text-align: center;
+    width: 100%;
+}
+
+.skill-category h2 {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    color: var(--title-text-color);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    background-color: var(--item-background-color);
+    padding: 10px 20px;
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    gap: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 70px;
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.skill-item:hover {
+    scale: 1.2;
+    height: 300px;
+    width: 250px;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.skill-item p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--title-text-color);
+}
+
+.skill-item .info {
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.skill-item:hover .info {
+    opacity: 1;
+}
+
+.skill-item .info p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--text-color);
+    padding: 15px;
+}
+
+.skill-item .documentation-button {
+    position: absolute;
+    top: 200px;
+    opacity: 0;
+    margin-top: 50px;
+    background-color: var(--primary-color);
+    color: var(--title-text-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover .documentation-button {
+    opacity: 1;
+}
+
+.skill-item:hover .documentation-button:hover {
+    scale: 1.1;
+}
+
+.skill-item:hover .documentation-button:active {
+    scale: 0.95;
+}
+
+.icon i {
+    font-size: clamp(30px, 5vw, 40px);
+}
