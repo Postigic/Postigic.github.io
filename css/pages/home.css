@@ -1,6 +1,6 @@
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../assets/916703.jpg") no-repeat center center;
+        url("../../assets/916703.jpg") no-repeat center center;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -74,12 +74,6 @@
     font-style: italic;
     -webkit-text-stroke: 1px var(--title-text-color);
     margin-top: 10px;
-}
-
-.hero .hero-content p.title #typewriter::after {
-    content: "|";
-    display: inline-block;
-    animation: blink 0.8s infinite;
 }
 
 .hero .hero-content p.subtitle {

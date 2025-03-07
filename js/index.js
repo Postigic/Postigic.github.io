@@ -1,5 +1,5 @@
 if (typeof words === "undefined") {
-    const words = ["Student", "Developer"];
+    const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
     const typewriterElement = document.getElementById("typewriter");
     let wordIndex = 0;
     let charIndex = 0;

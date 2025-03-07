@@ -1,11 +1,11 @@
-#awards-intro h1 span {
+/* #awards-intro h1 span {
     color: var(--primary-color);
     position: relative;
     text-shadow: 20px 10px 5px rgba(255, 130, 0, 0.6),
         0 0 20px rgba(255, 130, 0, 0.5), 0 0 30px rgba(255, 130, 0, 0.4),
         2px 2px 5px rgba(255, 130, 0, 0.2), 0 0 10px rgba(255, 130, 0, 0.6),
         0 0 20px rgba(255, 130, 0, 0.5), 0 0 30px rgba(255, 130, 0, 0.4);
-}
+} */
 
 .awards {
     padding-top: 5em;
