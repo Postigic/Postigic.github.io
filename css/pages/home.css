@@ -169,3 +169,27 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     margin-bottom: 30px;
 }
+
+.about .info p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.about .info p a:hover::after {
+    width: 100%;
+}
+
+.about .info p a::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1.7px;
+    background: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
