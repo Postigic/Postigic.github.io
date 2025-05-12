@@ -1,0 +1,46 @@
+name: Auto-Update Projects JSON
+
+on:
+    schedule:
+        - cron: "0 12 * * *"
+    workflow_dispatch:
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: write
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GH_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Set up Python 3.12
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+
+            - name: Install dependencies
+              run: pip install requests
+
+            - name: Run project updater
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+              run: python scripts/get_projects.py
+
+            - name: Commit changes
+              run: |
+                  git config --global user.name "GitHub Actions"
+                  git config --global user.email "actions@github.com"
+                  git add data/projects.json
+                  git add assets/project_images/
+                  if git diff --staged --quiet; then
+                      echo "No changes to commit"
+                  else
+                      git commit -m "Auto-update: Project data and images"
+                      git push origin HEAD:main
+                  fi

@@ -1,176 +1,317 @@
 [
     {
-        "name": "Bouncy Ball Simulator",
-        "description": "Simulates bouncy balls using Matter.js.",
+        "description": "yatta! balls! yatta!",
+        "image": "bouncy_ball_simulator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/bouncy_ball_simulator",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
+        "name": "Bouncy Ball Simulator"
     },
     {
-        "name": "Calculator",
-        "description": "Simple scientific calculator website.",
+        "description": "a calculator from a tutorial, i added some other doodads though",
+        "image": "calculator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/calculator",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
+        "name": "Calculator"
     },
     {
-        "name": "Chart Generator",
-        "description": "Generates charts using Chart.js.",
+        "description": "chart generator from tutorial, small bug where one bar in bar chart will not fade away",
+        "image": "chart_generator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/chart_generator",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
+        "name": "Chart Generator"
     },
     {
-        "name": "Coin Flipper",
-        "description": "Simple coin flipper website.",
+        "description": "coin flipper from tutorial, i dunno what to write about it",
+        "image": "coin_flipper.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/coin_flipper",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
+        "name": "Coin Flipper"
     },
     {
-        "name": "Data Unit Converter",
-        "description": "Simple data unit converter website.",
+        "description": "yup i decided to make it into a website, css style was (kinda no longer) ripped from something else",
+        "image": "data_unit_converter.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/data_unit_converter",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
+        "name": "Data Unit Converter"
     },
     {
-        "name": "Dice Roller",
-        "description": "Simple dice roller website.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/dice_roller",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Interest Calculator",
-        "description": "Simple interest calculator website.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/interest_calculator",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Password Generator",
-        "description": "Simple password generator website.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/password_generator",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Rotating ASCII Donut",
-        "description": "Simple rotating ASCII donut website.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/rotating_ascii_donut",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Solar System",
-        "description": "Simulates a simple 2D solar system.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
-        "languages": ["HTML5", "CSS3"]
-    },
-    {
-        "name": "Tic Tac Toe",
-        "description": "Simple Tic-Tac-Toe game website.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/tic_tac_toe",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Wikipedia Searcher",
-        "description": "Returns relevant articles using Wikipedia's API.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/wikipedia_searcher",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Benford's Law",
-        "description": "Displays real occurences of Benford's Law.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/benfords_law",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Rabbit Hole ASCII",
-        "description": "Plays the Rabbit Hole animation in ASCII characters.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/rabbit_hole_ascii",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Snake Game",
-        "description": "Snake game program using only standard libraries.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/snake_game",
-        "languages": ["Python", "JSON"]
-    },
-    {
-        "name": "world.execute(me);",
-        "description": "Plays 'world.execute(me);' with lyrics and decorators.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world_execute_me",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Terminal Games (PY)",
-        "description": "A collection of simple terminal games.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terminal_games",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Terminal Games (JS)",
-        "description": "A collection of simple terminal games.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/terminal_games",
-        "languages": ["JavaScript"]
-    },
-    {
-        "name": "Terminal Games (C)",
-        "description": "A collection of simple terminal games.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
-        "languages": ["C"]
-    },
-    {
-        "name": "Terminal Games (C++)",
-        "description": "A collection of simple terminal games.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C%2B%2B/terminal_games",
-        "languages": ["C++"]
-    },
-    {
-        "name": "Song and Lyrics Player",
-        "description": "Plays a song and prints its lyrics.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/song_and_lyrics_player",
-        "languages": ["Python", "JSON"]
-    },
-    {
-        "name": "Student Man. Sys. (PY)",
-        "description": "A terminal-based student management system.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/student_management_system",
-        "languages": ["Python", "JSON"]
-    },
-    {
-        "name": "Student Man. Sys. (JS)",
-        "description": "A terminal-based student management system.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/student_management_system",
-        "languages": ["JavaScript", "JSON"]
-    },
-    {
-        "name": "Defusal Automation",
-        "description": "Automated calculation process for ROBLOX Defusal.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/defusal_automation",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Ciphers",
-        "description": "A collection of cryptographic ciphers.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/ciphers",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Algorithms",
-        "description": "A collection of data algorithms.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/algorithms",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Trig. Wave Generator",
-        "description": "Generates a sine wave with adjustable variables.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/trig_wave_generator",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
-    },
-    {
-        "name": "Check Digits",
-        "description": "A collection of check digit algorithms.",
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/check_digits",
-        "languages": ["Python"]
-    },
-    {
-        "name": "Datetime Clock",
-        "description": "A configurable clock that shows the date and time.",
+        "description": "simple website of a datetime clock, just made it for fun lol",
+        "image": "datetime_clock.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/datetime_clock",
-        "languages": ["HTML5", "CSS3", "JavaScript"]
+        "name": "Datetime Clock"
+    },
+    {
+        "description": "dice roller from tutorial, not much to say about it",
+        "image": "dice_roller.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/dice_roller",
+        "name": "Dice Roller"
+    },
+    {
+        "description": "compound interest calculator from a tutorial",
+        "image": "interest_calculator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/interest_calculator",
+        "name": "Interest Calculator"
+    },
+    {
+        "description": "a password generator with a few options",
+        "image": "password_generator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/password_generator",
+        "name": "Password Generator"
+    },
+    {
+        "description": "rotating ASCII donut made from tutorial, the math and logic behind it is pretty cool but i don't understand",
+        "image": "rotating_ascii_donut.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/rotating_ascii_donut",
+        "name": "Rotating Ascii Donut"
+    },
+    {
+        "description": "just a simple little solar system from a tutorial i used because i thought it was cool",
+        "image": "solar_system.png",
+        "languages": [
+            "CSS3",
+            "HTML5"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
+        "name": "Solar System"
+    },
+    {
+        "description": "tic tac toe game from tutorial, but it's pretty much unrecognisable now lmao",
+        "image": "tic_tac_toe.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/tic_tac_toe",
+        "name": "Tic Tac Toe"
+    },
+    {
+        "description": "trig wave generator thingamajig... i forgot why i wanted to make this",
+        "image": "trig_wave_generator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/trig_wave_generator",
+        "name": "Trig Wave Generator"
+    },
+    {
+        "description": "wikipedia searcher from tutorial, pretty cool i guess",
+        "image": "wikipedia_searcher.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/wikipedia_searcher",
+        "name": "Wikipedia Searcher"
+    },
+    {
+        "description": "i dunno what to write lol, just find all of this neat so i steal the code and put it here",
+        "image": "algorithms.gif",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/algorithms",
+        "name": "Algorithms"
+    },
+    {
+        "description": "some cool thing chatgpt told me about lol",
+        "image": "benfords_law.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/benfords_law",
+        "name": "Benfords Law"
+    },
+    {
+        "description": "what do i even write lol",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/check_digits",
+        "name": "Check Digits"
+    },
+    {
+        "description": "uhh ciphers yay!!!",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/ciphers",
+        "name": "Ciphers"
+    },
+    {
+        "description": "this is my favourite project because i'm a stinky nerd or whatever lol",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/core_game",
+        "name": "Core Game"
+    },
+    {
+        "description": "i made this for some obscure game about defusing bombs",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/defusal_automation",
+        "name": "Defusal Automation"
+    },
+    {
+        "description": "so... whatchu think about simultaneous equations eh?",
+        "image": "lin_system_solver.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/lin_system_solver",
+        "name": "Lin System Solver"
+    },
+    {
+        "description": "hrrnngggg ascii rabbit hole animation har har",
+        "image": "rabbit_hole_ascii.jpg",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/rabbit_hole_ascii",
+        "name": "Rabbit Hole Ascii"
+    },
+    {
+        "description": "uuhhh snake game for school open house",
+        "image": "snake_game.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/snake_game",
+        "name": "Snake Game"
+    },
+    {
+        "description": "this is literally my child!! i love it!!!!",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/song_and_lyrics_player",
+        "name": "Song And Lyrics Player"
+    },
+    {
+        "description": "this all started from learning about classes",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/student_management_system",
+        "name": "Student Management System"
+    },
+    {
+        "description": "simple terminal games, i made some of them as a beginner so they're a little scuffed",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terminal_games",
+        "name": "Terminal Games"
+    },
+    {
+        "description": "this is genuinely the most stupidest thing i've ever thought of why did i do this",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terrible_calculator",
+        "name": "Terrible Calculator"
+    },
+    {
+        "description": "hrrrggg grrr turned song into little funny program that sync lyric and audio and then funny yippee visuals!!!",
+        "image": "world_execute_me.jpg",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world_execute_me",
+        "name": "World Execute Me"
+    },
+    {
+        "description": "it's exactly the same as the python one but in js",
+        "image": null,
+        "languages": [
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/student_management_system",
+        "name": "Student Management System"
+    },
+    {
+        "description": "simple terminal games (game but shh) but in js (cool, or not?)",
+        "image": null,
+        "languages": [
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/terminal_games",
+        "name": "Terminal Games"
+    },
+    {
+        "description": "simple terminal games, but in C (so cool)^2",
+        "image": null,
+        "languages": [
+            "C"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
+        "name": "Terminal Games"
+    },
+    {
+        "description": "simple terminal games, but in C++ (so cool)",
+        "image": null,
+        "languages": [
+            "C++"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C++/terminal_games",
+        "name": "Terminal Games"
     }
 ]

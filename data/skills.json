@@ -85,6 +85,13 @@
             "color": "#4caf50",
             "documentation": "https://www.json.org/json-en.html",
             "description": "i dynamically loaded this using a JSON, is this JSON-ception?"
+        },
+        {
+            "name": "Jupyter Notebook",
+            "icon": "devicon-jupyter-plain-wordmark",
+            "color": "#DA5B0B",
+            "documentation": "https://jupyter.org/",
+            "description": "i don't... what do you want me to say for this?"
         }
     ]
 }

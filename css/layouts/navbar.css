@@ -17,6 +17,11 @@ nav .navbar {
     align-items: center;
     height: 80px;
     padding: 0 50px;
+    transition: all 0.3s ease;
+}
+
+nav .navbar:hover {
+    scale: 1.02;
 }
 
 nav .navbar .nav-links {
