@@ -234,7 +234,7 @@
         "name": "Snake Game"
     },
     {
-        "description": "this is literally my child!! i love it!!!!",
+        "description": "downloads song and fetches transcript from youtube to display in terminal with silly colours (optional)",
         "image": null,
         "languages": [
             "Python"
@@ -262,7 +262,7 @@
     },
     {
         "description": "this is genuinely the most stupidest thing i've ever thought of why did i do this",
-        "image": null,
+        "image": "terrible_calculator.png",
         "languages": [
             "Python"
         ],
