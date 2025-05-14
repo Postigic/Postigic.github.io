@@ -114,7 +114,8 @@
         "image": "solar_system.png",
         "languages": [
             "CSS3",
-            "HTML5"
+            "HTML5",
+            "JavaScript"
         ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
         "name": "Solar System"
@@ -189,7 +190,7 @@
         "name": "Ciphers"
     },
     {
-        "description": "this is my favourite project because i'm a stinky nerd or whatever lol",
+        "description": "based off a niche genre of roblox (yes, roblox) games",
         "image": null,
         "languages": [
             "Python"
