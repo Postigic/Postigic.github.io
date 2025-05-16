@@ -154,7 +154,7 @@
         "name": "Wikipedia Searcher"
     },
     {
-        "description": "i dunno what to write lol, just find all of this neat so i steal the code and put it here",
+        "description": "if an al goes and rhythms is it an algorithm or an rhythmic al going",
         "image": "algorithms.gif",
         "languages": [
             "Python"
@@ -200,7 +200,7 @@
     },
     {
         "description": "i made this for some obscure game about defusing bombs",
-        "image": null,
+        "image": "defusal_automation.png",
         "languages": [
             "Python"
         ],
