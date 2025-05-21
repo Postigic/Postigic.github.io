@@ -143,7 +143,7 @@
         "name": "Trig Wave Generator"
     },
     {
-        "description": "No description available",
+        "description": "wikipedia searcher from tutorial, pretty cool i guess",
         "image": "wikipedia_searcher.png",
         "languages": [
             "CSS3",
@@ -307,7 +307,7 @@
         "name": "Terminal Games"
     },
     {
-        "description": "No description available",
+        "description": "simple terminal games, but in C++ (so cool)",
         "image": null,
         "languages": [
             "C++"
