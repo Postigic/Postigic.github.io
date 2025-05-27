@@ -22,9 +22,10 @@ LANG_EXT_MAP = {
     ".css": "CSS3",
     ".c": "C",
     ".cpp": "C++",
+    ".lua": "Lua",
 }
 
-BASE_DIRS = ["Websites", "Python", "JavaScript", "C", "C++"]
+BASE_DIRS = ["Websites", "Python", "JavaScript", "C", "C++", "Lua"]
 
 def get_projects_from_github():
     projects = []
