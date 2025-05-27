@@ -314,5 +314,14 @@
         ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C++/terminal_games",
         "name": "Terminal Games"
+    },
+    {
+        "description": "simple terminal games, but in Lua (so 1indexed)",
+        "image": null,
+        "languages": [
+            "Lua"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Lua/terminal_games",
+        "name": "Terminal Games"
     }
 ]
