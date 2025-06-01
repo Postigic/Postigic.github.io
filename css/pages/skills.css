@@ -54,11 +54,13 @@
     width: 200px;
     overflow: hidden;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    pointer-events: none;
 }
 
 .skill-item.visible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
 .skill-item:hover {
