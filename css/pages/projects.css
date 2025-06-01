@@ -16,13 +16,18 @@
     padding: 25px;
     color: var(--title-text-color);
     gap: 15px;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(30px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.project.visible {
+.project,
+.project > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.3s ease;
+}
+
+.project.visible,
+.project.visible > * {
     opacity: 1;
     transform: translateY(0);
 }
@@ -42,6 +47,9 @@
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--title-text-color);
     position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: all 0.3s ease;
 }
 
@@ -68,6 +76,10 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     text-align: center;
     color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .project img {
@@ -80,19 +92,19 @@
     border-radius: 12px;
     transition: all 0.3s ease;
     margin: 15px;
-    border: 3px solid transparent;
+    /* border: 3px solid transparent;
     background: linear-gradient(
             45deg,
             var(--primary-color),
             var(--accent-color)
         )
-        border-box;
+        border-box; */
 }
 
-.project img:hover {
+/* .project img:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(255, 130, 0, 0.3);
-}
+} */
 
 .languages {
     display: flex;
@@ -107,9 +119,16 @@
     text-align: center;
     gap: 10px;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    border: 1px solid var(--accent-color);
     border-radius: 12px;
     padding: 10px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(
+        to bottom right,
+        var(--lang-color, rgba(255, 255, 255, 0.1)) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
 }
 
 .language-item i {

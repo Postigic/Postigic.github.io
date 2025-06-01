@@ -54,18 +54,26 @@ function observeElements(elements) {
 
             visibleEntries.forEach((entry, i) => {
                 setTimeout(() => {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }, i * 100);
+                    const project = entry.target;
+                    const children = project.querySelectorAll("*");
+
+                    Array.from(children).forEach((child, j) => {
+                        child.style.transitionDelay = `${j * 100}ms`;
+                        child.classList.add("visible");
+                    });
+
+                    project.classList.add("visible");
+                    observer.unobserve(project);
+                }, i * 150);
             });
         },
-        { threshold: 0.7 }
+        { threshold: 0.8 }
     );
 
     elements.forEach((el) => observer.observe(el));
 }
 
-function darkenColour(hex, amount) {
+function darkenColor(hex, amount) {
     const col = hex.replace("#", "");
     const num = parseInt(col, 16);
     let r = (num >> 16) & 255;
@@ -175,13 +183,13 @@ function generateProjects(data, skills, selectedLanguages = []) {
                                 (skill) => skill.name === languageName
                             );
                             if (language) {
-                                const bgColour = darkenColour(
+                                const bgColor = darkenColor(
                                     language.color,
-                                    0.75
+                                    0.5
                                 );
 
                                 return `
-                                    <div class="language-item" style="background-color: ${bgColour};">
+                                    <div class="language-item" style="--lang-color: ${bgColor}">
                                         <i class="${language.icon}" style="color: ${language.color};"></i>
                                         <p>${language.name}</p>
                                     </div>
