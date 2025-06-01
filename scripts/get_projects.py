@@ -71,10 +71,11 @@ def get_project_description(repo_path):
         response = requests.get(readme_url, timeout=5)
 
         if response.status_code == 200:
-            for line in response.text.split('\n'):
+            for line in response.text.split("\n"):
                 stripped = line.strip()
-                if stripped and not stripped.startswith('#'):
-                    clean = re.sub(r'[*_`#>-]', '', stripped).strip()
+                if stripped and not stripped.startswith("#"):
+                    clean = re.sub(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)", "", stripped).strip()
+                    # behold my incantation (i don't know what this means either)
                     return clean[:200]
     except Exception as e:
         print(f"Error reading README for {repo_path}: {str(e)}")

@@ -16,12 +16,26 @@
     padding: 25px;
     color: var(--title-text-color);
     gap: 15px;
-    animation: slideUp 0.5s ease-out;
     transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project:hover {
     transform: scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .project h2 {
@@ -64,6 +78,20 @@
     object-fit: cover;
     object-position: top center;
     border-radius: 12px;
+    transition: all 0.3s ease;
+    margin: 15px;
+    border: 3px solid transparent;
+    background: linear-gradient(
+            45deg,
+            var(--primary-color),
+            var(--accent-color)
+        )
+        border-box;
+}
+
+.project img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 130, 0, 0.3);
 }
 
 .languages {
@@ -79,7 +107,6 @@
     text-align: center;
     gap: 10px;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    background: var(--item-background-color);
     border: 1px solid var(--accent-color);
     border-radius: 12px;
     padding: 10px;
@@ -92,105 +119,4 @@
 .language-item p {
     color: var(--title-text-color);
     font-size: clamp(1rem, 2vw, 1.2rem);
-}
-
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.filter-panel {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    margin: 1rem 0;
-    gap: 1rem;
-}
-
-#toggleFilters {
-    display: flex;
-    align-items: center;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--title-text-color);
-    background-color: var(--background-color);
-    border: 1px solid var(--accent-color);
-    border-radius: 12px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#toggleFilters:hover {
-    transform: scale(1.1);
-}
-
-#toggleFilters:active {
-    transform: scale(0.95);
-}
-
-#filterContainer {
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    border: 1px solid var(--accent-color);
-    padding: 1rem;
-    border-radius: 12px;
-    background-color: var(--background-color);
-    transition: all 0.15s ease;
-}
-
-#languageFilter {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    justify-items: start;
-}
-
-.language-button {
-    display: inline-block;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--title-text-color);
-    background-color: transparent;
-    border: none;
-    border-radius: 12px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    width: 150px;
-    text-align: center;
-    transition: all 0.15s ease;
-}
-
-.language-button:hover {
-    background-color: var(--accent-color);
-}
-
-.language-button.active {
-    background-color: var(--primary-color);
-}
-
-#clearFilters {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    margin-top: 2rem;
-    border-radius: 12px;
-    padding: 0.5rem 1rem;
-    background-color: var(--background-color);
-    border: 1px solid var(--accent-color);
-    color: var(--title-text-color);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#clearFilters:hover {
-    transform: scale(1.1);
-}
-
-#clearFilters:active {
-    transform: scale(0.95);
-    background-color: var(--primary-color);
 }

@@ -6,11 +6,16 @@ Promise.all([
         generateProjects(projectsData, skillsData);
 
         document
-            .getElementById("languageFilter")
-            .addEventListener("click", () => {
+            .getElementById("buttonContainer")
+            .addEventListener("click", (event) => {
+                const button = event.target.closest(".filter-button");
+                if (!button) return;
+
+                button.classList.toggle("active");
+
                 const selectedLanguages = Array.from(
                     document.querySelectorAll(
-                        "#languageFilter .language-button.active"
+                        "#buttonContainer .filter-button.active"
                     )
                 ).map((button) => button.value);
 
@@ -21,22 +26,67 @@ Promise.all([
             .getElementById("clearFilters")
             .addEventListener("click", () => {
                 document
-                    .querySelectorAll("#languageFilter .language-button.active")
+                    .querySelectorAll("#buttonContainer .filter-button.active")
                     .forEach((button) => {
                         button.classList.remove("active");
                     });
                 generateProjects(projectsData, skillsData);
             });
 
-        populateLanguageFilter(projectsData);
+        populateLanguageFilter(projectsData, skillsData);
     })
     .catch((error) => {
         console.error("Error fetching projects or skills data:", error);
     });
 
-function populateLanguageFilter(projects) {
-    const languageFilter = document.getElementById("languageFilter");
+function observeElements(elements) {
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            const visibleEntries = entries.filter(
+                (entry) => entry.isIntersecting
+            );
+
+            visibleEntries.sort(
+                (a, b) =>
+                    Array.from(elements).indexOf(a.target) -
+                    Array.from(elements).indexOf(b.target)
+            );
+
+            visibleEntries.forEach((entry, i) => {
+                setTimeout(() => {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }, i * 100);
+            });
+        },
+        { threshold: 0.7 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+}
+
+function darkenColour(hex, amount) {
+    const col = hex.replace("#", "");
+    const num = parseInt(col, 16);
+    let r = (num >> 16) & 255;
+    let g = (num >> 8) & 255;
+    let b = num & 255;
+
+    r = Math.floor(r * (1 - amount));
+    g = Math.floor(g * (1 - amount));
+    b = Math.floor(b * (1 - amount));
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function populateLanguageFilter(projects, skills) {
+    const buttonContainer = document.getElementById("buttonContainer");
     const languages = new Set();
+
+    const languageData = {};
+    skills["📚 Languages"].forEach((lang) => {
+        languageData[lang.name] = lang;
+    });
 
     projects.forEach((project) => {
         project.languages.forEach((language) => {
@@ -44,25 +94,43 @@ function populateLanguageFilter(projects) {
         });
     });
 
-    languageFilter.innerHTML = "";
+    buttonContainer.innerHTML = "";
+
+    const filterGroup = document.createElement("div");
+    filterGroup.className = "filter-group";
+
+    const sectionTitle = document.createElement("h4");
+    sectionTitle.className = "filter-section-title";
+    sectionTitle.innerText = "Languages";
+    // whatever man, i'll make it dynamic when i NEED to
+    filterGroup.appendChild(sectionTitle);
+
+    const gridContainer = document.createElement("div");
+    gridContainer.className = "filter-grid";
 
     languages.forEach((language) => {
-        const container = document.createElement("div");
-        container.className = "checkbox-container";
-
         const button = document.createElement("button");
-        button.className = "language-button";
+        button.className = "filter-button";
         button.value = language;
         button.id = `filter-${language}`;
-        button.innerText = language;
 
-        button.addEventListener("click", function () {
-            button.classList.toggle("active");
-        });
+        const data = languageData[language];
+        if (data) {
+            const icon = document.createElement("i");
+            icon.className = data.icon;
+            icon.style.color = data.color;
+            button.appendChild(icon);
+        }
 
-        container.appendChild(button);
-        languageFilter.appendChild(container);
+        const text = document.createElement("span");
+        text.textContent = language;
+        button.appendChild(text);
+
+        gridContainer.appendChild(button);
     });
+
+    filterGroup.appendChild(gridContainer);
+    buttonContainer.appendChild(filterGroup);
 }
 
 function generateProjects(data, skills, selectedLanguages = []) {
@@ -103,13 +171,18 @@ function generateProjects(data, skills, selectedLanguages = []) {
                 ${
                     project.languages
                         ?.map((languageName) => {
-                            const language = skills["📚 Languages"]
-                                .concat(skills["🛠️ Tools"])
-                                .find((skill) => skill.name === languageName);
+                            const language = skills["📚 Languages"].find(
+                                (skill) => skill.name === languageName
+                            );
                             if (language) {
+                                const bgColour = darkenColour(
+                                    language.color,
+                                    0.75
+                                );
+
                                 return `
-                                    <div class="language-item">
-                                        <i class="${language.icon}" style="color: ${language.color}"></i>
+                                    <div class="language-item" style="background-color: ${bgColour};">
+                                        <i class="${language.icon}" style="color: ${language.color};"></i>
                                         <p>${language.name}</p>
                                     </div>
                                 `;
@@ -135,6 +208,9 @@ function generateProjects(data, skills, selectedLanguages = []) {
                 projectsContainer.appendChild(projectElement);
             }
         });
+
+        allProjects = projectsContainer.querySelectorAll(".project");
+        observeElements(allProjects);
 
         projectsContainer.dataset.generating = "false";
     });

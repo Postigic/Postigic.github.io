@@ -35,13 +35,13 @@
     transform: scale(1.01);
 }
 
-.year-container:first-child {
+/* .year-container:first-child {
     background: linear-gradient(
         to top left,
         var(--accent-color) 0%,
         rgba(0, 0, 255, 0) 60%
     );
-}
+} */
 
 .year-container h2 {
     color: var(--title-text-color);
@@ -57,4 +57,98 @@
 .year-container ul li {
     margin-bottom: 5px;
     color: var(--text-color);
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.award-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.award-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--accent-color)
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.award-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+}
+
+.award-card:hover::before {
+    transform: scaleX(1);
+}
+
+.award-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.award-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--title-text-color);
+}
+
+.award-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.award-tag {
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(125, 125, 255, 0.15);
+    color: var(--text-color);
+    border: 1px solid rgba(125, 125, 255, 0.3);
+}
+
+.award-category {
+    background: rgba(255, 130, 0, 0.15);
+    border: 1px solid rgba(255, 130, 0, 0.3);
+}
+
+.year-header {
+    position: relative;
+    display: inline-block;
+}
+
+.year-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
 }

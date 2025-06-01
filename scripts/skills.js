@@ -2,6 +2,32 @@ fetch("data/skills.json")
     .then((response) => response.json())
     .then((data) => generateSkills(data));
 
+function observeElement(element) {
+    setTimeout(() => {
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+
+                        const skills =
+                            entry.target.querySelectorAll(".skill-item");
+                        skills.forEach((skill, index) => {
+                            setTimeout(() => {
+                                skill.classList.add("visible");
+                            }, 150 * index);
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 1.0 }
+        );
+        observer.observe(element);
+    }, 100);
+}
+
 function generateSkills(data) {
     const skillsSection = document.querySelector(".skills");
 
@@ -39,5 +65,6 @@ function generateSkills(data) {
 
         skillCategory.appendChild(skillsContainer);
         skillsSection.appendChild(skillCategory);
+        observeElement(skillCategory);
     }
 }

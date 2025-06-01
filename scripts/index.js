@@ -36,6 +36,35 @@ if (typeof words === "undefined") {
     }
 } // i'mma be honest i don't know why this if statement fixes it but honestly? i don't care
 
+function observeElement(element) {
+    setTimeout(() => {
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+
+                        setTimeout(() => {
+                            const elements = element.querySelectorAll(
+                                ":scope > *, :scope > * > *"
+                            );
+                            Array.from(elements).forEach((el, index) => {
+                                setTimeout(() => {
+                                    el.classList.add("visible");
+                                }, 150 * index);
+                            });
+                        }, 100);
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.9 }
+        );
+        observer.observe(element);
+    }, 100);
+}
+
 function updateTime() {
     const timeElement = document.getElementById("current-time");
 
@@ -70,6 +99,7 @@ setInterval(updateTime, 1000);
 typeEffect();
 updateTime();
 calculateAge();
+observeElement(document.querySelector(".about"));
 
 console.log(
     "%coh, hi! before you go snooping around, i thought you should know that...\n%c\n" +
@@ -79,3 +109,4 @@ console.log(
     "color: inherit;",
     "color: cyan; font-style: italic;"
 );
+// professional cornball

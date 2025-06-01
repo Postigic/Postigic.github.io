@@ -1,37 +1,187 @@
 {
     "2025": [
-        "NUS Geography Challenge Participation Certificate",
-        "BuildingBloCS March Conference Participation",
-        "UK Bebras Challenge Gold Award",
-        "National Olympiad in Informatics (NOI) Participation"
+        {
+            "name": "NUS Geography Challenge Participation",
+            "category": "Competition",
+            "type": "Participation"
+        },
+        {
+            "name": "BuildingBloCS March Conference Participation",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
+            "name": "UK Bebras Challenge Gold Award",
+            "category": "Competition",
+            "type": "Award"
+        },
+        {
+            "name": "National Olympiad in Informatics (NOI) Participation",
+            "category": "Olympiad",
+            "type": "Participation"
+        },
+        {
+            "name": "Chemistry Excellence Award",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Level Excellence Award",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Most Grateful Award",
+            "category": "Minor",
+            "type": "Award"
+        }
     ],
     "2024": [
-        "Design Thinking with Robotics and Computational Thinking (DrCT) Gold Award",
-        "Edusave Scholarship",
-        "EAGLES",
-        "National AI Prompt Design Challenge Participation Certificate",
-        "Young Engineer Award",
-        "BlahajCTF Participation",
-        "Singapore Junior Chemistry Olympiad (SJChO) Participation",
-        "Singapore Junior Physics Olympiad (SJPO) Honourable Mention Award",
-        "ICTXplore 3rd Place Award",
-        "BuildingBloCS December Conference Participation Certificate"
+        {
+            "name": "Design Thinking with Robotics and Computational Thinking (DrCT) Gold Award",
+            "category": "Competition",
+            "type": "Award"
+        },
+        {
+            "name": "Edusave Scholarship",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Edusave Award for Achievement, Good Leadership and Service (EAGLES)",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "National AI Prompt Design Challenge Participation Certificate",
+            "category": "Competition",
+            "type": "Participation"
+        },
+        {
+            "name": "Young Engineer Award",
+            "category": "Workshop",
+            "type": "Award"
+        },
+        {
+            "name": "BlahajCTF Participation",
+            "category": "CTF",
+            "type": "Participation"
+        },
+        {
+            "name": "Singapore Junior Chemistry Olympiad (SJChO) Participation",
+            "category": "Olympiad",
+            "type": "Participation"
+        },
+        {
+            "name": "Singapore Junior Physics Olympiad (SJPO) Honourable Mention Award",
+            "category": "Olympiad",
+            "type": "Award"
+        },
+        {
+            "name": "ICTXplore 3rd Place Award",
+            "category": "Competition",
+            "type": "Award"
+        },
+        {
+            "name": "BuildingBloCS December Conference Participation Certificate",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
+            "name": "CCA Team Excellence Award in Infocomm Club",
+            "category": "Minor",
+            "type": "Award"
+        }
     ],
     "2023": [
-        "Edusave Scholarship",
-        "History (NA) Excellence Award",
-        "Top in Level Excellence Award",
-        "All-Round Excellence Award",
-        "Design Thinking with Robotics and Computational Thinking (DrCT) Participation Certificate",
-        "National Youth Tech Championships (NYTC) Participation",
-        "National Youth Upcycling Movement (NYUM) Participation Certificate"
+        {
+            "name": "Edusave Scholarship",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "History (NA) Excellence Award",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Top in Level Excellence Award",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "All-Round Excellence Award",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Design Thinking with Robotics and Computational Thinking (DrCT) Participation Certificate",
+            "category": "Competition",
+            "type": "Award"
+        },
+        {
+            "name": "National Youth Tech Championships (NYTC) Participation",
+            "category": "Competition",
+            "type": "Participation"
+        },
+        {
+            "name": "National Youth Upcycling Movement (NYUM) Participation Certificate",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
+            "name": "Most Grateful Award",
+            "category": "Minor",
+            "type": "Award"
+        },
+        {
+            "name": "Zest Award in Infocomm Club",
+            "category": "Minor",
+            "type": "Award"
+        },
+        {
+            "name": "Most Zestful Award",
+            "category": "Minor",
+            "type": "Award"
+        }
     ],
     "2022": [
-        "Edusave Scholarship",
-        "EAGLES",
-        "Design Thinking with Robotics and Computational Thinking (DrCT) Silver Award",
-        "Global Hackathon 2022 Singapore National Qualifiers Certificate (98th Place out of 2000 Contestants)",
-        "Global Hackathon 2022 South Asia Qualifiers Certificate (59th Place out of 265 Contestants)"
+        {
+            "name": "Edusave Scholarship",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Edusave Award for Achievement, Good Leadership and Service (EAGLES)",
+            "category": "Academic",
+            "type": "Award"
+        },
+        {
+            "name": "Design Thinking with Robotics and Computational Thinking (DrCT) Silver Award",
+            "category": "Competition",
+            "type": "Award"
+        },
+        {
+            "name": "Icode Global Hackathon 2022 Singapore National Qualifiers Certificate (98th Place out of 2000 Contestants)",
+            "category": "Competition",
+            "type": "Placement"
+        },
+        {
+            "name": "Global Hackathon 2022 South Asia Qualifiers Certificate (59th Place out of 265 Contestants)",
+            "category": "Competition",
+            "type": "Placement"
+        },
+        {
+            "name": "\"Here Comes Treble\" Virtual Escape Room Challenge Top Award",
+            "category": "Minor",
+            "type": "Award"
+        }
     ],
-    "2020": ["Edusave Good Progress Award"]
+    "2020": [
+        {
+            "name": "Edusave Good Progress Award",
+            "category": "Academic",
+            "type": "Award"
+        }
+    ]
 }

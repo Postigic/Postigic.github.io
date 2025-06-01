@@ -1,0 +1,255 @@
+.filter-panel {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 2rem 0 3rem;
+    gap: 1rem;
+    animation: slideUp 0.5s ease-out;
+}
+
+#toggleFilters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--title-text-color);
+    background: linear-gradient(
+        145deg,
+        rgba(30, 30, 46, 0.8),
+        rgba(25, 25, 40, 0.8)
+    );
+    border: 1px solid rgba(125, 125, 255, 0.3);
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    position: relative;
+}
+
+#toggleFilters:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(
+        145deg,
+        rgba(40, 40, 60, 0.9),
+        rgba(30, 30, 50, 0.9)
+    );
+    border-color: var(--primary-color);
+}
+
+#toggleFilters:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#filterContainer {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border: 1px solid rgba(125, 125, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 24px;
+    background: rgba(25, 25, 40, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    width: 90vw;
+    max-width: 1000px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 20px);
+}
+
+#filterContainer:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(125, 125, 255, 0.1);
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.filter-section-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: var(--title-text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.filter-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-color),
+        transparent
+    );
+    border-radius: 2px;
+}
+
+.filter-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: var(--text-color);
+    background: rgba(40, 40, 60, 0.7);
+    border: 1px solid rgba(125, 125, 255, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem 0.5rem;
+    margin: 0;
+    cursor: pointer;
+    min-height: 80px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.filter-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.filter-button:hover::before {
+    transform: translateX(100%);
+}
+
+.filter-button.active {
+    background: linear-gradient(
+        145deg,
+        rgba(77, 171, 247, 0.25),
+        rgba(125, 125, 255, 0.2)
+    );
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 130, 0, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.filter-button i {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-button.active i {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+#clearFilters {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    border-radius: 12px;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(
+        145deg,
+        rgba(40, 40, 60, 0.9),
+        rgba(30, 30, 50, 0.9)
+    );
+    border: 1px solid var(--accent-color);
+    color: var(--title-text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#clearFilters::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+#clearFilters:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+    background: linear-gradient(
+        145deg,
+        rgba(50, 50, 70, 0.95),
+        rgba(35, 35, 55, 0.95)
+    );
+}
+
+#clearFilters:hover::before {
+    transform: translateX(100%);
+}
+
+#clearFilters:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

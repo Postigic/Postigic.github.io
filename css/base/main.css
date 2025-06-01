@@ -3,10 +3,11 @@
 @import url("../pages/skills.css");
 @import url("../pages/awards.css");
 @import url("../pages/projects.css");
-@import url("../pages/home.css");
+@import url("../pages/index.css");
 @import url("../components/code-comment.css");
 @import url("../components/page-intro.css");
 @import url("../components/back-to-top.css");
+@import url("../components/filter.css");
 @import url("../layouts/footer.css");
 @import url("global.css");
 @import url("animations.css");

@@ -1,5 +1,6 @@
 .page-intro {
     text-align: center;
+    animation: slideUp 0.5s ease-out;
 }
 
 .page-intro .intro-img {
@@ -8,6 +9,19 @@
     height: auto;
     border-radius: 16px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    border: 3px solid transparent;
+    background: linear-gradient(
+            45deg,
+            var(--primary-color),
+            var(--accent-color)
+        )
+        border-box;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.page-intro .intro-img:hover {
+    transform: scale(1.03) rotate(-2deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
 }
 
 .page-intro h1 {
