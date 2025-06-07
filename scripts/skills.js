@@ -4,6 +4,7 @@ fetch("data/skills.json")
 
 function observeElement(element) {
     setTimeout(() => {
+        const isMobile = window.innerWidth <= 700;
         const observer = new IntersectionObserver(
             (entries, observer) => {
                 entries.forEach((entry) => {
@@ -22,7 +23,7 @@ function observeElement(element) {
                     }
                 });
             },
-            { threshold: 1.0 }
+            { threshold: isMobile ? 0.4 : 1.0 }
         );
         observer.observe(element);
     }, 100);

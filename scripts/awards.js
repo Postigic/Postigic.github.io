@@ -152,7 +152,7 @@ function populateAwardFilter(awards) {
         Workshop: "bx-code-alt",
         Olympiad: "bx-medal",
         Academic: "bx-book",
-        Minor: "bx-star",
+        Miscellaneous: "bx-category",
         CTF: "bx-shield",
     };
 

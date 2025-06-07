@@ -38,6 +38,7 @@ if (typeof words === "undefined") {
 
 function observeElement(element) {
     setTimeout(() => {
+        const isMobile = window.innerWidth <= 700;
         const observer = new IntersectionObserver(
             (entries, observer) => {
                 entries.forEach((entry) => {
@@ -59,7 +60,7 @@ function observeElement(element) {
                     }
                 });
             },
-            { threshold: 0.9 }
+            { threshold: isMobile ? 0.4 : 0.9 }
         );
         observer.observe(element);
     }, 100);
