@@ -33,13 +33,13 @@
 }
 
 .project:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
     border-color: var(--primary-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project:active {
-    transform: scale(0.95);
+    transform: translateY(1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 

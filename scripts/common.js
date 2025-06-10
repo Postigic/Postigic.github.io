@@ -17,7 +17,8 @@ function loadSocials(container) {
                 )
                 .join("");
             container.querySelector(".social-links").innerHTML = socialsHTML;
-        });
+        })
+        .catch((error) => console.error("Error loading socials:", error));
 }
 
 function loadNavbar() {
@@ -27,7 +28,6 @@ function loadNavbar() {
             const container = document.getElementById("navbar");
             const currentPath = window.location.pathname.split("/").pop();
             container.innerHTML = data;
-            loadSocials(container);
             document.querySelectorAll(".nav-link").forEach((link) => {
                 if (link.getAttribute("href") === currentPath) {
                     link.classList.add("active");

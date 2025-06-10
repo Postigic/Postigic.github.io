@@ -73,6 +73,7 @@
     visibility: visible;
     transform: translate(-50%, 0);
 }
+/* wtf was i doing? whatever, not gonna change it */
 
 .filter-group {
     display: flex;

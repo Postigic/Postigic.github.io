@@ -2,21 +2,25 @@
     {
         "url": "https://discord.com/users/654593782670426124",
         "icon": "bx bxl-discord-alt",
-        "label": "Discord"
+        "label": "Discord",
+        "color": "#5865f2"
     },
     {
         "url": "https://github.com/Postigic",
         "icon": "bx bxl-github",
-        "label": "GitHub"
+        "label": "GitHub",
+        "color": "#333"
     },
     {
         "url": "https://www.youtube.com/@Postigic",
         "icon": "bx bxl-youtube",
-        "label": "YouTube"
+        "label": "YouTube",
+        "color": "#ff0000"
     },
     {
         "url": "https://twitter.com/Postigic",
         "icon": "bx bxl-twitter",
-        "label": "Twitter"
+        "label": "Twitter",
+        "color": "#1da1f2"
     }
 ]

@@ -96,11 +96,37 @@ function calculateAge() {
     document.querySelectorAll(".age").forEach((el) => (el.textContent = age));
 }
 
+function loadSocials() {
+    fetch("data/socials.json")
+        .then((response) => response.json())
+        .then((data) => {
+            const container = document.getElementById("contact-grid");
+            const socialsHTML = data
+                .map(
+                    ({ url, label, icon, color }) => `
+                        <a class="social-card" href="${url}" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="${label}"
+                            style="background-color: ${color};">
+                            <i class="${icon}"></i>
+                            <span>${label}</span>
+                        </a>
+                `
+                )
+                .join("");
+            container.innerHTML = socialsHTML;
+        })
+        .catch((error) => console.error("Error loading socials:", error));
+}
+
 setInterval(updateTime, 1000);
 typeEffect();
 updateTime();
 calculateAge();
+loadSocials();
 observeElement(document.querySelector(".about"));
+observeElement(document.querySelector(".contacts"));
 
 console.log(
     "%coh, hi! before you go snooping around, i thought you should know that...\n%c\n" +
