@@ -32,10 +32,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(30, 30, 45, 0.5);
     padding: 40px;
     border-radius: 20px;
-    border: 1px solid var(--primary-color);
     box-shadow: 0px 0px 20px 4px rgba(255, 170, 0, 0.8),
         0px 0px 30px 6px rgba(255, 170, 0, 0.6),
         0px 0px 40px 8px rgba(255, 170, 0, 0.4),
@@ -72,29 +71,23 @@
 }
 
 .hero .hero-content h1 span {
-    background: linear-gradient(
-        120deg,
-        var(--primary-color),
-        var(--accent-color)
-    );
+    background: linear-gradient(120deg, var(--primary-color), #ffaa00);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
+    display: inline-block;
 }
 
 .hero .hero-content h1 span::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 2px;
+    bottom: 9px;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(
-        120deg,
-        var(--primary-color),
-        var(--accent-color)
-    );
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(120deg, var(--primary-color), #ffaa00);
 }
 
 .hero .hero-content p.title {
@@ -103,6 +96,12 @@
     font-style: italic;
     -webkit-text-stroke: 1px var(--title-text-color);
     margin-top: 10px;
+}
+
+#typewriter::after {
+    content: "|";
+    animation: blink 1s infinite step-end;
+    margin-left: 2px;
 }
 
 .hero .hero-content p.subtitle {
@@ -118,93 +117,18 @@
     border: 10px solid var(--accent-color);
 }
 
-.minor-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 50px;
-    text-align: center;
-}
-
-.minor-info .info {
-    display: flex;
-    gap: 10px;
-    margin: 5px 0;
-    border: 1px solid var(--accent-color);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 0px 20px 4px rgba(255, 170, 0, 0.8),
-        0px 0px 30px 6px rgba(255, 170, 0, 0.6),
-        0px 0px 40px 8px rgba(255, 170, 0, 0.4),
-        0px 0px 50px 10px rgba(255, 170, 0, 0.2);
-    animation: flicker 2s infinite, fadeUp 0.6s ease-out forwards;
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation-delay: calc(-0.5s * var(--random));
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-width: 100px;
-    border-radius: 12px;
-    padding: 10px 15px;
-    color: var(--text-color);
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    backdrop-filter: blur(8px);
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.minor-info .info:nth-child(1) {
-    animation-delay: 0.2s;
-    --duration: 1.5s;
-    --random: 1;
-}
-
-.minor-info .info:nth-child(2) {
-    animation-delay: 0.4s;
-    --duration: 2s;
-    --random: 2;
-}
-
-.minor-info .info:nth-child(3) {
-    animation-delay: 0.6s;
-    --duration: 1.8s;
-    --random: 3;
-}
-
-.minor-info .info::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    transform: translateX(-100%);
-    animation: shimmer 2s infinite;
-}
-
 .about {
-    margin: 0 auto 5em;
+    margin: 0 auto 20em;
     /* backdrop-filter: blur(8px);
     background: rgba(20, 20, 35, 0.7);
     overflow: hidden; */
-    border: 1px solid var(--accent-color);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 80px;
-    border-radius: 48px;
-    padding: 40px 80px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px;
     max-width: 70em;
     position: relative;
     transition: all 0.3s ease;
+    align-items: center;
 }
 
 /* .about::before {
@@ -222,7 +146,7 @@
     z-index: -1;
 } */
 
-.about img {
+/* .about img {
     width: 280px;
     border-radius: 12px;
     rotate: -5deg;
@@ -237,11 +161,18 @@
         )
         border-box;
     transition: all 0.5s ease;
-}
+} */
 
-.about img:hover {
-    transform: perspective(600px) rotateY(15deg) rotate(5deg);
+/* .about img:hover {
+    transform: perspective(600px) rotateY(15deg) rotate(5deg) !important;
     box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6) !important;
+} */
+
+.about img {
+    width: 280px;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    object-fit: cover;
 }
 
 .about .info h2 {
@@ -249,15 +180,25 @@
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     margin-bottom: 15px;
     font-weight: 600;
+    text-align: center;
 }
 
-.about .info p {
+.about .info .bio-text {
+    border: 1px solid var(--accent-color);
+    border-radius: 48px;
+    padding: 40px 60px;
+}
+
+.about .info .bio-text p {
     color: var(--text-color);
     font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.about .info .bio-text p:not(:last-child) {
     margin-bottom: 30px;
 }
 
-.about .info p a {
+.about .info .bio-text p a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
@@ -266,11 +207,11 @@
     display: inline-block;
 }
 
-.about .info p a:hover::after {
+.about .info .bio-text p a:hover::after {
     width: 100%;
 }
 
-.about .info p a::after {
+.about .info .bio-text p a::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -282,22 +223,79 @@
     transition: width 0.3s ease-in-out;
 }
 
-.about,
-.about img,
-.about h2,
-.about p {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.5s ease;
+.minor-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid var(--accent-color);
+    border-radius: 48px;
+    padding: 40px 80px;
 }
 
-.about.visible,
-.about img.visible,
-.about h2.visible,
-.about p.visible {
-    opacity: 1;
-    transform: translateY(0);
+.minor-info .info {
+    background: rgba(30, 30, 45, 0.5);
+    border-radius: 12px;
+    padding: 10px 15px;
+    gap: 10px;
+    color: var(--text-color);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* .minor-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 50px;
+    text-align: center;
+    border: 1px solid var(--accent-color);
+    border-radius: 48px;
+    padding: 40px 80px;
+}
+
+.minor-info .info {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--accent-color);
+    background: rgba(30, 30, 45, 0.5);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 100px;
+    border-radius: 12px;
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.minor-info .info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+} */
 
 .contacts {
     margin: 0 auto 5em;
@@ -333,18 +331,18 @@
     width: 100%;
     max-width: 150px;
     text-align: center;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
 }
 
 .social-card.visible:hover {
-    scale: 1.05 !important;
-    /* ^ bandaid solution, I HATE YOU CSS (even though it may be my fault) */
+    transition: all 0.2s ease;
+    transform: translateY(-3px) !important;
+    /* could've just used !important smh */
     background: linear-gradient(
         120deg,
         rgba(255, 255, 255, 0.05),
@@ -354,25 +352,12 @@
 }
 
 .social-card.visible:active {
-    scale: 0.95 !important;
+    transform: translateY(1px) !important;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .social-card i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.contacts,
-.contacts h2,
-.contacts .social-card {
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-.contacts.visible,
-.contacts h2.visible,
-.contacts .social-card.visible {
-    opacity: 1;
-    transform: translateY(0);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }

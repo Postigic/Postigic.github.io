@@ -2,33 +2,6 @@ fetch("data/skills.json")
     .then((response) => response.json())
     .then((data) => generateSkills(data));
 
-function observeElement(element) {
-    setTimeout(() => {
-        const isMobile = window.innerWidth <= 700;
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-
-                        const skills =
-                            entry.target.querySelectorAll(".skill-item");
-                        skills.forEach((skill, index) => {
-                            setTimeout(() => {
-                                skill.classList.add("visible");
-                            }, 150 * index);
-                        });
-
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: isMobile ? 0.4 : 1.0 }
-        );
-        observer.observe(element);
-    }, 100);
-}
-
 function generateSkills(data) {
     const skillsSection = document.querySelector(".skills");
 
@@ -36,7 +9,7 @@ function generateSkills(data) {
 
     for (const category in data) {
         const skillCategory = document.createElement("div");
-        skillCategory.classList.add("skill-category");
+        skillCategory.classList.add("skill-category", "animate-target");
 
         skillCategory.innerHTML = `<h2>${category}</h2>`;
         const skillsContainer = document.createElement("div");
@@ -48,7 +21,7 @@ function generateSkills(data) {
 
         sortedSkills.forEach((skill) => {
             const skillItem = document.createElement("div");
-            skillItem.classList.add("skill-item");
+            skillItem.classList.add("skill-item", "animate-target");
 
             skillItem.innerHTML = `
                 <div class="icon">
@@ -66,6 +39,6 @@ function generateSkills(data) {
 
         skillCategory.appendChild(skillsContainer);
         skillsSection.appendChild(skillCategory);
-        observeElement(skillCategory);
+        observeElements({ elements: skillCategory });
     }
 }

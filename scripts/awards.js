@@ -59,32 +59,6 @@ Promise.all([fetch("data/awards.json").then((response) => response.json())])
     })
     .catch((error) => console.error("Error fetching awards data:", error));
 
-function observeElement(element) {
-    setTimeout(() => {
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-
-                        const cards =
-                            entry.target.querySelectorAll(".award-card");
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add("visible");
-                            }, 150 * index);
-                        });
-
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
-        observer.observe(element);
-    }, 100);
-}
-
 function generateAchievements(data) {
     const awardsSection = document.querySelector(".awards");
     awardsSection.innerHTML = "";
@@ -93,7 +67,7 @@ function generateAchievements(data) {
 
     sortedYears.forEach((year) => {
         const yearContainer = document.createElement("div");
-        yearContainer.classList.add("year-container");
+        yearContainer.classList.add("year-container", "animate-target");
 
         const yearHeader = document.createElement("h2");
         yearHeader.textContent = year;
@@ -109,7 +83,7 @@ function generateAchievements(data) {
 
         sortedTitles.forEach((award) => {
             const awardCard = document.createElement("div");
-            awardCard.classList.add("award-card");
+            awardCard.classList.add("award-card", "animate-target");
             awardCard.setAttribute("data-category", award.category);
             awardCard.setAttribute("data-type", award.type);
 
@@ -138,7 +112,7 @@ function generateAchievements(data) {
 
         yearContainer.appendChild(gridContainer);
         awardsSection.appendChild(yearContainer);
-        observeElement(yearContainer);
+        observeElements({ elements: yearContainer, desktopThreshold: 0.7 });
     });
 }
 

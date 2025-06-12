@@ -16,13 +16,13 @@
         font-size: 14px;
     }
 
-    .about {
-        flex-wrap: wrap;
-        justify-content: center;
+    .about .info .bio-text {
+        padding: 40px 40px;
     }
 
-    .about img {
-        width: 200px;
+    .minor-info {
+        padding: 40px 40px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 
     .skills {
@@ -95,15 +95,11 @@
     }
 
     .about {
-        padding: 30px;
-    }
-
-    .about img {
-        width: 180px;
-    }
-
-    .year-container {
-        padding: 40px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
     }
 
     .projects {

@@ -13,14 +13,7 @@
     border-radius: 48px;
     text-align: center;
     width: 100%;
-    opacity: 0;
-    transform: translateY(30px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-}
-
-.skill-category.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .skill-category h2 {
@@ -38,8 +31,6 @@
 }
 
 .skill-item {
-    opacity: 0;
-    transform: translateY(30px);
     display: flex;
     align-items: center;
     justify-self: flex-start;
@@ -55,12 +46,6 @@
     overflow: hidden;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     pointer-events: none;
-}
-
-.skill-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
 }
 
 .skill-item:hover {

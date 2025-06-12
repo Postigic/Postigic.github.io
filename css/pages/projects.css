@@ -19,27 +19,14 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.project,
-.project > * {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.3s ease;
-}
-
-.project.visible,
-.project.visible > * {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .project:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) !important;
     border-color: var(--primary-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project:active {
-    transform: translateY(1px);
+    transform: translateY(1px) !important;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -67,7 +54,8 @@
     bottom: 7px;
     left: 0;
     width: 0;
-    height: 1.7px;
+    height: 2px;
+    border-radius: 3px;
     background-color: var(--primary-color);
     transition: width 0.3s ease;
 }

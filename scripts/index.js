@@ -1,4 +1,4 @@
-if (typeof words === "undefined") {
+{
     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
     const typewriterElement = document.getElementById("typewriter");
     let wordIndex = 0;
@@ -34,37 +34,9 @@ if (typeof words === "undefined") {
 
         setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
     }
-} // i'mma be honest i don't know why this if statement fixes it but honestly? i don't care
 
-function observeElement(element) {
-    setTimeout(() => {
-        const isMobile = window.innerWidth <= 700;
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-
-                        setTimeout(() => {
-                            const elements = element.querySelectorAll(
-                                ":scope > *, :scope > * > *"
-                            );
-                            Array.from(elements).forEach((el, index) => {
-                                setTimeout(() => {
-                                    el.classList.add("visible");
-                                }, 150 * index);
-                            });
-                        }, 100);
-
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: isMobile ? 0.4 : 0.9 }
-        );
-        observer.observe(element);
-    }, 100);
-}
+    typeEffect();
+} // i don't even know... whatever i give up it just works okay
 
 function updateTime() {
     const timeElement = document.getElementById("current-time");
@@ -104,7 +76,7 @@ function loadSocials() {
             const socialsHTML = data
                 .map(
                     ({ url, label, icon, color }) => `
-                        <a class="social-card" href="${url}" 
+                        <a class="social-card animate-target" href="${url}" 
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="${label}"
@@ -121,12 +93,11 @@ function loadSocials() {
 }
 
 setInterval(updateTime, 1000);
-typeEffect();
 updateTime();
 calculateAge();
 loadSocials();
-observeElement(document.querySelector(".about"));
-observeElement(document.querySelector(".contacts"));
+observeElements({ elements: document.querySelector(".about") });
+observeElements({ elements: document.querySelector(".contacts") });
 
 console.log(
     "%coh, hi! before you go snooping around, i thought you should know that...\n%c\n" +

@@ -21,10 +21,24 @@
 }
 
 .main-container {
-    margin: 5em 40px;
+    margin: 5em 5vw;
 }
 
 .hidden {
     opacity: 0;
     pointer-events: none;
+}
+/* i honestly don't know what is using this but i'm just not gonna touch it */
+
+.animate-target {
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.animate-target.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
 }

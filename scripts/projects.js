@@ -39,40 +39,6 @@ Promise.all([
         console.error("Error fetching projects or skills data:", error);
     });
 
-function observeElements(elements) {
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            const visibleEntries = entries.filter(
-                (entry) => entry.isIntersecting
-            );
-
-            visibleEntries.sort(
-                (a, b) =>
-                    Array.from(elements).indexOf(a.target) -
-                    Array.from(elements).indexOf(b.target)
-            );
-
-            visibleEntries.forEach((entry, i) => {
-                setTimeout(() => {
-                    const project = entry.target;
-                    const children = project.querySelectorAll("*");
-
-                    Array.from(children).forEach((child, j) => {
-                        child.style.transitionDelay = `${j * 100}ms`;
-                        child.classList.add("visible");
-                    });
-
-                    project.classList.add("visible");
-                    observer.unobserve(project);
-                }, i * 150);
-            });
-        },
-        { threshold: 0.8 }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-}
-
 function darkenColor(hex, amount) {
     const col = hex.replace("#", "");
     const num = parseInt(col, 16);
@@ -158,19 +124,21 @@ function generateProjects(data, skills, selectedLanguages = []) {
         );
     });
 
-    const projectPromises = filteredProjects.map((project) => {
-        return getProjectImage(project.link)
-            .then((imageUrl) => {
-                const projectElement = document.createElement("a");
-                projectElement.classList.add("project");
-                projectElement.href = project.link;
-                projectElement.target = "_blank";
-                projectElement.rel = "noopener noreferrer";
+    const projectPromises = filteredProjects.map(async (project) => {
+        try {
+            const imageUrl = await getProjectImage(project.link);
+            const projectElement = document.createElement("a");
+            projectElement.classList.add("project", "animate-target");
+            projectElement.href = project.link;
+            projectElement.target = "_blank";
+            projectElement.rel = "noopener noreferrer";
 
-                projectElement.innerHTML = `
-                <h2>${project.name}</h2>
-                <p>${project.description || "No description available"}</p>
-                <img src="${
+            projectElement.innerHTML = `
+                <h2 class="animate-target">${project.name}</h2>
+                <p class="animate-target">${
+                    project.description || "No description available"
+                }</p>
+                <img class="animate-target" src="${
                     project.image
                         ? `assets/project_images/${project.image}`
                         : imageUrl
@@ -189,7 +157,7 @@ function generateProjects(data, skills, selectedLanguages = []) {
                                 );
 
                                 return `
-                                    <div class="language-item" style="--lang-color: ${bgColor}">
+                                    <div class="language-item animate-target" style="--lang-color: ${bgColor}">
                                         <i class="${language.icon}" style="color: ${language.color};"></i>
                                         <p>${language.name}</p>
                                     </div>
@@ -201,13 +169,11 @@ function generateProjects(data, skills, selectedLanguages = []) {
                 }
                 </div>
             `;
-
-                return projectElement;
-            })
-            .catch((error) => {
-                console.error("Error generating project element:", error);
-                return null;
-            });
+            return projectElement;
+        } catch (error) {
+            console.error("Error generating project element:", error);
+            return null;
+        }
     });
 
     Promise.all(projectPromises).then((projectElements) => {
@@ -218,7 +184,7 @@ function generateProjects(data, skills, selectedLanguages = []) {
         });
 
         allProjects = projectsContainer.querySelectorAll(".project");
-        observeElements(allProjects);
+        observeElements({ elements: allProjects, desktopThreshold: 0.8 });
 
         projectsContainer.dataset.generating = "false";
     });
