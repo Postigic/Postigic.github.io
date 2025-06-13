@@ -12,7 +12,7 @@
     align-items: center;
     flex-direction: column;
     border: 1px solid var(--accent-color);
-    border-radius: 48px;
+    border-radius: 24px;
     padding: 25px;
     color: var(--title-text-color);
     gap: 15px;
