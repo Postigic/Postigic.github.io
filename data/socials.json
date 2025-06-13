@@ -16,11 +16,5 @@
         "icon": "bx bxl-youtube",
         "label": "YouTube",
         "color": "#ff0000"
-    },
-    {
-        "url": "https://twitter.com/Postigic",
-        "icon": "bx bxl-twitter",
-        "label": "Twitter",
-        "color": "#1da1f2"
     }
 ]

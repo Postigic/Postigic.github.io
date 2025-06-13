@@ -88,6 +88,9 @@ function loadSocials() {
                 )
                 .join("");
             container.innerHTML = socialsHTML;
+
+            observeElements({ elements: document.querySelector(".contacts") });
+            // stuffing this in here fixes a bug so whatever
         })
         .catch((error) => console.error("Error loading socials:", error));
 }
@@ -97,7 +100,6 @@ updateTime();
 calculateAge();
 loadSocials();
 observeElements({ elements: document.querySelector(".about") });
-observeElements({ elements: document.querySelector(".contacts") });
 
 console.log(
     "%coh, hi! before you go snooping around, i thought you should know that...\n%c\n" +
