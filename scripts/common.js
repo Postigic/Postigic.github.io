@@ -92,7 +92,7 @@ function loadFooter() {
         .then((data) => {
             const container = document.getElementById("footer");
             container.innerHTML = data;
-            loadSocials(container);
+            // loadSocials(container);
             document.querySelector(
                 ".footer-text"
             ).innerHTML += `&copy;${new Date().getFullYear()}`;
