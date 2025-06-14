@@ -193,10 +193,7 @@
 .about .info .bio-text p {
     color: var(--text-color);
     font-size: clamp(1rem, 2vw, 1.2rem);
-}
-
-.about .info .bio-text p:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .about .info .bio-text p a {
