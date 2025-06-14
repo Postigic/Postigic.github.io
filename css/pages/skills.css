@@ -9,7 +9,7 @@
 
 .skill-category {
     border: 1px solid var(--accent-color);
-    padding: 40px 80px;
+    padding: 20px 80px;
     border-radius: 24px;
     text-align: center;
     width: 100%;
@@ -28,6 +28,7 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
     gap: 15px;
+    margin-bottom: 20px;
 }
 
 .skill-item {
@@ -125,11 +126,11 @@
 
 .skill-item:hover .documentation-button:hover {
     background-color: var(--primary-color);
-    scale: 1.1;
+    transform: translateY(-3px);
 }
 
 .skill-item:hover .documentation-button:active {
-    scale: 0.95;
+    transform: translateY(1px);
 }
 
 .icon i {

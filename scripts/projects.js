@@ -196,8 +196,8 @@ function getProjectImage(project) {
     }
 
     const defaultImageUrls = [
-        "assets/inabakumori-pom-poms.gif",
-        "assets/gfl-neural-cloud.gif",
+        "assets/neuro_abs_cinema.jpg",
+        "assets/gfl-neural-cloud.webp",
         "assets/inabakumori-rainy-boots.gif",
     ];
     return Promise.resolve(
