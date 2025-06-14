@@ -55,45 +55,6 @@
         margin-right: 0;
     }
 
-    .minor-info {
-        gap: 15px;
-    }
-
-    .main {
-        height: 550px;
-    }
-
-    .main .main-content {
-        margin-top: 50px;
-        height: 340px;
-        justify-content: start;
-    }
-
-    .main .main-content h4 {
-        font-size: 20px;
-    }
-
-    .main .main-content p.title {
-        font-size: 28px;
-    }
-
-    .main .main-content p.subtitle {
-        font-size: 12px;
-    }
-
-    .main .main-content img {
-        width: 150px;
-    }
-
-    .main .main-content a {
-        font-size: 18px;
-        padding: 8px 15px;
-    }
-
-    .main .main-content a i {
-        font-size: 18px;
-    }
-
     .about {
         display: flex;
         flex-direction: column;
