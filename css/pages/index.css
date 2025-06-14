@@ -226,7 +226,7 @@
 
 .minor-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 30px;
     text-align: center;
@@ -241,7 +241,7 @@
     padding: 10px 15px;
     gap: 10px;
     color: var(--text-color);
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-size: clamp(1rem, 2vw, 1.2rem);
     backdrop-filter: blur(8px);
     position: relative;
     overflow: hidden;

@@ -65,7 +65,9 @@ function calculateAge() {
         age--;
     }
 
-    document.querySelectorAll(".age").forEach((el) => (el.textContent = age));
+    document
+        .querySelectorAll(".age")
+        .forEach((el) => (el.textContent = `${age} years old`));
 }
 
 function loadSocials() {
