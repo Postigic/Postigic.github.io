@@ -37,7 +37,7 @@ jobs:
                   git config --global user.name "GitHub Actions"
                   git config --global user.email "actions@github.com"
                   git add data/projects.json
-                  git add assets/project_images/
+                  git add assets/images/project_images/
                   if git diff --staged --quiet; then
                       echo "No changes to commit"
                   else
