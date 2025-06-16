@@ -9,7 +9,7 @@ from pathlib import Path
 PROJECTS_REPO = "Postigic/code-dump-lmao"
 IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".gif"]
 WEBSITE_REPO_ROOT = Path(__file__).parent.parent
-ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "project_images"
+ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "images" / "project_images"
 # ASSETS_DIR = WEBSITE_REPO_ROOT / "test"
 EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
 GITHUB_TOKEN = os.getenv("GH_TOKEN")

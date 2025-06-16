@@ -140,7 +140,7 @@ function generateProjects(data, skills, selectedLanguages = []) {
                 }</p>
                 <img class="animate-target" src="${
                     project.image
-                        ? `assets/project_images/${project.image}`
+                        ? `assets/images/project_images/${project.image}`
                         : imageUrl
                 }" alt="${project.name}">
                 <div class="languages">

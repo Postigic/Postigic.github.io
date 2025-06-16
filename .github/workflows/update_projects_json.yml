@@ -30,7 +30,7 @@ jobs:
             - name: Run project updater
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: python scripts/get_projects.py
+              run: python tools/get_projects.py
 
             - name: Commit changes
               run: |
