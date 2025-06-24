@@ -5,16 +5,25 @@ import json
 import requests
 import re
 from pathlib import Path
+from dotenv import load_dotenv
 
-PROJECTS_REPO = "Postigic/code-dump-lmao"
+REPOS = [
+    {
+        "repo": "Postigic/code-dump-lmao",
+        "recursive": True,
+        "base_dirs": ["Websites", "Python", "JavaScript", "C", "C++", "Lua"],
+    },
+    {
+        "repo": "Postigic/processor",
+        "recursive": False,
+    },
+    {
+        "repo": "Postigic/olympiad-training-sols",
+        "recursive": False,
+    }
+]
+
 IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".gif"]
-WEBSITE_REPO_ROOT = Path(__file__).parent.parent
-ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "images" / "project_images"
-# ASSETS_DIR = WEBSITE_REPO_ROOT / "test"
-EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
-GITHUB_TOKEN = os.getenv("GH_TOKEN")
-HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
-
 LANG_EXT_MAP = {
     ".py": "Python",
     ".js": "JavaScript",
@@ -25,13 +34,28 @@ LANG_EXT_MAP = {
     ".lua": "Lua",
 }
 
-BASE_DIRS = ["Websites", "Python", "JavaScript", "C", "C++", "Lua"]
+EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
 
-def get_projects_from_github():
+WEBSITE_REPO_ROOT = Path(__file__).parent.parent
+ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "images" / "project_images"
+# ASSETS_DIR = WEBSITE_REPO_ROOT / "test"
+README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)")
+# behold my incantation (i don't know what this means either)
+
+GITHUB_TOKEN = os.getenv("GH_TOKEN")
+HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
+
+def format_repo_name(name: str) -> str:
+    return name.replace("_", " ").replace("-", " ").title()
+
+def get_local_image_path(repo_path: str, ext: str) -> Path:
+    return ASSETS_DIR / (Path(repo_path).name + ext)
+
+def get_projects_from_github(repo: str, base_dirs: list) -> list:
     projects = []
 
-    for base_dir in BASE_DIRS:
-        url = f"https://api.github.com/repos/{PROJECTS_REPO}/contents/{base_dir}"
+    for base_dir in base_dirs:
+        url = f"https://api.github.com/repos/{repo}/contents/{base_dir}"
         response = requests.get(url, headers=HEADERS)
 
         if response.status_code == 200:
@@ -40,13 +64,14 @@ def get_projects_from_github():
                     full_path = f"{base_dir}/{item['name']}"
                     projects.append({
                         "path": full_path,
-                        "name": item["name"].replace("_", " ").title(),
-                        "languages": detect_languages(full_path)
+                        "name": format_repo_name(item["name"]),
+                        "languages": detect_languages(repo, full_path)
                     })
+    
     return projects
 
-def detect_languages(repo_path):
-    url = f"https://api.github.com/repos/{PROJECTS_REPO}/contents/{repo_path}"
+def detect_languages(repo: str, repo_path: str) -> list:
+    url = f"https://api.github.com/repos/{repo}/contents/{repo_path}"
     response = requests.get(url, headers=HEADERS)
     langs = set()
     
@@ -58,14 +83,23 @@ def detect_languages(repo_path):
                 if lang:
                     langs.add(lang)                 
             elif item["type"] == "dir":
-                subdir_path = f"{repo_path}/{item['name']}"
-                subdir_langs = detect_languages(subdir_path)
-                langs.update(subdir_langs)
+                langs.update(detect_languages(repo, f"{repo_path}/{item['name']}"))
     
     return sorted(langs)
 
-def get_project_description(repo_path):
-    readme_url = f"https://raw.githubusercontent.com/{PROJECTS_REPO}/main/{repo_path}/README.md"
+def get_repo_languages(repo: str) -> list:
+    url = f"https://api.github.com/repos/{repo}/languages"
+    response = requests.get(url, headers=HEADERS)
+    langs = set()
+    if response.status_code == 200:
+        for lang in response.json():
+            mapped = LANG_EXT_MAP.get(f".{lang.lower()}", lang)
+            langs.add(mapped)
+    
+    return sorted(langs)
+
+def get_project_description(repo: str, repo_path: str) -> str:
+    readme_url = f"https://raw.githubusercontent.com/{repo}/main/{repo_path}/README.md"
 
     try:
         response = requests.get(readme_url, timeout=5)
@@ -74,15 +108,14 @@ def get_project_description(repo_path):
             for line in response.text.split("\n"):
                 stripped = line.strip()
                 if stripped and not stripped.startswith("#"):
-                    clean = re.sub(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)", "", stripped).strip()
-                    # behold my incantation (i don't know what this means either)
-                    return clean[:200]
+                    return README_CLEAN_REGEX.sub("", stripped).strip()
     except Exception as e:
         print(f"Error reading README for {repo_path}: {str(e)}")
+    
     return "No description available"
 
-def get_project_image(repo_path):
-    url = f"https://api.github.com/repos/{PROJECTS_REPO}/contents/{repo_path}/__project_image__"
+def get_project_image(repo: str, repo_path: str) -> str | None:
+    url = f"https://api.github.com/repos/{repo}/contents/{repo_path}/__project_image__"
 
     try:
         response = requests.get(url, headers=HEADERS)
@@ -94,8 +127,8 @@ def get_project_image(repo_path):
                     
                     if ext in IMAGE_EXTS:
                         image_url = file["download_url"]
-                        local_filename = f"{repo_path.split("/").pop()}{ext}"
-                        local_path = ASSETS_DIR / local_filename
+                        local_path = get_local_image_path(repo_path, ext)
+                        ASSETS_DIR.mkdir(parents=True, exist_ok=True)
                         
                         if not local_path.exists():
                             img_data = requests.get(image_url).content
@@ -103,27 +136,39 @@ def get_project_image(repo_path):
                             with open(local_path, "wb") as f:
                                 f.write(img_data)
                         
-                        return local_filename
+                        return local_path.name
     except Exception as e:
         print(f"Error fetching image for {repo_path}: {str(e)}")
+    
     return None
 
 def generate_projects_json():
     projects_data = []
-    all_projects = get_projects_from_github()
+    
+    for repo in REPOS:
+        if repo["recursive"]:
+            projects = get_projects_from_github(repo["repo"], repo["base_dirs"])
+        else:
+            projects = [
+                {
+                    "path": "",
+                    "name": format_repo_name(repo["repo"].split("/")[-1]),
+                    "languages": get_repo_languages(repo)
+                }
+            ]
 
-    for project in all_projects:
-        projects_data.append({
-            "name": project["name"],
-            "description": get_project_description(project["path"]),
-            "link": f"https://github.com/{PROJECTS_REPO}/tree/main/{project['path']}",
-            "languages": project["languages"],
-            "image": get_project_image(project["path"])
-        })
+        for project in projects:
+            projects_data.append({
+                "name": project["name"],
+                "description": get_project_description(repo["repo"], project["path"]),
+                "link": f"https://github.com/{repo['repo']}/tree/main/{project['path']}",
+                "languages": project["languages"],
+                "image": get_project_image(repo["repo"], project["path"])
+            })
 
-    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     output_path = WEBSITE_REPO_ROOT / "data" / "projects.json"
     # output_path = WEBSITE_REPO_ROOT / "test" / "projects.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(projects_data, f, indent=4, sort_keys=True)
 

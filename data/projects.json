@@ -352,5 +352,19 @@
         ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Lua/terminal_games",
         "name": "Terminal Games"
+    },
+    {
+        "description": "silly little discord bot",
+        "image": null,
+        "languages": [],
+        "link": "https://github.com/Postigic/processor/tree/main/",
+        "name": "Processor"
+    },
+    {
+        "description": "national.... whatever lol! :joy:",
+        "image": null,
+        "languages": [],
+        "link": "https://github.com/Postigic/olympiad-training-sols/tree/main/",
+        "name": "Olympiad Training Sols"
     }
 ]
