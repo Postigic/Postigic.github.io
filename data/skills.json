@@ -43,13 +43,6 @@
             "description": "C.... wait, where did the ++ go? does that mean it's C+1-1? wait, that's just C... never mind"
         },
         {
-            "name": "Markdown",
-            "icon": "devicon-markdown-plain",
-            "color": "#007acc",
-            "documentation": "https://www.markdownguide.org/basic-syntax/",
-            "description": "if html and css had a baby, it would be markdown... i think"
-        },
-        {
             "name": "Lua",
             "icon": "devicon-lua-plain",
             "color": "#2C2D72",
@@ -66,13 +59,6 @@
             "description": "you can't spell outside without IDE.... (i know it's not even an IDE but shh...)"
         },
         {
-            "name": "MySQL",
-            "icon": "devicon-mysql-original",
-            "color": "#00758F",
-            "documentation": "https://dev.mysql.com/doc/",
-            "description": "i can't remember the last time i used this... but i'm sure it was fun"
-        },
-        {
             "name": "Git",
             "icon": "devicon-git-plain",
             "color": "#F05032",
@@ -87,6 +73,50 @@
             "description": "i'm not sure what i'd do without GitHub... probably have a lot of unorganised code"
         },
         {
+            "name": "Jupyter Notebook",
+            "icon": "devicon-jupyter-plain-wordmark",
+            "color": "#DA5B0B",
+            "documentation": "https://jupyter.org/",
+            "description": "i don't... what do you want me to say for this?"
+        },
+        {
+            "name": "SQLite",
+            "icon": "devicon-sqlite-plain",
+            "color": "#003B57",
+            "documentation": "https://www.sqlite.org/docs.html",
+            "description": "it's SQL but with a lite twist... ba dum tss...? no? okay, i'll see myself out"
+        },
+        {
+            "name": "GitHub Actions",
+            "icon": "devicon-githubactions-plain",
+            "color": "#2088FF",
+            "documentation": "https://docs.github.com/en/actions",
+            "description": "do more work to be lazy... wait, that doesn't sound right..."
+        },
+        {
+            "name": "NumPy",
+            "icon": "devicon-numpy-plain",
+            "color": "#4caccc",
+            "documentation": "https://numpy.org/doc/stable/",
+            "description": "umm math something something... guh... i dunno!!!"
+        },
+        {
+            "name": "pandas",
+            "icon": "devicon-pandas-plain",
+            "color": "#150458",
+            "documentation": "https://pandas.pydata.org/docs/",
+            "description": "so... did anyone figure out what pandas have to do with this? cause i haven't..."
+        },
+        {
+            "name": "Matplotlib",
+            "icon": "devicon-matplotlib-plain",
+            "color": "#11557c",
+            "documentation": "https://matplotlib.org/stable/contents.html",
+            "description": "yeah i can draw... what do i draw? graphs! and what do i draw graphs with? matplotlib! um, i think i was trying to be funny here but i forgot"
+        }
+    ],
+    "📦 Misc": [
+        {
             "name": "JSON",
             "icon": "devicon-json-plain",
             "color": "#4caf50",
@@ -94,11 +124,25 @@
             "description": "i dynamically loaded this using a JSON, is this JSON-ception?"
         },
         {
-            "name": "Jupyter Notebook",
-            "icon": "devicon-jupyter-plain-wordmark",
-            "color": "#DA5B0B",
-            "documentation": "https://jupyter.org/",
-            "description": "i don't... what do you want me to say for this?"
+            "name": "Markdown",
+            "icon": "devicon-markdown-plain",
+            "color": "#007acc",
+            "documentation": "https://www.markdownguide.org/basic-syntax/",
+            "description": "if html and css had a baby, it would be markdown... i think"
+        },
+        {
+            "name": "YAML",
+            "icon": "devicon-yaml-plain",
+            "color": "#cb171e",
+            "documentation": "https://yaml.org/spec/1.2.2/",
+            "description": "i can still hear the whitespace... IT WAS ONLY ONE FILE!!! LET ME GO, PLEASE!!!"
+        },
+        {
+            "name": "Batchfile",
+            "icon": "devicon-windows8-original",
+            "color": "#4d4d4d",
+            "documentation": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands",
+            "description": "yes... i wrote a .bat file... does that make me a real programmer now?"
         }
     ]
 }

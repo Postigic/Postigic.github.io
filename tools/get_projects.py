@@ -153,7 +153,7 @@ def generate_projects_json():
                 {
                     "path": "",
                     "name": format_repo_name(repo["repo"].split("/")[-1]),
-                    "languages": get_repo_languages(repo)
+                    "languages": get_repo_languages(repo["repo"])
                 }
             ]
 
