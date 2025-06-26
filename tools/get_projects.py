@@ -5,7 +5,7 @@ import json
 import requests
 import re
 from pathlib import Path
-from dotenv import load_dotenv
+from github_utils import fetch_json, format_repo_name, WEBSITE_REPO_ROOT
 
 REPOS = [
     {
@@ -36,14 +36,13 @@ LANG_EXT_MAP = {
 
 EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
 
-WEBSITE_REPO_ROOT = Path(__file__).parent.parent
 ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "images" / "project_images"
 # ASSETS_DIR = WEBSITE_REPO_ROOT / "test"
+OUTPUT_PATH = WEBSITE_REPO_ROOT / "data" / "projects.json"
+# OUTPUT_PATH = WEBSITE_REPO_ROOT / "test" / "projects.json"
+
 README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)")
 # behold my incantation (i don't know what this means either)
-
-GITHUB_TOKEN = os.getenv("GH_TOKEN")
-HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
 
 def format_repo_name(name: str) -> str:
     return name.replace("_", " ").replace("-", " ").title()
@@ -56,9 +55,9 @@ def get_projects_from_github(repo: str, base_dirs: list) -> list:
 
     for base_dir in base_dirs:
         url = f"https://api.github.com/repos/{repo}/contents/{base_dir}"
-        response = requests.get(url, headers=HEADERS)
+        response = fetch_json(url)
 
-        if response.status_code == 200:
+        if response:
             for item in response.json():
                 if item["type"] == "dir" and item["name"] not in EXCLUDE_DIRS:
                     full_path = f"{base_dir}/{item['name']}"
@@ -72,10 +71,10 @@ def get_projects_from_github(repo: str, base_dirs: list) -> list:
 
 def detect_languages(repo: str, repo_path: str) -> list:
     url = f"https://api.github.com/repos/{repo}/contents/{repo_path}"
-    response = requests.get(url, headers=HEADERS)
+    response = fetch_json(url)
     langs = set()
     
-    if response.status_code == 200:
+    if response:
         for item in response.json():
             if item["type"] == "file":
                 ext = Path(item["name"]).suffix.lower()
@@ -89,9 +88,10 @@ def detect_languages(repo: str, repo_path: str) -> list:
 
 def get_repo_languages(repo: str) -> list:
     url = f"https://api.github.com/repos/{repo}/languages"
-    response = requests.get(url, headers=HEADERS)
+    response = fetch_json(url)
     langs = set()
-    if response.status_code == 200:
+    
+    if response:
         for lang in response.json():
             mapped = LANG_EXT_MAP.get(f".{lang.lower()}", lang)
             langs.add(mapped)
@@ -99,12 +99,12 @@ def get_repo_languages(repo: str) -> list:
     return sorted(langs)
 
 def get_project_description(repo: str, repo_path: str) -> str:
-    readme_url = f"https://raw.githubusercontent.com/{repo}/main/{repo_path}/README.md"
+    url = f"https://raw.githubusercontent.com/{repo}/main/{repo_path}/README.md"
 
     try:
-        response = requests.get(readme_url, timeout=5)
+        response = fetch_json(url)
 
-        if response.status_code == 200:
+        if response:
             for line in response.text.split("\n"):
                 stripped = line.strip()
                 if stripped and not stripped.startswith("#"):
@@ -118,9 +118,9 @@ def get_project_image(repo: str, repo_path: str) -> str | None:
     url = f"https://api.github.com/repos/{repo}/contents/{repo_path}/__project_image__"
 
     try:
-        response = requests.get(url, headers=HEADERS)
+        response = fetch_json(url)
 
-        if response.status_code == 200:
+        if response:
             for file in response.json():
                 if file["type"] == "file":
                     ext = Path(file["name"]).suffix.lower()
@@ -166,10 +166,8 @@ def generate_projects_json():
                 "image": get_project_image(repo["repo"], project["path"])
             })
 
-    output_path = WEBSITE_REPO_ROOT / "data" / "projects.json"
-    # output_path = WEBSITE_REPO_ROOT / "test" / "projects.json"
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(projects_data, f, indent=4, sort_keys=True)
 
 if __name__ == "__main__":
