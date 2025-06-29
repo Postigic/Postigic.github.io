@@ -1,63 +1,13 @@
-Promise.all([fetch("data/awards.json").then((response) => response.json())])
-    .then(([awardsData]) => {
-        generateAchievements(awardsData);
+function initAwardsPage() {
+    if (document.querySelector(".awards") === null) return;
 
-        document
-            .getElementById("buttonContainer")
-            .addEventListener("click", (event) => {
-                const button = event.target.closest(".filter-button");
-                if (!button) return;
-
-                button.classList.toggle("active");
-
-                const selectedButtons = document.querySelectorAll(
-                    "#buttonContainer .filter-button.active"
-                );
-                const selectedCategories = [];
-                const selectedTypes = [];
-
-                selectedButtons.forEach((btn) => {
-                    if (btn.id.startsWith("filter-category-")) {
-                        selectedCategories.push(btn.value);
-                    } else if (btn.id.startsWith("filter-type-")) {
-                        selectedTypes.push(btn.value);
-                    }
-                });
-
-                const filteredData = {};
-
-                for (const year in awardsData) {
-                    const filteredAwards = awardsData[year].filter((award) => {
-                        return (
-                            (selectedCategories.length === 0 ||
-                                selectedCategories.includes(award.category)) &&
-                            (selectedTypes.length === 0 ||
-                                selectedTypes.includes(award.type))
-                        );
-                    });
-
-                    if (filteredAwards.length > 0) {
-                        filteredData[year] = filteredAwards;
-                    }
-                }
-
-                generateAchievements(filteredData);
-            });
-
-        document
-            .getElementById("clearFilters")
-            .addEventListener("click", () => {
-                document
-                    .querySelectorAll("#buttonContainer .filter-button.active")
-                    .forEach((button) => {
-                        button.classList.remove("active");
-                    });
-                generateAchievements(awardsData);
-            });
-
-        populateAwardFilter(awardsData);
-    })
-    .catch((error) => console.error("Error fetching awards data:", error));
+    Promise.all([fetch("data/awards.json").then((response) => response.json())])
+        .then(([awardsData]) => {
+            generateAchievements(awardsData);
+            populateAwardFilter(awardsData);
+        })
+        .catch((error) => console.error("Error fetching awards data:", error));
+}
 
 function generateAchievements(data) {
     const awardsSection = document.querySelector(".awards");
@@ -182,15 +132,80 @@ function populateAwardFilter(awards) {
     createFilterSection("Type", types, "type", typeIcons);
 }
 
-document.getElementById("toggleFilters").addEventListener("click", () => {
-    const filterContainer = document.getElementById("filterContainer");
-    const toggleButton = document.getElementById("toggleFilters");
+document.addEventListener("click", (event) => {
+    if (!document.querySelector(".awards")) return;
 
-    if (filterContainer.classList.contains("hidden")) {
-        filterContainer.classList.remove("hidden");
-        toggleButton.innerHTML = "<i class='bx bx-chevron-up'></i>Filters";
-    } else {
-        filterContainer.classList.add("hidden");
-        toggleButton.innerHTML = "<i class='bx bx-chevron-down'></i>Filters";
+    const button = event.target.closest(".filter-button");
+    if (button) {
+        button.classList.toggle("active");
+
+        const selectedButtons = document.querySelectorAll(
+            "#buttonContainer .filter-button.active"
+        );
+        const selectedCategories = [];
+        const selectedTypes = [];
+
+        selectedButtons.forEach((btn) => {
+            if (btn.id.startsWith("filter-category-")) {
+                selectedCategories.push(btn.value);
+            } else if (btn.id.startsWith("filter-type-")) {
+                selectedTypes.push(btn.value);
+            }
+        });
+
+        fetch("data/awards.json")
+            .then((response) => response.json())
+            .then((awardsData) => {
+                const filteredData = {};
+
+                for (const year in awardsData) {
+                    const filteredAwards = awardsData[year].filter((award) => {
+                        return (
+                            (selectedCategories.length === 0 ||
+                                selectedCategories.includes(award.category)) &&
+                            (selectedTypes.length === 0 ||
+                                selectedTypes.includes(award.type))
+                        );
+                    });
+
+                    if (filteredAwards.length > 0) {
+                        filteredData[year] = filteredAwards;
+                    }
+                }
+
+                generateAchievements(filteredData);
+            });
+        return;
+    }
+
+    if (event.target.closest("#clearFilters")) {
+        document
+            .querySelectorAll("#buttonContainer .filter-button.active")
+            .forEach((button) => {
+                button.classList.remove("active");
+            });
+
+        fetch("data/awards.json")
+            .then((response) => response.json())
+            .then(generateAchievements);
+        return;
+    }
+
+    if (event.target.closest("#toggleFilters")) {
+        const filterContainer = document.getElementById("filterContainer");
+        const toggleButton = document.getElementById("toggleFilters");
+        const icon = toggleButton.querySelector("i");
+
+        if (filterContainer.classList.contains("hidden")) {
+            filterContainer.classList.remove("hidden");
+            icon.className = "bx bx-chevron-up";
+        } else {
+            filterContainer.classList.add("hidden");
+            icon.className = "bx bx-chevron-down";
+        }
+        return;
     }
 });
+
+document.addEventListener("turbo:load", initAwardsPage);
+if (document.querySelector(".awards")) initAwardsPage();

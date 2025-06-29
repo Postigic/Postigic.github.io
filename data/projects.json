@@ -357,7 +357,6 @@
         "description": "silly little discord bot",
         "image": null,
         "languages": [
-            "Batchfile",
             "Python"
         ],
         "link": "https://github.com/Postigic/processor/tree/main/",

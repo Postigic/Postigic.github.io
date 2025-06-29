@@ -1,44 +1,16 @@
-Promise.all([
-    fetch("data/projects.json").then((response) => response.json()),
-    fetch("data/skills.json").then((response) => response.json()),
-])
-    .then(([projectsData, skillsData]) => {
-        generateProjects(projectsData, skillsData);
-
-        document
-            .getElementById("buttonContainer")
-            .addEventListener("click", (event) => {
-                const button = event.target.closest(".filter-button");
-                if (!button) return;
-
-                button.classList.toggle("active");
-
-                const selectedLanguages = Array.from(
-                    document.querySelectorAll(
-                        "#buttonContainer .filter-button.active"
-                    )
-                ).map((button) => button.value);
-
-                generateProjects(projectsData, skillsData, selectedLanguages);
-            });
-
-        document
-            .getElementById("clearFilters")
-            .addEventListener("click", () => {
-                document
-                    .querySelectorAll("#buttonContainer .filter-button.active")
-                    .forEach((button) => {
-                        button.classList.remove("active");
-                    });
-                generateProjects(projectsData, skillsData);
-            });
-
-        populateLanguageFilter(projectsData, skillsData);
-    })
-    .catch((error) => {
-        console.error("Error fetching projects or skills data:", error);
-    });
-
+function initProjectsPage() {
+    Promise.all([
+        fetch("data/projects.json").then((response) => response.json()),
+        fetch("data/skills.json").then((response) => response.json()),
+    ])
+        .then(([projectsData, skillsData]) => {
+            generateProjects(projectsData, skillsData);
+            populateLanguageFilter(projectsData, skillsData);
+        })
+        .catch((error) =>
+            console.error("Error fetching projects or skills data:", error)
+        );
+}
 function darkenColor(hex, amount) {
     const col = hex.replace("#", "");
     const num = parseInt(col, 16);
@@ -205,15 +177,57 @@ function getProjectImage(project) {
     );
 }
 
-document.getElementById("toggleFilters").addEventListener("click", () => {
-    const filterContainer = document.getElementById("filterContainer");
-    const toggleButton = document.getElementById("toggleFilters");
+document.addEventListener("click", (event) => {
+    if (!document.querySelector(".projects")) return;
 
-    if (filterContainer.classList.contains("hidden")) {
-        filterContainer.classList.remove("hidden");
-        toggleButton.innerHTML = "<i class='bx bx-chevron-up'></i>Filters";
-    } else {
-        filterContainer.classList.add("hidden");
-        toggleButton.innerHTML = "<i class='bx bx-chevron-down'></i>Filters";
+    const button = event.target.closest(".filter-button");
+    if (button) {
+        button.classList.toggle("active");
+
+        const selectedLanguages = Array.from(
+            document.querySelectorAll("#buttonContainer .filter-button.active")
+        ).map((button) => button.value);
+
+        Promise.all([
+            fetch("data/projects.json").then((res) => res.json()),
+            fetch("data/skills.json").then((res) => res.json()),
+        ]).then(([projectsData, skillsData]) => {
+            generateProjects(projectsData, skillsData, selectedLanguages);
+        });
+        return;
+    }
+
+    if (event.target.closest("#clearFilters")) {
+        document
+            .querySelectorAll("#buttonContainer .filter-button.active")
+            .forEach((button) => {
+                button.classList.remove("active");
+            });
+
+        Promise.all([
+            fetch("data/projects.json").then((res) => res.json()),
+            fetch("data/skills.json").then((res) => res.json()),
+        ]).then(([projectsData, skillsData]) => {
+            generateProjects(projectsData, skillsData);
+        });
+        return;
+    }
+
+    if (event.target.closest("#toggleFilters")) {
+        const filterContainer = document.getElementById("filterContainer");
+        const toggleButton = document.getElementById("toggleFilters");
+        const icon = toggleButton.querySelector("i");
+
+        if (filterContainer.classList.contains("hidden")) {
+            filterContainer.classList.remove("hidden");
+            icon.className = "bx bx-chevron-up";
+        } else {
+            filterContainer.classList.add("hidden");
+            icon.className = "bx bx-chevron-down";
+        }
+        return;
     }
 });
+
+document.addEventListener("turbo:load", initProjectsPage);
+if (document.querySelector(".projects")) initProjectsPage();

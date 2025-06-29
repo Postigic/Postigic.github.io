@@ -1,6 +1,5 @@
 # i don't care anymore i'm not writing in javascript
 
-import os
 import json
 import requests
 import re
@@ -44,9 +43,6 @@ OUTPUT_PATH = WEBSITE_REPO_ROOT / "data" / "projects.json"
 README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)")
 # behold my incantation (i don't know what this means either)
 
-def format_repo_name(name: str) -> str:
-    return name.replace("_", " ").replace("-", " ").title()
-
 def get_local_image_path(repo_path: str, ext: str) -> Path:
     return ASSETS_DIR / (Path(repo_path).name + ext)
 
@@ -58,7 +54,7 @@ def get_projects_from_github(repo: str, base_dirs: list) -> list:
         response = fetch_json(url)
 
         if response:
-            for item in response.json():
+            for item in response:
                 if item["type"] == "dir" and item["name"] not in EXCLUDE_DIRS:
                     full_path = f"{base_dir}/{item['name']}"
                     projects.append({
@@ -75,7 +71,7 @@ def detect_languages(repo: str, repo_path: str) -> list:
     langs = set()
     
     if response:
-        for item in response.json():
+        for item in response:
             if item["type"] == "file":
                 ext = Path(item["name"]).suffix.lower()
                 lang = LANG_EXT_MAP.get(ext)              
@@ -86,26 +82,38 @@ def detect_languages(repo: str, repo_path: str) -> list:
     
     return sorted(langs)
 
-def get_repo_languages(repo: str) -> list:
-    url = f"https://api.github.com/repos/{repo}/languages"
-    response = fetch_json(url)
-    langs = set()
+# wha... why do i have this function??? just use detect_languages
+# i'm such an npc
+#
+# def get_repo_languages(repo: str) -> list:
+#     url = f"https://api.github.com/repos/{repo}/languages"
+#     response = fetch_json(url)
+#     langs = set()
     
-    if response:
-        for lang in response.json():
-            mapped = LANG_EXT_MAP.get(f".{lang.lower()}", lang)
-            langs.add(mapped)
+#     if response:
+#         for lang in response:
+#             mapped = LANG_EXT_MAP.get(f".{lang.lower()}", lang)
+#             langs.add(mapped)
     
-    return sorted(langs)
+#     return sorted(langs)
 
+def fetch_text(url: str, timeout: int = 5) -> str | None:
+    try:
+        response = requests.get(url, headers={"Accept": "text/plain"}, timeout=timeout)
+        response.raise_for_status()
+        return response.text
+    except Exception as e:
+        print(f"[ERROR] Failed to fetch {url}: {e}")
+        return None
+    
 def get_project_description(repo: str, repo_path: str) -> str:
     url = f"https://raw.githubusercontent.com/{repo}/main/{repo_path}/README.md"
 
     try:
-        response = fetch_json(url)
+        text = fetch_text(url)
 
-        if response:
-            for line in response.text.split("\n"):
+        if text:
+            for line in text.split("\n"):
                 stripped = line.strip()
                 if stripped and not stripped.startswith("#"):
                     return README_CLEAN_REGEX.sub("", stripped).strip()
@@ -121,7 +129,7 @@ def get_project_image(repo: str, repo_path: str) -> str | None:
         response = fetch_json(url)
 
         if response:
-            for file in response.json():
+            for file in response:
                 if file["type"] == "file":
                     ext = Path(file["name"]).suffix.lower()
                     
@@ -153,7 +161,7 @@ def generate_projects_json():
                 {
                     "path": "",
                     "name": format_repo_name(repo["repo"].split("/")[-1]),
-                    "languages": get_repo_languages(repo["repo"])
+                    "languages": detect_languages(repo["repo"], "")
                 }
             ]
 
