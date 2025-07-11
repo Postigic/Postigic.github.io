@@ -210,6 +210,15 @@
         "name": "Ciphers"
     },
     {
+        "description": "what if pong was a circle... i dunno",
+        "image": "circular_pong.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/circular_pong",
+        "name": "Circular Pong"
+    },
+    {
         "description": "based off a niche genre of roblox (yes, roblox) games",
         "image": null,
         "languages": [
