@@ -11,7 +11,7 @@
         "name": "Bouncy Ball Simulator"
     },
     {
-        "description": "a calculator from a tutorial, i added some other doodads though",
+        "description": "somewhat scientific calculator",
         "image": "calculator.png",
         "languages": [
             "CSS3",
@@ -22,7 +22,7 @@
         "name": "Calculator"
     },
     {
-        "description": "chart generator from tutorial, small bug where one bar in bar chart will not fade away",
+        "description": "generates charts... because we all love them obviously",
         "image": "chart_generator.png",
         "languages": [
             "CSS3",
@@ -33,7 +33,7 @@
         "name": "Chart Generator"
     },
     {
-        "description": "coin flipper from tutorial, i dunno what to write about it",
+        "description": "if you flip a coin... it is a probability... (ted talk)",
         "image": "coin_flipper.png",
         "languages": [
             "CSS3",
@@ -44,7 +44,7 @@
         "name": "Coin Flipper"
     },
     {
-        "description": "yup i decided to make it into a website, css style was (kinda no longer) ripped from something else",
+        "description": "converts data units (e.g. megabytes) into other ones",
         "image": "data_unit_converter.png",
         "languages": [
             "CSS3",
@@ -55,7 +55,7 @@
         "name": "Data Unit Converter"
     },
     {
-        "description": "simple website of a datetime clock, just made it for fun lol",
+        "description": "displays current time and date (hence datetime...)",
         "image": "datetime_clock.png",
         "languages": [
             "CSS3",
@@ -66,7 +66,7 @@
         "name": "Datetime Clock"
     },
     {
-        "description": "dice roller from tutorial, not much to say about it",
+        "description": "i used to roollll the dice",
         "image": "dice_roller.png",
         "languages": [
             "CSS3",
@@ -77,7 +77,7 @@
         "name": "Dice Roller"
     },
     {
-        "description": "compound interest calculator from a tutorial",
+        "description": "interest compounds... compounding... i dunno",
         "image": "interest_calculator.png",
         "languages": [
             "CSS3",
@@ -88,7 +88,7 @@
         "name": "Interest Calculator"
     },
     {
-        "description": "a password generator with a few options",
+        "description": "\"make your password stronger\" \ud83d\udcaa\ud83d\udcaa\ud83d\udcaa",
         "image": "password_generator.png",
         "languages": [
             "CSS3",
@@ -110,7 +110,7 @@
         "name": "Polyrhythm Simulator"
     },
     {
-        "description": "rotating ASCII donut made from tutorial, the math and logic behind it is pretty cool but i don't understand",
+        "description": "what if funky town started playing",
         "image": "rotating_ascii_donut.png",
         "languages": [
             "CSS3",
@@ -121,7 +121,7 @@
         "name": "Rotating Ascii Donut"
     },
     {
-        "description": "just a simple little solar system from a tutorial i used because i thought it was cool",
+        "description": "can we pretend that airplanes in the night sky are like shooting stars",
         "image": "solar_system.png",
         "languages": [
             "CSS3",
@@ -132,7 +132,7 @@
         "name": "Solar System"
     },
     {
-        "description": "tic tac toe game from tutorial, but it's pretty much unrecognisable now lmao",
+        "description": "tic tacs like the food",
         "image": "tic_tac_toe.png",
         "languages": [
             "CSS3",
@@ -143,7 +143,7 @@
         "name": "Tic Tac Toe"
     },
     {
-        "description": "trig wave generator thingamajig... i forgot why i wanted to make this",
+        "description": "trig wave generator thingamajig",
         "image": "trig_wave_generator.png",
         "languages": [
             "CSS3",
@@ -154,7 +154,7 @@
         "name": "Trig Wave Generator"
     },
     {
-        "description": "wikipedia searcher from tutorial, pretty cool i guess",
+        "description": "as if it were hard to search for stuff on wikipedia",
         "image": "wikipedia_searcher.png",
         "languages": [
             "CSS3",
@@ -165,7 +165,7 @@
         "name": "Wikipedia Searcher"
     },
     {
-        "description": "if an al goes and rhythms is it an algorithm or an rhythmic al going",
+        "description": "if an al goes and rhythms is it an algorithm or an rhythmic al going?",
         "image": "algorithms.gif",
         "languages": [
             "Python"
@@ -336,7 +336,7 @@
         "name": "Terminal Games"
     },
     {
-        "description": "simple terminal games, but in C (so cool)^2",
+        "description": "simple terminal games, but in C++ (so cool)^2",
         "image": null,
         "languages": [
             "C"
