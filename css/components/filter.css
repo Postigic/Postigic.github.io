@@ -48,6 +48,14 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+#toggleFilters i {
+    transition: transform 0.3s ease;
+}
+
+#toggleFilters i.rotated {
+    transform: rotate(180deg);
+}
+
 #filterContainer {
     position: absolute;
     top: 120%;

@@ -32,6 +32,7 @@ function generateSkills(data) {
                     <p>${skill.description}</p>
                 </div>
                 <a href="${skill.documentation}" target="_blank" class="documentation-button">Documentation</a>
+                <div class="chevron-hint"><i class='bx bx-chevron-down'></i></div>
             `;
 
             skillsContainer.appendChild(skillItem);

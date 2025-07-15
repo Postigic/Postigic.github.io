@@ -196,13 +196,10 @@ document.addEventListener("click", (event) => {
         const toggleButton = document.getElementById("toggleFilters");
         const icon = toggleButton.querySelector("i");
 
-        if (filterContainer.classList.contains("hidden")) {
-            filterContainer.classList.remove("hidden");
-            icon.className = "bx bx-chevron-up";
-        } else {
-            filterContainer.classList.add("hidden");
-            icon.className = "bx bx-chevron-down";
-        }
+        const isHidden = filterContainer.classList.contains("hidden");
+        filterContainer.classList.toggle("hidden");
+
+        icon.classList.toggle("rotated", isHidden);
         return;
     }
 });
