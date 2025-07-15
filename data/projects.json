@@ -246,6 +246,15 @@
         "name": "Defusal Automation"
     },
     {
+        "description": "because i just hate typing it out when i need to",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/directory_structure_fetcher",
+        "name": "Directory Structure Fetcher"
+    },
+    {
         "description": "so... whatchu think about simultaneous equations eh?",
         "image": "lin_system_solver.png",
         "languages": [
