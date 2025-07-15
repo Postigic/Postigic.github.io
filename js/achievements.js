@@ -1,17 +1,21 @@
-function initAwardsPage() {
-    if (!document.querySelector(".awards")) return;
+function initAchievementsPage() {
+    if (!document.querySelector(".achievements")) return;
 
-    Promise.all([fetch("data/awards.json").then((response) => response.json())])
-        .then(([awardsData]) => {
-            generateAchievements(awardsData);
-            populateAwardFilter(awardsData);
+    Promise.all([
+        fetch("data/achievements.json").then((response) => response.json()),
+    ])
+        .then(([achievementsData]) => {
+            generateAchievements(achievementsData);
+            populateAchievementsFilter(achievementsData);
         })
-        .catch((error) => console.error("Error fetching awards data:", error));
+        .catch((error) =>
+            console.error("Error fetching achievements data:", error)
+        );
 }
 
 function generateAchievements(data) {
-    const awardsSection = document.querySelector(".awards");
-    awardsSection.innerHTML = "";
+    const achievementsSection = document.querySelector(".achievements");
+    achievementsSection.innerHTML = "";
 
     const sortedYears = Object.keys(data).sort((a, b) => b - a);
 
@@ -25,48 +29,51 @@ function generateAchievements(data) {
         yearContainer.appendChild(yearHeader);
 
         const gridContainer = document.createElement("div");
-        gridContainer.classList.add("awards-grid");
+        gridContainer.classList.add("achievements-grid");
 
         const sortedTitles = data[year]
             .slice()
             .sort((a, b) => a.name.localeCompare(b.name));
 
-        sortedTitles.forEach((award) => {
-            const awardCard = document.createElement("div");
-            awardCard.classList.add("award-card", "animate-target");
-            awardCard.setAttribute("data-category", award.category);
-            awardCard.setAttribute("data-type", award.type);
+        sortedTitles.forEach((achievement) => {
+            const achievementCard = document.createElement("div");
+            achievementCard.classList.add("achievement-card", "animate-target");
+            achievementCard.setAttribute("data-category", achievement.category);
+            achievementCard.setAttribute("data-type", achievement.type);
 
-            const awardName = document.createElement("div");
-            awardName.classList.add("award-name");
-            awardName.textContent = award.name;
+            const achievementName = document.createElement("div");
+            achievementName.classList.add("achievement-name");
+            achievementName.textContent = achievement.name;
 
-            const awardTags = document.createElement("div");
-            awardTags.classList.add("award-tags");
+            const achievementTags = document.createElement("div");
+            achievementTags.classList.add("achievement-tags");
 
             const categoryTag = document.createElement("span");
-            categoryTag.classList.add("award-tag", "award-category");
-            categoryTag.textContent = award.category;
+            categoryTag.classList.add(
+                "achievement-tag",
+                "achievement-category"
+            );
+            categoryTag.textContent = achievement.category;
 
             const typeTag = document.createElement("span");
-            typeTag.classList.add("award-tag", "award-type");
-            typeTag.textContent = award.type;
+            typeTag.classList.add("achievement-tag", "achievement-type");
+            typeTag.textContent = achievement.type;
 
-            awardTags.appendChild(categoryTag);
-            awardTags.appendChild(typeTag);
+            achievementTags.appendChild(categoryTag);
+            achievementTags.appendChild(typeTag);
 
-            awardCard.appendChild(awardName);
-            awardCard.appendChild(awardTags);
-            gridContainer.appendChild(awardCard);
+            achievementCard.appendChild(achievementName);
+            achievementCard.appendChild(achievementTags);
+            gridContainer.appendChild(achievementCard);
         });
 
         yearContainer.appendChild(gridContainer);
-        awardsSection.appendChild(yearContainer);
+        achievementsSection.appendChild(yearContainer);
         observeElements({ elements: yearContainer, desktopThreshold: 0.7 });
     });
 }
 
-function populateAwardFilter(awards) {
+function populateAchievementsFilter(achievements) {
     const buttonContainer = document.getElementById("buttonContainer");
     const categories = new Set();
     const types = new Set();
@@ -86,11 +93,11 @@ function populateAwardFilter(awards) {
         Placement: "bx-list-ol",
     };
 
-    Object.values(awards)
+    Object.values(achievements)
         .flat()
-        .forEach((award) => {
-            if (award.category) categories.add(award.category);
-            if (award.type) types.add(award.type);
+        .forEach((achievement) => {
+            if (achievement.category) categories.add(achievement.category);
+            if (achievement.type) types.add(achievement.type);
         });
 
     buttonContainer.innerHTML = "";
@@ -133,7 +140,7 @@ function populateAwardFilter(awards) {
 }
 
 function handleClick(event) {
-    if (!document.querySelector(".awards")) return;
+    if (!document.querySelector(".achievements")) return;
 
     const button = event.target.closest(".filter-button");
     if (button) {
@@ -153,23 +160,27 @@ function handleClick(event) {
             }
         });
 
-        fetch("data/awards.json")
+        fetch("data/achievements.json")
             .then((response) => response.json())
-            .then((awardsData) => {
+            .then((achievementsData) => {
                 const filteredData = {};
 
-                for (const year in awardsData) {
-                    const filteredAwards = awardsData[year].filter((award) => {
-                        return (
-                            (selectedCategories.length === 0 ||
-                                selectedCategories.includes(award.category)) &&
-                            (selectedTypes.length === 0 ||
-                                selectedTypes.includes(award.type))
-                        );
-                    });
+                for (const year in achievementsData) {
+                    const filteredAchievements = achievementsData[year].filter(
+                        (achievement) => {
+                            return (
+                                (selectedCategories.length === 0 ||
+                                    selectedCategories.includes(
+                                        achievement.category
+                                    )) &&
+                                (selectedTypes.length === 0 ||
+                                    selectedTypes.includes(achievement.type))
+                            );
+                        }
+                    );
 
-                    if (filteredAwards.length > 0) {
-                        filteredData[year] = filteredAwards;
+                    if (filteredAchievements.length > 0) {
+                        filteredData[year] = filteredAchievements;
                     }
                 }
 
@@ -185,7 +196,7 @@ function handleClick(event) {
                 button.classList.remove("active");
             });
 
-        fetch("data/awards.json")
+        fetch("data/achievements.json")
             .then((response) => response.json())
             .then(generateAchievements);
         return;
@@ -205,9 +216,9 @@ function handleClick(event) {
     }
 }
 
-initAwardsPage();
+initAchievementsPage();
 
-if (!window.isAwardsListenerAdded) {
+if (!window.isAchievementsListenerAdded) {
     document.addEventListener("click", handleClick);
-    window.isAwardsListenerAdded = true;
+    window.isAchievementsListenerAdded = true;
 }

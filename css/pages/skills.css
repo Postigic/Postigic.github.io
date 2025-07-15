@@ -24,16 +24,18 @@
 }
 
 .skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .skill-item {
     display: flex;
+    flex: 0 1 250px;
     align-items: center;
+    justify-content: center;
     justify-self: flex-start;
     background-color: var(--item-background-color);
     padding: 10px 20px;
@@ -42,14 +44,14 @@
     gap: 10px;
     position: relative;
     height: 70px;
-    width: 200px;
     overflow: hidden;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     pointer-events: none;
+    cursor: pointer;
 }
 
-.skill-item:hover {
-    scale: 1.2;
+.skill-item.open {
+    justify-content: flex-start;
     height: 300px;
     width: 250px;
     flex-direction: column;
@@ -74,7 +76,7 @@
     transition: transform 0.3s ease;
 }
 
-.skill-item:hover::before {
+.skill-item.open::before {
     transform: scaleX(1);
 }
 
@@ -84,18 +86,15 @@
 }
 
 .chevron-hint {
-    position: absolute;
-    color: #717177;
-    bottom: 1px;
-    right: 5px;
-    font-size: 1rem;
-    opacity: 0.5;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    pointer-events: none;
+    position: relative;
+    color: #48484d;
+    margin-left: auto;
+    font-size: 2rem;
+    transform: translateY(-3.5px);
 }
+/* i genuinely don't remember writing whatever bloat was in this */
 
-.skill-item:hover .chevron-hint,
-.skill-item.expanded .chevron-hint {
+.skill-item.open .chevron-hint {
     opacity: 0;
 }
 
@@ -109,7 +108,7 @@
     text-align: center;
 }
 
-.skill-item:hover .info {
+.skill-item.open .info {
     opacity: 1;
 }
 
@@ -129,22 +128,22 @@
     padding: 8px 16px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
     display: inline-block;
     transition: all 0.3s ease;
 }
 
-.skill-item:hover .documentation-button {
+.skill-item.open .documentation-button {
     opacity: 1;
 }
 
-.skill-item:hover .documentation-button:hover {
+.skill-item.open .documentation-button:hover {
     background-color: var(--primary-color);
     transform: translateY(-3px);
 }
 
-.skill-item:hover .documentation-button:active {
+.skill-item.open .documentation-button:active {
     transform: translateY(1px);
 }
 

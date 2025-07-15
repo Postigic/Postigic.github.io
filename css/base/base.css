@@ -47,3 +47,8 @@ h4 {
 a {
     text-decoration: none;
 }
+
+i {
+    line-height: 1;
+    vertical-align: middle;
+}

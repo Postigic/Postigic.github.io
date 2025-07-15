@@ -28,12 +28,22 @@ function generateSkills(data) {
                     <i class="${skill.icon}" style="color: ${skill.color}"></i>
                 </div>
                 <p>${skill.name}</p>
+                <div class="chevron-hint"><i class='bx bx-chevron-down'></i></div>
                 <div class="info">
                     <p>${skill.description}</p>
                 </div>
                 <a href="${skill.documentation}" target="_blank" class="documentation-button">Documentation</a>
-                <div class="chevron-hint"><i class='bx bx-chevron-down'></i></div>
             `;
+
+            skillItem
+                .querySelector(".documentation-button")
+                .addEventListener("click", (e) => {
+                    e.stopPropagation();
+                });
+
+            skillItem.addEventListener("click", function () {
+                this.classList.toggle("open");
+            });
 
             skillsContainer.appendChild(skillItem);
         });
