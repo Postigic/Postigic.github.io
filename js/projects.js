@@ -1,4 +1,6 @@
 function initProjectsPage() {
+    if (!document.querySelector(".projects")) return;
+
     Promise.all([
         fetch("data/projects.json").then((response) => response.json()),
         fetch("data/skills.json").then((response) => response.json()),
@@ -177,7 +179,7 @@ function getProjectImage(project) {
     );
 }
 
-document.addEventListener("click", (event) => {
+function handleClick(event) {
     if (!document.querySelector(".projects")) return;
 
     const button = event.target.closest(".filter-button");
@@ -222,9 +224,14 @@ document.addEventListener("click", (event) => {
         filterContainer.classList.toggle("hidden");
 
         icon.classList.toggle("rotated", isHidden);
+        console.log("toggleFilters clicked " + isHidden);
         return;
     }
-});
+}
 
-document.addEventListener("turbo:load", initProjectsPage);
-if (document.querySelector(".projects")) initProjectsPage();
+initProjectsPage();
+
+if (!window.isProjectsListenerAdded) {
+    document.addEventListener("click", handleClick);
+    window.isProjectsListenerAdded = true;
+}

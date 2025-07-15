@@ -1,5 +1,5 @@
 function initAwardsPage() {
-    if (document.querySelector(".awards") === null) return;
+    if (!document.querySelector(".awards")) return;
 
     Promise.all([fetch("data/awards.json").then((response) => response.json())])
         .then(([awardsData]) => {
@@ -132,7 +132,7 @@ function populateAwardFilter(awards) {
     createFilterSection("Type", types, "type", typeIcons);
 }
 
-document.addEventListener("click", (event) => {
+function handleClick(event) {
     if (!document.querySelector(".awards")) return;
 
     const button = event.target.closest(".filter-button");
@@ -200,9 +200,14 @@ document.addEventListener("click", (event) => {
         filterContainer.classList.toggle("hidden");
 
         icon.classList.toggle("rotated", isHidden);
+        console.log("toggleFilters clicked " + isHidden);
         return;
     }
-});
+}
 
-document.addEventListener("turbo:load", initAwardsPage);
-if (document.querySelector(".awards")) initAwardsPage();
+initAwardsPage();
+
+if (!window.isAwardsListenerAdded) {
+    document.addEventListener("click", handleClick);
+    window.isAwardsListenerAdded = true;
+}
