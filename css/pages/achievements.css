@@ -13,6 +13,45 @@
     margin: 0 auto;
 }
 
+#allCertificatesLink {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--title-text-color);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 120, 50, 0.3),
+        rgba(255, 90, 0, 0.3)
+    );
+    border: 1px solid rgba(255, 166, 125, 0.3);
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    position: relative;
+    animation: slideUp 0.5s ease-out;
+}
+
+#allCertificatesLink:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 140, 70, 0.4),
+        rgba(255, 100, 20, 0.4)
+    );
+    border-color: rgba(125, 125, 255, 0.7);
+}
+
+#allCertificatesLink:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .year-container {
     margin-bottom: 50px;
     padding: 20px 5vw;

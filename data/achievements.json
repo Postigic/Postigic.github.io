@@ -1,6 +1,21 @@
 {
     "2025": [
         {
+            "name": "NYP Open House 2025 AI Taster Workshop Participation Certificate",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
+            "name": "NYP Open House 2025 Cybersecurity Taster Workshop Participation Certificate",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
+            "name": "NYP Open House 2025 Software Development Taster Workshop Participation Certificate",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
             "name": "NUS Geography Challenge Participation Certificate",
             "category": "Competition",
             "type": "Participation"
