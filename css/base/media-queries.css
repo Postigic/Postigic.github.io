@@ -37,22 +37,8 @@
 
 /* Small devices (phones) */
 @media screen and (max-width: 700px) {
-    nav .navbar {
-        height: 65px;
-    }
-
-    nav .navbar .nav-links {
-        margin: 0;
-        flex-grow: 0;
-    }
-
     nav .navbar .nav-links li .nav-link {
-        margin-right: 20px;
         font-size: clamp(14px, 4vw, 18px);
-    }
-
-    nav .navbar .nav-links li:last-child .nav-link {
-        margin-right: 0;
     }
 
     .about {

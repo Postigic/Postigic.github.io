@@ -12,7 +12,7 @@
 :root {
     --primary-color: #ff8200;
     --background-color: #0f0f0f;
-    --item-background-color: #141414;
+    --item-background-color: rgba(30, 30, 45, 0.5);
     --accent-color: #27272a;
     --title-text-color: #fff;
     --text-color: #ccc;

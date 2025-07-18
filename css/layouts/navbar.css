@@ -22,9 +22,10 @@ nav .navbar {
 
 nav .navbar .nav-links {
     display: flex;
-    flex-grow: 1;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    gap: 10px 20px;
+    padding: 0;
 }
 
 /* nav .navbar .social-links {
@@ -40,7 +41,7 @@ nav .navbar .nav-links li .nav-link {
     color: var(--title-text-color);
     font-size: 19px;
     font-weight: 500;
-    margin-right: 30px;
+    white-space: nowrap;
     transition: color 0.3s ease;
     position: relative;
 }
