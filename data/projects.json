@@ -110,6 +110,17 @@
         "name": "Polyrhythm Simulator"
     },
     {
+        "description": "some kinda full-stack product store thing",
+        "image": "product_store.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/product_store",
+        "name": "Product Store"
+    },
+    {
         "description": "what if funky town started playing",
         "image": "rotating_ascii_donut.png",
         "languages": [
