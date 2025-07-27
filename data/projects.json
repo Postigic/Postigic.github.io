@@ -275,6 +275,15 @@
         "name": "Lin System Solver"
     },
     {
+        "description": "this is the theory of EVERYTHING!!! (those who know)",
+        "image": null,
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/number_theory",
+        "name": "Number Theory"
+    },
+    {
         "description": "hrrnngggg ascii rabbit hole animation har har",
         "image": "rabbit_hole_ascii.jpg",
         "languages": [
