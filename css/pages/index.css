@@ -122,7 +122,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 50px;
-    max-width: 70em;
+    max-width: 77em;
     position: relative;
     transition: all 0.3s ease;
     align-items: center;
@@ -513,8 +513,8 @@
     align-items: center;
     gap: 80px;
     border-radius: 24px;
-    padding: 20px 80px;
-    max-width: 70em;
+    padding: 2em 3em;
+    max-width: 77em;
     position: relative;
     transition: all 0.3s ease;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
