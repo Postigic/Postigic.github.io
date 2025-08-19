@@ -74,7 +74,7 @@ function loadSocials() {
     fetch("data/socials.json")
         .then((response) => response.json())
         .then((data) => {
-            const container = document.getElementById("contact-grid");
+            const container = document.getElementById("socials-grid");
             const socialsHTML = data
                 .map(
                     ({ url, label, icon, color }) => `
@@ -91,7 +91,7 @@ function loadSocials() {
                 .join("");
             container.innerHTML = socialsHTML;
 
-            observeElements({ elements: document.querySelector(".contacts") });
+            observeElements({ elements: document.querySelector(".socials") });
             // stuffing this in here fixes a bug so whatever
         })
         .catch((error) => console.error("Error loading socials:", error));

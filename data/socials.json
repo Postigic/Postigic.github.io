@@ -16,5 +16,23 @@
         "icon": "bx bxl-youtube",
         "label": "YouTube",
         "color": "#ff0000"
+    },
+    {
+        "url": "https://leetcode.com/u/postigic/",
+        "icon": "bxl bx-leetcode",
+        "label": "LeetCode",
+        "color": "#f79f1b"
+    },
+    {
+        "url": "https://www.instagram.com/postigic/",
+        "icon": "bx bxl-instagram",
+        "label": "Instagram",
+        "color": "#c13584"
+    },
+    {
+        "url": "https://x.com/postigic",
+        "icon": "bxl bx-twitter-x",
+        "label": "X",
+        "color": "#000"
     }
 ]
