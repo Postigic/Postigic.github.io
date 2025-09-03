@@ -441,7 +441,7 @@
 }
 
 .project-preview-card p {
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     line-height: 1.4;
     color: var(--text-color);
 }
