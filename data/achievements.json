@@ -49,6 +49,21 @@
             "name": "Most Grateful Award",
             "category": "Miscellaneous",
             "type": "Award"
+        },
+        {
+            "name": "ICTXplore Participation Certificate",
+            "category": "Workshop",
+            "type": "Participation"
+        },
+        {
+            "name": "Singapore Junior Chemistry Olympiad (SJChO) Bronze Award",
+            "category": "Olympiad",
+            "type": "Award"
+        },
+        {
+            "name": "Singapore Junior Physics Olympiad (SJPO) Merit Award",
+            "category": "Olympiad",
+            "type": "Award"
         }
     ],
     "2024": [
