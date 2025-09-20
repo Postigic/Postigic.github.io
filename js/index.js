@@ -38,37 +38,37 @@
     typeEffect();
 } // i don't even know... whatever i give up it just works okay
 
-function updateTime() {
-    const timeElement = document.getElementById("current-time");
+// function updateTime() {
+//     const timeElement = document.getElementById("current-time");
 
-    if (timeElement) {
-        const currentTime = new Date().toLocaleTimeString([], {
-            timeZone: "Asia/Singapore",
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-        });
-        timeElement.innerHTML = `<i class="bx bxs-time-five"></i> ${currentTime}`;
-    }
-}
+//     if (timeElement) {
+//         const currentTime = new Date().toLocaleTimeString([], {
+//             timeZone: "Asia/Singapore",
+//             hour: "2-digit",
+//             minute: "2-digit",
+//             hour12: false,
+//         });
+//         timeElement.innerHTML = `<i class="bx bxs-time-five"></i> ${currentTime}`;
+//     }
+// }
 
-function calculateAge() {
-    const birthday = new Date("2009-07-20"); // do you guys like my birthday :)
-    const today = new Date();
-    let age = today.getFullYear() - birthday.getFullYear();
-    const monthDiff = today.getMonth() - birthday.getMonth();
+// function calculateAge() {
+//     const birthday = new Date("2009-07-20"); // do you guys like my birthday :)
+//     const today = new Date();
+//     let age = today.getFullYear() - birthday.getFullYear();
+//     const monthDiff = today.getMonth() - birthday.getMonth();
 
-    if (
-        monthDiff < 0 ||
-        (monthDiff === 0 && today.getDate() < birthday.getDate())
-    ) {
-        age--;
-    }
+//     if (
+//         monthDiff < 0 ||
+//         (monthDiff === 0 && today.getDate() < birthday.getDate())
+//     ) {
+//         age--;
+//     }
 
-    document
-        .querySelectorAll(".age")
-        .forEach((el) => (el.textContent = `${age} years old`));
-}
+//     document
+//         .querySelectorAll(".age")
+//         .forEach((el) => (el.textContent = `${age} years old`));
+// }
 
 function loadSocials() {
     fetch("data/socials.json")
@@ -218,9 +218,9 @@ function loadProjectsPreview() {
         );
 }
 
-setInterval(updateTime, 1000);
-updateTime();
-calculateAge();
+// setInterval(updateTime, 1000);
+// updateTime();
+// calculateAge();
 loadSocials();
 loadSkillsPreview();
 loadAchievementsPreview();
