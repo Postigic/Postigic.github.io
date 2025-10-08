@@ -46,6 +46,15 @@ README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\
 def get_local_image_path(repo_path: str, ext: str) -> Path:
     return ASSETS_DIR / (Path(repo_path).name + ext)
 
+def upper_all_keywords(title: str) -> str:
+    replacements = {
+        "Ascii": "ASCII",
+    } # will add more on demand
+
+    for wrong, right in replacements.items():
+        title = title.replace(wrong, right)
+    return title
+
 def get_projects_from_github(repo: str, base_dirs: list) -> list:
     projects = []
 
@@ -59,7 +68,7 @@ def get_projects_from_github(repo: str, base_dirs: list) -> list:
                     full_path = f"{base_dir}/{item['name']}"
                     projects.append({
                         "path": full_path,
-                        "name": format_repo_name(item["name"]),
+                        "name": upper_all_keywords(format_repo_name(item["name"])),
                         "languages": detect_languages(repo, full_path)
                     })
     
@@ -160,7 +169,7 @@ def generate_projects_json():
             projects = [
                 {
                     "path": "",
-                    "name": format_repo_name(repo["repo"].split("/")[-1]),
+                    "name": upper_all_keywords(format_repo_name(repo["repo"].split("/")[-1])),
                     "languages": detect_languages(repo["repo"], "")
                 }
             ]

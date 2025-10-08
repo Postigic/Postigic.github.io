@@ -1,7 +1,7 @@
 # the thing using this code was scrapped, but i'm keeping it here because i already
 # adapted my existing code to work with it and i don't feel like undoing all that
 # cause i'm lazy lol (or well it could be useful for reference but that's an excuse)
-#
+
 # import json
 # from pathlib import Path
 # from collections import defaultdict
