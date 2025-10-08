@@ -338,6 +338,15 @@
         "name": "Terrible Calculator"
     },
     {
+        "description": "converts a video into an ascii video",
+        "image": "video_to_ascii.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/video_to_ascii",
+        "name": "Video To ASCII"
+    },
+    {
         "description": "hrrrggg grrr turned song into little funny program that sync lyric and audio and then funny yippee visuals!!!",
         "image": "world_execute_me.jpg",
         "languages": [
@@ -345,6 +354,15 @@
         ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world_execute_me",
         "name": "World Execute Me"
+    },
+    {
+        "description": "because it's unnecessarily annoying to use those websites to do so",
+        "image": "youtube_video_downloader.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/youtube_video_downloader",
+        "name": "Youtube Video Downloader"
     },
     {
         "description": "it's exactly the same as the python one but in js",

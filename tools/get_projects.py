@@ -49,6 +49,7 @@ def get_local_image_path(repo_path: str, ext: str) -> Path:
 def upper_all_keywords(title: str) -> str:
     replacements = {
         "Ascii": "ASCII",
+        "Youtube": "YouTube",
     } # will add more on demand
 
     for wrong, right in replacements.items():
