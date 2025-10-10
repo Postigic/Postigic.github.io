@@ -52,13 +52,6 @@
     ],
     "🛠️ Tools": [
         {
-            "name": "VSCode",
-            "icon": "devicon-vscode-plain",
-            "color": "#0480c8",
-            "documentation": "https://code.visualstudio.com/docs",
-            "description": "you can't spell outside without IDE.... (i know it's not even an IDE but shh...)"
-        },
-        {
             "name": "Git",
             "icon": "devicon-git-plain",
             "color": "#F05032",
@@ -117,25 +110,11 @@
     ],
     "📦 Misc": [
         {
-            "name": "JSON",
-            "icon": "devicon-json-plain",
-            "color": "#4caf50",
-            "documentation": "https://www.json.org/json-en.html",
-            "description": "i dynamically loaded this using a JSON, is this JSON-ception?"
-        },
-        {
             "name": "Markdown",
             "icon": "devicon-markdown-plain",
             "color": "#007acc",
             "documentation": "https://www.markdownguide.org/basic-syntax/",
             "description": "if html and css had a baby, it would be markdown... i think"
-        },
-        {
-            "name": "YAML",
-            "icon": "devicon-yaml-plain",
-            "color": "#cb171e",
-            "documentation": "https://yaml.org/spec/1.2.2/",
-            "description": "whitespace.... whitespace... it's all... whitespace..."
         },
         {
             "name": "Batchfile",
