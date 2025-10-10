@@ -3,7 +3,7 @@ function observeElements({
     childSelector = ".animate-target",
     desktopThreshold = 0.9,
     mobileThreshold = 0.4,
-    baseDelay = 150,
+    baseDelay = 100,
     onVisibleClass = "visible",
 }) {
     if (!elements) return;

@@ -93,11 +93,11 @@
 }
 /* i don't know why i have slideUp and fadeUp okay just don't question it anymore (this is a mess) */
 
-@keyframes scanlines {
+@keyframes fadeIn {
     from {
-        background-position: 0 0;
+        opacity: 0;
     }
     to {
-        background-position: 0 4px;
+        opacity: 1;
     }
 }

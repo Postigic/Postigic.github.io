@@ -1,14 +1,14 @@
 .page-intro {
     text-align: center;
-    animation: slideUp 0.5s ease-out;
+    animation: fadeIn 0.35s ease-out;
 }
 
 .page-intro .intro-img {
     margin-top: 5em;
-    width: clamp(300px, 30vw, 500px);
+    width: clamp(300px, 30vw, 400px);
     height: auto;
     min-height: 300px;
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     /* border: 3px solid transparent;
     background: linear-gradient(

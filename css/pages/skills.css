@@ -10,7 +10,7 @@
 .skill-category {
     border: 1px solid var(--accent-color);
     padding: 20px 80px;
-    border-radius: 24px;
+    border-radius: 12px;
     text-align: center;
     width: 100%;
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;

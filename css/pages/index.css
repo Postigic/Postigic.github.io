@@ -22,7 +22,7 @@
     text-align: center;
     background: rgba(30, 30, 45, 0.5);
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 0px 0px 20px 4px rgba(255, 170, 0, 0.8),
         0px 0px 30px 6px rgba(255, 170, 0, 0.6),
         0px 0px 40px 8px rgba(255, 170, 0, 0.4),
@@ -39,7 +39,7 @@
 .hero-content > * {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 0.6s forwards;
+    animation: fadeUp 0.35s forwards;
 }
 
 .hero-content h1 {
@@ -184,7 +184,7 @@
 .about .info .bio-text {
     background: var(--background-color);
     border: 1px solid var(--accent-color);
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 2em 3em;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -237,7 +237,7 @@
     content: "- ";
 }
 
-.minor-info {
+/* .minor-info {
     display: grid;
     background: var(--background-color);
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -263,7 +263,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 /* .minor-info {
     display: flex;
@@ -320,7 +320,7 @@
     margin: 0 auto;
     padding: 2em 3em;
     border: 1px solid var(--accent-color);
-    border-radius: 24px;
+    border-radius: 12px;
     font-size: clamp(1rem, 2vw, 1.1rem);
     background: var(--background-color);
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
@@ -351,7 +351,7 @@
     background: var(--item-background-color);
     border: 1px solid var(--accent-color);
     padding: 1.2em 1.5em;
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--text-color);
     text-align: center;
     min-width: 200px;
@@ -376,7 +376,7 @@
 .achievement-preview-card {
     background: var(--item-background-color);
     border: 1px solid var(--accent-color);
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 1.2em 1.5em;
     color: var(--text-color);
     position: relative;
@@ -401,7 +401,7 @@
 .project-preview-card {
     background: var(--item-background-color);
     border: 1px solid var(--accent-color);
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 1.5em 1.8em;
     color: var(--text-color);
     position: relative;
@@ -437,7 +437,7 @@
 .project-preview-card h3::after {
     content: "";
     position: absolute;
-    bottom: 7px;
+    bottom: 6px;
     left: 0;
     width: 0;
     height: 2px;
@@ -533,7 +533,7 @@
     text-align: center;
     align-items: center;
     gap: 80px;
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 2em 3em;
     max-width: 77em;
     position: relative;
@@ -559,7 +559,7 @@
     color: white;
     margin-bottom: 20px;
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 12px;
     width: 100%;
     max-width: 150px;
     text-align: center;
