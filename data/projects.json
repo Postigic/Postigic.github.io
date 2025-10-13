@@ -275,6 +275,15 @@
         "name": "Lin System Solver"
     },
     {
+        "description": "converts a video or image into ascii",
+        "image": "media_to_ascii.png",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/media_to_ascii",
+        "name": "Media To ASCII"
+    },
+    {
         "description": "this is the theory of EVERYTHING!!! (those who know)",
         "image": null,
         "languages": [
@@ -336,15 +345,6 @@
         ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terrible_calculator",
         "name": "Terrible Calculator"
-    },
-    {
-        "description": "converts a video into an ascii video",
-        "image": "video_to_ascii.png",
-        "languages": [
-            "Python"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/video_to_ascii",
-        "name": "Video To ASCII"
     },
     {
         "description": "hrrrggg grrr turned song into little funny program that sync lyric and audio and then funny yippee visuals!!!",
