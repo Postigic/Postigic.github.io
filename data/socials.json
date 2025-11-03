@@ -27,12 +27,12 @@
         "url": "https://www.instagram.com/postigic/",
         "icon": "bx bxl-instagram",
         "label": "Instagram",
-        "color": "#c13584"
+        "color": "#e1306c"
     },
     {
         "url": "https://x.com/postigic",
         "icon": "bxl bx-twitter-x",
         "label": "X",
-        "color": "#000"
+        "color": "#fff"
     }
 ]

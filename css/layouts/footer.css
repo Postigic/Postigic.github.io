@@ -60,7 +60,7 @@ footer .cols .social-col .social-link {
 }
 
 footer .cols .social-col .social-link:hover {
-    color: var(--primary-color);
+    color: var(--hover-color);
     rotate: -15deg;
     scale: 1.5;
 }

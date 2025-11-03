@@ -1,3 +1,7 @@
+fetch("data/skills.json")
+    .then((response) => response.json())
+    .then((data) => generateSkills(data));
+
 {
     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
     const typewriterElement = document.getElementById("typewriter");
@@ -70,69 +74,87 @@
 //         .forEach((el) => (el.textContent = `${age} years old`));
 // }
 
-function loadSocials() {
-    fetch("data/socials.json")
-        .then((response) => response.json())
-        .then((data) => {
-            const container = document.getElementById("socials-grid");
-            const socialsHTML = data
-                .map(
-                    ({ url, label, icon, color }) => `
-                        <a class="social-card animate-target" href="${url}" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="${label}"
-                            style="background-color: ${color};">
-                            <i class="${icon}"></i>
-                            <span>${label}</span>
-                        </a>
-                `
-                )
-                .join("");
-            container.innerHTML = socialsHTML;
+// function loadSocials() {
+//     fetch("data/socials.json")
+//         .then((response) => response.json())
+//         .then((data) => {
+//             const container = document.getElementById("socials-grid");
+//             const socialsHTML = data
+//                 .map(
+//                     ({ url, label, icon, color }) => `
+//                         <a class="social-card animate-target" href="${url}"
+//                             target="_blank"
+//                             rel="noopener noreferrer"
+//                             aria-label="${label}"
+//                             style="background-color: ${color};">
+//                             <i class="${icon}"></i>
+//                             <span>${label}</span>
+//                         </a>
+//                 `
+//                 )
+//                 .join("");
+//             container.innerHTML = socialsHTML;
 
-            observeElements({ elements: document.querySelector(".socials") });
-            // stuffing this in here fixes a bug so whatever
-        })
-        .catch((error) => console.error("Error loading socials:", error));
-}
+//             observeElements({ elements: document.querySelector(".socials") });
+//             // stuffing this in here fixes a bug so whatever
+//         })
+//         .catch((error) => console.error("Error loading socials:", error));
+// }
 
-// there is probably a better way to do this preview thing but honestly i don't care lol
-function loadSkillsPreview() {
-    fetch("data/skills.json")
-        .then((res) => res.json())
-        .then((data) => {
-            const container = document.getElementById(
-                "skills-preview-container"
-            );
-            const selectedSkills = ["Python", "JavaScript", "HTML5", "CSS3"];
+function generateSkills(data) {
+    const skillsSection = document.querySelector(".skills");
 
-            container.innerHTML = "";
+    skillsSection.innerHTML = "";
 
-            const allSkills = Object.values(data).flat();
-            const skillsToShow = allSkills.filter((skill) =>
-                selectedSkills.includes(skill.name)
-            );
+    for (const category in data) {
+        const skillCategory = document.createElement("div");
+        skillCategory.classList.add("skill-category", "animate-target");
 
-            skillsToShow.forEach((skill) => {
-                const skillDiv = document.createElement("div");
-                skillDiv.className = "skill-preview-item animate-target";
+        skillCategory.innerHTML = `<h2>${category}</h2>`;
+        const skillsContainer = document.createElement("div");
+        skillsContainer.classList.add("skills-container");
 
-                skillDiv.innerHTML = `
-                    <i class="${skill.icon}" style="color: ${skill.color}; font-size: 2rem; margin-bottom: 0.2em;"></i>
-                    <p>${skill.name}</p>
-                `;
-
-                container.appendChild(skillDiv);
-            });
-
-            observeElements({
-                elements: document.querySelector(".skills-preview"),
-            });
-        })
-        .catch((error) =>
-            console.error("Error loading skills preview:", error)
+        const sortedSkills = data[category].sort((a, b) =>
+            a.name.localeCompare(b.name)
         );
+
+        sortedSkills.forEach((skill) => {
+            const skillItem = document.createElement("div");
+            skillItem.classList.add("skill-item", "animate-target");
+
+            skillItem.innerHTML = `
+                <div class="icon">
+                    <i class="${skill.icon}" style="color: ${skill.color}"></i>
+                </div>
+                <p>${skill.name}</p>
+                <div class="chevron-hint"><i class='bx bx-chevron-down'></i></div>
+                <div class="info">
+                    <p>${skill.description}</p>
+                </div>
+                <a href="${skill.documentation}" target="_blank" class="documentation-button">Documentation</a>
+            `;
+
+            skillItem
+                .querySelector(".documentation-button")
+                .addEventListener("click", (e) => {
+                    e.stopPropagation();
+                });
+
+            skillItem.addEventListener("click", function () {
+                this.classList.toggle("open");
+            });
+
+            skillsContainer.appendChild(skillItem);
+        });
+
+        skillCategory.appendChild(skillsContainer);
+        skillsSection.appendChild(skillCategory);
+    }
+
+    observeElements({
+        elements: document.querySelector(".skills-section"),
+        desktopThreshold: 0.5,
+    });
 }
 
 function loadAchievementsPreview() {
@@ -221,8 +243,7 @@ function loadProjectsPreview() {
 // setInterval(updateTime, 1000);
 // updateTime();
 // calculateAge();
-loadSocials();
-loadSkillsPreview();
+// loadSocials();
 loadAchievementsPreview();
 loadProjectsPreview();
 observeElements({ elements: document.querySelector(".about") });

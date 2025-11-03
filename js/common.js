@@ -53,12 +53,13 @@ function loadSocials(container) {
         .then((data) => {
             const socialsHTML = data
                 .map(
-                    ({ url, label, icon }) => `
+                    ({ url, label, icon, color }) => `
                     <li>
                         <a class="social-link" href="${url}" 
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="${label}">
+                            aria-label="${label}"
+                            style="--hover-color: ${color};">
                             <i class="${icon}"></i>
                         </a>
                     </li>
@@ -92,7 +93,7 @@ function loadFooter() {
         .then((data) => {
             const container = document.getElementById("footer");
             container.innerHTML = data;
-            // loadSocials(container);
+            loadSocials(container);
             document.querySelector(
                 ".footer-text"
             ).innerHTML += `&copy;${new Date().getFullYear()}`;
