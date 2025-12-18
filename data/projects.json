@@ -78,7 +78,7 @@
     },
     {
         "description": "interest compounds... compounding... i dunno",
-        "image": "interest_calculator.png",
+        "image": null,
         "languages": [
             "CSS3",
             "HTML5",
@@ -295,9 +295,7 @@
     {
         "description": "hrrnngggg ascii rabbit hole animation har har",
         "image": "rabbit_hole_ascii.jpg",
-        "languages": [
-            "Python"
-        ],
+        "languages": [],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/rabbit_hole_ascii",
         "name": "Rabbit Hole ASCII"
     },
@@ -389,15 +387,6 @@
             "C"
         ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
-        "name": "Terminal Games"
-    },
-    {
-        "description": "simple terminal games, but in C++ (so cool)",
-        "image": null,
-        "languages": [
-            "C++"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C++/terminal_games",
         "name": "Terminal Games"
     },
     {
