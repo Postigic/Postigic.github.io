@@ -32,7 +32,7 @@ function populateLanguageFilter(projects, skills) {
     const languages = new Set();
 
     const languageData = {};
-    skills["📚 Languages"].forEach((lang) => {
+    skills["Languages"].forEach((lang) => {
         languageData[lang.name] = lang;
     });
 
@@ -121,7 +121,7 @@ function generateProjects(data, skills, selectedLanguages = []) {
                 ${
                     project.languages
                         ?.map((languageName) => {
-                            const language = skills["📚 Languages"].find(
+                            const language = skills["Languages"].find(
                                 (skill) => skill.name === languageName
                             );
                             if (language) {

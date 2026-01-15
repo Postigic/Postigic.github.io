@@ -1,5 +1,5 @@
 {
-    "📚 Languages": [
+    "Languages": [
         {
             "name": "JavaScript",
             "icon": "devicon-javascript-plain",
@@ -50,7 +50,7 @@
             "description": "you call it the roblox scripting language, i call it the 1-indexed language, we are NOT the same...."
         }
     ],
-    "🛠️ Tools": [
+    "Tools": [
         {
             "name": "Git",
             "icon": "devicon-git-plain",
@@ -108,7 +108,7 @@
             "description": "yeah i can draw... what do i draw? graphs! and what do i draw graphs with? matplotlib! um, i think i was trying to be funny here but i forgot"
         }
     ],
-    "📦 Misc": [
+    "Misc": [
         {
             "name": "Markdown",
             "icon": "devicon-markdown-plain",

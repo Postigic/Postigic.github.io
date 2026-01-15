@@ -61,13 +61,11 @@ footer .cols .social-col .social-link {
 
 footer .cols .social-col .social-link:hover {
     color: var(--hover-color);
-    rotate: -15deg;
-    scale: 1.5;
+    transform: translateY(-2px);
 }
 
 footer .cols .social-col .social-link:active {
-    rotate: 0deg;
-    scale: 0.95;
+    transform: translateY(2px);
 }
 
 footer .footer-separator {

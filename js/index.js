@@ -2,45 +2,45 @@ fetch("data/skills.json")
     .then((response) => response.json())
     .then((data) => generateSkills(data));
 
-{
-    const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
-    const typewriterElement = document.getElementById("typewriter");
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
+// {
+//     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
+//     const typewriterElement = document.getElementById("typewriter");
+//     let wordIndex = 0;
+//     let charIndex = 0;
+//     let isDeleting = false;
+//     let typingSpeed = 100;
 
-    function typeEffect() {
-        const currentWord = words[wordIndex];
+//     function typeEffect() {
+//         const currentWord = words[wordIndex];
 
-        if (!isDeleting) {
-            typewriterElement.textContent = currentWord.substring(
-                0,
-                charIndex + 1
-            );
-            charIndex++;
-            if (charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 2500);
-                return;
-            }
-        } else {
-            typewriterElement.textContent = currentWord.substring(
-                0,
-                charIndex - 1
-            );
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-            }
-        }
+//         if (!isDeleting) {
+//             typewriterElement.textContent = currentWord.substring(
+//                 0,
+//                 charIndex + 1
+//             );
+//             charIndex++;
+//             if (charIndex === currentWord.length) {
+//                 isDeleting = true;
+//                 setTimeout(typeEffect, 2500);
+//                 return;
+//             }
+//         } else {
+//             typewriterElement.textContent = currentWord.substring(
+//                 0,
+//                 charIndex - 1
+//             );
+//             charIndex--;
+//             if (charIndex === 0) {
+//                 isDeleting = false;
+//                 wordIndex = (wordIndex + 1) % words.length;
+//             }
+//         }
 
-        setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
-    }
+//         setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
+//     }
 
-    typeEffect();
-} // i don't even know... whatever i give up it just works okay
+//     typeEffect();
+// } // i don't even know... whatever i give up it just works okay
 
 // function updateTime() {
 //     const timeElement = document.getElementById("current-time");
@@ -122,27 +122,34 @@ function generateSkills(data) {
             const skillItem = document.createElement("div");
             skillItem.classList.add("skill-item", "animate-target");
 
+            // skillItem.innerHTML = `
+            //     <div class="icon">
+            //         <i class="${skill.icon}" style="color: ${skill.color}"></i>
+            //     </div>
+            //     <p>${skill.name}</p>
+            //     <div class="chevron-hint"><i class='bx bx-chevron-down'></i></div>
+            //     <div class="info">
+            //         <p>${skill.description}</p>
+            //     </div>
+            //     <a href="${skill.documentation}" target="_blank" class="documentation-button">Documentation</a>
+            // `;
+
             skillItem.innerHTML = `
                 <div class="icon">
                     <i class="${skill.icon}" style="color: ${skill.color}"></i>
                 </div>
                 <p>${skill.name}</p>
-                <div class="chevron-hint"><i class='bx bx-chevron-down'></i></div>
-                <div class="info">
-                    <p>${skill.description}</p>
-                </div>
-                <a href="${skill.documentation}" target="_blank" class="documentation-button">Documentation</a>
             `;
 
-            skillItem
-                .querySelector(".documentation-button")
-                .addEventListener("click", (e) => {
-                    e.stopPropagation();
-                });
+            // skillItem
+            //     .querySelector(".documentation-button")
+            //     .addEventListener("click", (e) => {
+            //         e.stopPropagation();
+            //     });
 
-            skillItem.addEventListener("click", function () {
-                this.classList.toggle("open");
-            });
+            // skillItem.addEventListener("click", function () {
+            //     this.classList.toggle("open");
+            // });
 
             skillsContainer.appendChild(skillItem);
         });
@@ -167,7 +174,10 @@ function loadAchievementsPreview() {
             const selectedAchievements = [
                 "Edusave Scholarship",
                 "Edusave Award for Achievement, Good Leadership and Service (EAGLES)",
+                "Design Thinking with Robotics and Computational Thinking (DrCT) Gold Award",
                 "UK Bebras Challenge Gold Award",
+                "Singapore Junior Chemistry Olympiad (SJChO) Bronze Award",
+                "Singapore Junior Physics Olympiad (SJPO) Honourable Mention Award",
             ];
 
             container.innerHTML = "";
@@ -243,7 +253,7 @@ function loadProjectsPreview() {
 // setInterval(updateTime, 1000);
 // updateTime();
 // calculateAge();
-// loadSocials();
+loadSocials(document.getElementById("hero"));
 loadAchievementsPreview();
 loadProjectsPreview();
 observeElements({ elements: document.querySelector(".about") });
