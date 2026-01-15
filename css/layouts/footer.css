@@ -19,7 +19,7 @@ footer .cols .about-col {
 footer .cols .about-col img {
     width: 70px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 5px solid var(--accent-color);
 }
 
@@ -29,11 +29,11 @@ footer .cols .about-col h3 {
     margin-bottom: 5px;
 }
 
-footer .cols .about-col p {
+/* footer .cols .about-col p {
     color: var(--text-color);
     font-size: 13px;
     margin-bottom: 10px;
-}
+} */
 
 footer .cols .spacer {
     flex: 1;
@@ -91,6 +91,6 @@ footer .footer-bottom .footer-text {
     color: var(--text-color);
 }
 
-footer .footer-bottom .footer-text strike {
+/* footer .footer-bottom .footer-text strike {
     color: #313131;
-}
+} */

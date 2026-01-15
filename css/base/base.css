@@ -29,7 +29,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--primary-color), var(--accent-color));
+    background: var(--accent-color);
     border-radius: 5px;
 }
 

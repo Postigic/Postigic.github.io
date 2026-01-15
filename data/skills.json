@@ -52,13 +52,6 @@
     ],
     "Tools": [
         {
-            "name": "Git",
-            "icon": "devicon-git-plain",
-            "color": "#F05032",
-            "documentation": "https://git-scm.com/doc",
-            "description": "git commit -m 'i have no idea what i'm doing'"
-        },
-        {
             "name": "GitHub",
             "icon": "devicon-github-plain",
             "color": "#ffffff",
@@ -66,25 +59,11 @@
             "description": "i'm not sure what i'd do without GitHub... probably have a lot of unorganised code"
         },
         {
-            "name": "Jupyter Notebook",
-            "icon": "devicon-jupyter-plain-wordmark",
-            "color": "#DA5B0B",
-            "documentation": "https://jupyter.org/",
-            "description": "i don't... what do you want me to say for this?"
-        },
-        {
             "name": "SQLite",
             "icon": "devicon-sqlite-plain",
             "color": "#003B57",
             "documentation": "https://www.sqlite.org/docs.html",
             "description": "it's SQL but with a lite twist... ba dum tss...? no? okay, i'll see myself out"
-        },
-        {
-            "name": "GitHub Actions",
-            "icon": "devicon-githubactions-plain",
-            "color": "#2088FF",
-            "documentation": "https://docs.github.com/en/actions",
-            "description": "do more work to be lazy... wait, that doesn't sound right..."
         },
         {
             "name": "NumPy",
@@ -106,22 +85,6 @@
             "color": "#11557c",
             "documentation": "https://matplotlib.org/stable/contents.html",
             "description": "yeah i can draw... what do i draw? graphs! and what do i draw graphs with? matplotlib! um, i think i was trying to be funny here but i forgot"
-        }
-    ],
-    "Misc": [
-        {
-            "name": "Markdown",
-            "icon": "devicon-markdown-plain",
-            "color": "#007acc",
-            "documentation": "https://www.markdownguide.org/basic-syntax/",
-            "description": "if html and css had a baby, it would be markdown... i think"
-        },
-        {
-            "name": "Batchfile",
-            "icon": "devicon-windows8-original",
-            "color": "#4d4d4d",
-            "documentation": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands",
-            "description": "yes... i wrote a .bat file... does that make me a real programmer now?"
         }
     ]
 }
