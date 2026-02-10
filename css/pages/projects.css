@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
     gap: 5em;
+    align-items: start;
 }
 
 .project {
@@ -19,6 +20,7 @@
     gap: 15px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     background: var(--background-color);
+    height: 100%;
 }
 
 .project::before {
@@ -57,9 +59,6 @@
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--title-text-color);
     position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     transition: all 0.3s ease;
 }
 
@@ -87,9 +86,6 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     text-align: center;
     color: var(--text-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 100%;
 }
 
@@ -103,19 +99,7 @@
     border-radius: 12px;
     transition: all 0.3s ease;
     margin: 15px;
-    /* border: 3px solid transparent;
-    background: linear-gradient(
-            45deg,
-            var(--primary-color),
-            var(--accent-color)
-        )
-        border-box; */
 }
-
-/* .project img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255, 130, 0, 0.3);
-} */
 
 .languages {
     display: flex;
