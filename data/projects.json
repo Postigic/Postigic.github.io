@@ -275,7 +275,7 @@
         "name": "Lin System Solver"
     },
     {
-        "description": "converts a video or image into ascii",
+        "description": "Converts videos and images into ASCII art.",
         "image": "media_to_ascii.png",
         "languages": [
             "Python"
