@@ -9,7 +9,7 @@ function initAchievementsPage() {
             populateAchievementsFilter(achievementsData);
         })
         .catch((error) =>
-            console.error("Error fetching achievements data:", error)
+            console.error("Error fetching achievements data:", error),
         );
 }
 
@@ -51,7 +51,7 @@ function generateAchievements(data) {
             const categoryTag = document.createElement("span");
             categoryTag.classList.add(
                 "achievement-tag",
-                "achievement-category"
+                "achievement-category",
             );
             categoryTag.textContent = achievement.category;
 
@@ -120,6 +120,7 @@ function populateAchievementsFilter(achievements) {
             button.value = value;
             button.id = `filter-${prefix}-${value}`;
 
+            // why did i do this??? not that it needs to be fixed but why???
             const icon = document.createElement("i");
             icon.className = "bx " + (iconMap[value] || "bx-category");
             button.appendChild(icon);
@@ -147,7 +148,7 @@ function handleClick(event) {
         button.classList.toggle("active");
 
         const selectedButtons = document.querySelectorAll(
-            "#buttonContainer .filter-button.active"
+            "#buttonContainer .filter-button.active",
         );
         const selectedCategories = [];
         const selectedTypes = [];
@@ -171,12 +172,12 @@ function handleClick(event) {
                             return (
                                 (selectedCategories.length === 0 ||
                                     selectedCategories.includes(
-                                        achievement.category
+                                        achievement.category,
                                     )) &&
                                 (selectedTypes.length === 0 ||
                                     selectedTypes.includes(achievement.type))
                             );
-                        }
+                        },
                     );
 
                     if (filteredAchievements.length > 0) {

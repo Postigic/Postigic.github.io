@@ -1,0 +1,158 @@
+{
+    "Bouncy Ball Simulator": {
+        "category": "Simulation",
+        "featured": false
+    },
+    "Calculator": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Chart Generator": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Coin Flipper": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Data Unit Converter": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Datetime Clock": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Dice Roller": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Interest Calculator": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Password Generator": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Polyrhythm Simulator": {
+        "category": "Simulation",
+        "featured": true
+    },
+    "Product Store": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Rotating ASCII Donut": {
+        "category": "Visualiser",
+        "featured": false
+    },
+    "Solar System": {
+        "category": "Simulation",
+        "featured": false
+    },
+    "Tic Tac Toe": {
+        "category": "Game",
+        "featured": false
+    },
+    "Trig Wave Generator": {
+        "category": "Visualiser",
+        "featured": false
+    },
+    "Wikipedia Searcher": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Algorithms": {
+        "category": "Algorithm",
+        "featured": false
+    },
+    "Analog Clock": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Benfords Law": {
+        "category": "Visualiser",
+        "featured": false
+    },
+    "Check Digits": {
+        "category": "Algorithm",
+        "featured": false
+    },
+    "Ciphers": {
+        "category": "Algorithm",
+        "featured": false
+    },
+    "Circular Pong": {
+        "category": "Game",
+        "featured": true
+    },
+    "Core Game": {
+        "category": "Game",
+        "featured": false
+    },
+    "Data Analysis": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Defusal Automation": {
+        "category": "Tool",
+        "featured": true
+    },
+    "Directory Structure Fetcher": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Lin System Solver": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Media To ASCII": {
+        "category": "Tool",
+        "featured": true
+    },
+    "Number Theory": {
+        "category": "Algorithm",
+        "featured": false
+    },
+    "Rabbit Hole ASCII": {
+        "category": "Visualiser",
+        "featured": false
+    },
+    "Snake Game": {
+        "category": "Game",
+        "featured": false
+    },
+    "Song And Lyrics Player": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Student Management System": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Terminal Games": {
+        "category": "Game",
+        "featured": false
+    },
+    "Terrible Calculator": {
+        "category": "Tool",
+        "featured": false
+    },
+    "World Execute Me": {
+        "category": "Visualiser",
+        "featured": false
+    },
+    "YouTube Video Downloader": {
+        "category": "Tool",
+        "featured": false
+    },
+    "Processor": {
+        "category": "Bot",
+        "featured": false
+    },
+    "Olympiad Training Sols": {
+        "category": "Competitive",
+        "featured": false
+    }
+}

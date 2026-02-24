@@ -7,10 +7,10 @@ function initProjectsPage() {
     ])
         .then(([projectsData, skillsData]) => {
             generateProjects(projectsData, skillsData);
-            populateLanguageFilter(projectsData, skillsData);
+            populateProjectsFilter(projectsData, skillsData);
         })
         .catch((error) =>
-            console.error("Error fetching projects or skills data:", error)
+            console.error("Error fetching projects or skills data:", error),
         );
 }
 function darkenColor(hex, amount) {
@@ -27,7 +27,7 @@ function darkenColor(hex, amount) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-function populateLanguageFilter(projects, skills) {
+function populateProjectsFilter(projects, skills) {
     const buttonContainer = document.getElementById("buttonContainer");
     const languages = new Set();
 
@@ -35,6 +35,22 @@ function populateLanguageFilter(projects, skills) {
     skills["Languages"].forEach((lang) => {
         languageData[lang.name] = lang;
     });
+
+    const languageIcons = {};
+    Object.entries(languageData).forEach(([name, data]) => {
+        languageIcons[name] = data.icon;
+    });
+
+    const categoryIcons = {
+        Game: "bx bx-joystick",
+        Simulation: "bx bx-cog",
+        Tool: "bx bx-wrench",
+        Algorithm: "bx bx-code-curly",
+        Visualiser: "bx bx-bar-chart-alt-2",
+        Bot: "bx bx-bot",
+        Competitive: "bx bx-trophy",
+        Uncategorised: "bx bx-category",
+    };
 
     projects.forEach((project) => {
         project.languages.forEach((language) => {
@@ -44,44 +60,60 @@ function populateLanguageFilter(projects, skills) {
 
     buttonContainer.innerHTML = "";
 
-    const filterGroup = document.createElement("div");
-    filterGroup.className = "filter-group";
+    function createFilterSection(title, values, prefix, iconMap) {
+        const filterGroup = document.createElement("div");
+        filterGroup.className = "filter-group";
 
-    const sectionTitle = document.createElement("h4");
-    sectionTitle.className = "filter-section-title";
-    sectionTitle.innerText = "Languages";
-    // whatever man, i'll make it dynamic when i NEED to
-    filterGroup.appendChild(sectionTitle);
+        const sectionTitle = document.createElement("h4");
+        sectionTitle.className = "filter-section-title";
+        sectionTitle.innerText = title;
+        filterGroup.appendChild(sectionTitle);
 
-    const gridContainer = document.createElement("div");
-    gridContainer.className = "filter-grid";
+        const gridContainer = document.createElement("div");
+        gridContainer.className = "filter-grid";
 
-    languages.forEach((language) => {
-        const button = document.createElement("button");
-        button.className = "filter-button";
-        button.value = language;
-        button.id = `filter-${language}`;
+        values.forEach((value) => {
+            const button = document.createElement("button");
+            button.className = "filter-button";
+            button.value = value;
+            button.id = `filter-${prefix}-${value}`;
 
-        const data = languageData[language];
-        if (data) {
             const icon = document.createElement("i");
-            icon.className = data.icon;
-            icon.style.color = data.color;
+            icon.className = iconMap[value] || "bx bx-category";
             button.appendChild(icon);
-        }
 
-        const text = document.createElement("span");
-        text.textContent = language;
-        button.appendChild(text);
+            const text = document.createElement("span");
+            text.textContent = value;
+            button.appendChild(text);
 
-        gridContainer.appendChild(button);
-    });
+            gridContainer.appendChild(button);
+        });
 
-    filterGroup.appendChild(gridContainer);
-    buttonContainer.appendChild(filterGroup);
+        filterGroup.appendChild(gridContainer);
+        buttonContainer.appendChild(filterGroup);
+    }
+
+    createFilterSection(
+        "Languages",
+        Array.from(languages).sort(),
+        "language",
+        languageIcons,
+    );
+
+    createFilterSection(
+        "Categories",
+        Object.keys(categoryIcons),
+        "category",
+        categoryIcons,
+    );
 }
 
-function generateProjects(data, skills, selectedLanguages = []) {
+function generateProjects(
+    data,
+    skills,
+    selectedLanguages = [],
+    selectedCategories = [],
+) {
     const projectsContainer = document.querySelector(".projects");
 
     if (projectsContainer.dataset.generating === "true") return;
@@ -92,17 +124,33 @@ function generateProjects(data, skills, selectedLanguages = []) {
     const sortedProjects = data.sort((a, b) => a.name.localeCompare(b.name));
 
     const filteredProjects = sortedProjects.filter((project) => {
-        if (selectedLanguages.length === 0) return true;
-        return selectedLanguages.some((selected) =>
-            project.languages?.some((language) => language === selected)
-        );
+        if (selectedLanguages.length === 0 && selectedCategories.length === 0)
+            return true;
+
+        const languageMatch =
+            selectedLanguages.length === 0 ||
+            selectedLanguages.some((selected) =>
+                project.languages?.some((language) => language === selected),
+            );
+
+        const categoryMatch =
+            selectedCategories.length === 0 ||
+            selectedCategories.includes(project.category);
+
+        return languageMatch && categoryMatch;
     });
 
-    const projectPromises = filteredProjects.map(async (project) => {
+    const sortedFeaturedProjects = [
+        ...filteredProjects.filter((project) => project.featured),
+        ...filteredProjects.filter((project) => !project.featured),
+    ];
+
+    const projectPromises = sortedFeaturedProjects.map(async (project) => {
         try {
             const imageUrl = await getProjectImage(project.link);
             const projectElement = document.createElement("a");
             projectElement.classList.add("project", "animate-target");
+            if (project.featured) projectElement.classList.add("featured");
             projectElement.href = project.link;
             projectElement.target = "_blank";
             projectElement.rel = "noopener noreferrer";
@@ -122,12 +170,12 @@ function generateProjects(data, skills, selectedLanguages = []) {
                     project.languages
                         ?.map((languageName) => {
                             const language = skills["Languages"].find(
-                                (skill) => skill.name === languageName
+                                (skill) => skill.name === languageName,
                             );
                             if (language) {
                                 const bgColor = darkenColor(
                                     language.color,
-                                    0.5
+                                    0.5,
                                 );
 
                                 return `
@@ -142,6 +190,7 @@ function generateProjects(data, skills, selectedLanguages = []) {
                         .join("") || "No languages available"
                 }
                 </div>
+                ${project.featured ? '<div class="featured-badge">FEATURED</div>' : ""}
             `;
             return projectElement;
         } catch (error) {
@@ -175,7 +224,7 @@ function getProjectImage(project) {
         "assets/images/inabakumori-rainy-boots.gif",
     ];
     return Promise.resolve(
-        defaultImageUrls[Math.floor(Math.random() * defaultImageUrls.length)]
+        defaultImageUrls[Math.floor(Math.random() * defaultImageUrls.length)],
     );
 }
 
@@ -186,15 +235,29 @@ function handleClick(event) {
     if (button) {
         button.classList.toggle("active");
 
-        const selectedLanguages = Array.from(
-            document.querySelectorAll("#buttonContainer .filter-button.active")
-        ).map((button) => button.value);
+        const activeButtons = document.querySelectorAll(
+            "#buttonContainer .filter-button.active",
+        );
+        const selectedLanguages = [];
+        const selectedCategories = [];
+
+        activeButtons.forEach((btn) => {
+            if (btn.id.startsWith("filter-language-"))
+                selectedLanguages.push(btn.value);
+            else if (btn.id.startsWith("filter-category-"))
+                selectedCategories.push(btn.value);
+        });
 
         Promise.all([
             fetch("data/projects.json").then((res) => res.json()),
             fetch("data/skills.json").then((res) => res.json()),
         ]).then(([projectsData, skillsData]) => {
-            generateProjects(projectsData, skillsData, selectedLanguages);
+            generateProjects(
+                projectsData,
+                skillsData,
+                selectedLanguages,
+                selectedCategories,
+            );
         });
         return;
     }
@@ -202,9 +265,7 @@ function handleClick(event) {
     if (event.target.closest("#clearFilters")) {
         document
             .querySelectorAll("#buttonContainer .filter-button.active")
-            .forEach((button) => {
-                button.classList.remove("active");
-            });
+            .forEach((btn) => btn.classList.remove("active"));
 
         Promise.all([
             fetch("data/projects.json").then((res) => res.json()),
@@ -222,9 +283,7 @@ function handleClick(event) {
 
         const isHidden = filterContainer.classList.contains("hidden");
         filterContainer.classList.toggle("hidden");
-
         icon.classList.toggle("rotated", isHidden);
-        console.log("toggleFilters clicked " + isHidden);
         return;
     }
 }

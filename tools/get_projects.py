@@ -39,9 +39,17 @@ ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "images" / "project_images"
 # ASSETS_DIR = WEBSITE_REPO_ROOT / "test"
 OUTPUT_PATH = WEBSITE_REPO_ROOT / "data" / "projects.json"
 # OUTPUT_PATH = WEBSITE_REPO_ROOT / "test" / "projects.json"
+META_PATH = WEBSITE_REPO_ROOT / "data" / "projects_meta.json"
 
 README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)")
 # behold my incantation (i don't know what this means either)
+
+def load_project_meta():
+    if META_PATH.exists():
+        with open(META_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    print(f"[WARNING] No projects_meta.json found at {META_PATH}, skipping metadata")
+    return {}
 
 def get_local_image_path(repo_path: str, ext: str) -> Path:
     return ASSETS_DIR / (Path(repo_path).name + ext)
@@ -161,6 +169,7 @@ def get_project_image(repo: str, repo_path: str) -> str | None:
     return None
 
 def generate_projects_json():
+    projects_meta = load_project_meta()
     projects_data = []
     
     for repo in REPOS:
@@ -176,12 +185,17 @@ def generate_projects_json():
             ]
 
         for project in projects:
+            name = project["name"]
+            project_meta = projects_meta.get(name, {})
+
             projects_data.append({
-                "name": project["name"],
+                "name": name,
                 "description": get_project_description(repo["repo"], project["path"]),
                 "link": f"https://github.com/{repo['repo']}/tree/main/{project['path']}",
                 "languages": project["languages"],
-                "image": get_project_image(repo["repo"], project["path"])
+                "image": get_project_image(repo["repo"], project["path"]),
+                "category": project_meta.get("category"),
+                "featured": project_meta.get("featured", False)
             })
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
