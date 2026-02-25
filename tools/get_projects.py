@@ -186,6 +186,13 @@ def generate_projects_json():
 
         for project in projects:
             name = project["name"]
+
+            if name not in projects_meta:
+                projects_meta[name] = {
+                    "category": None,
+                    "featured": False
+                }
+
             project_meta = projects_meta.get(name, {})
 
             projects_data.append({
@@ -197,6 +204,9 @@ def generate_projects_json():
                 "category": project_meta.get("category"),
                 "featured": project_meta.get("featured", False)
             })
+
+    with open(META_PATH, "w", encoding="utf-8") as f:
+        json.dump(projects_meta, f, indent=4, sort_keys=True)
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
