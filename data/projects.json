@@ -4,7 +4,11 @@
         "description": "yatta! balls! yatta!",
         "featured": false,
         "image": "bouncy_ball_simulator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/bouncy_ball_simulator",
         "name": "Bouncy Ball Simulator"
     },
@@ -13,7 +17,11 @@
         "description": "somewhat scientific calculator",
         "featured": false,
         "image": "calculator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/calculator",
         "name": "Calculator"
     },
@@ -22,7 +30,11 @@
         "description": "generates charts... because we all love them obviously",
         "featured": false,
         "image": "chart_generator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/chart_generator",
         "name": "Chart Generator"
     },
@@ -31,7 +43,11 @@
         "description": "if you flip a coin... it is a probability... (ted talk)",
         "featured": false,
         "image": "coin_flipper.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/coin_flipper",
         "name": "Coin Flipper"
     },
@@ -40,7 +56,11 @@
         "description": "converts data units (e.g. megabytes) into other ones",
         "featured": false,
         "image": "data_unit_converter.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/data_unit_converter",
         "name": "Data Unit Converter"
     },
@@ -49,7 +69,11 @@
         "description": "displays current time and date (hence datetime...)",
         "featured": false,
         "image": "datetime_clock.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/datetime_clock",
         "name": "Datetime Clock"
     },
@@ -58,7 +82,11 @@
         "description": "i used to roollll the dice",
         "featured": false,
         "image": "dice_roller.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/dice_roller",
         "name": "Dice Roller"
     },
@@ -67,7 +95,11 @@
         "description": "interest compounds... compounding... i dunno",
         "featured": false,
         "image": "interest_calculator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/interest_calculator",
         "name": "Interest Calculator"
     },
@@ -76,7 +108,11 @@
         "description": "\"make your password stronger\" \ud83d\udcaa\ud83d\udcaa\ud83d\udcaa",
         "featured": false,
         "image": "password_generator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/password_generator",
         "name": "Password Generator"
     },
@@ -85,7 +121,11 @@
         "description": "so... you like polyrhythms...?",
         "featured": true,
         "image": "polyrhythm_simulator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/polyrhythm_simulator",
         "name": "Polyrhythm Simulator"
     },
@@ -94,7 +134,11 @@
         "description": "some kinda full-stack product store thing",
         "featured": false,
         "image": "product_store.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/product_store",
         "name": "Product Store"
     },
@@ -103,7 +147,11 @@
         "description": "what if funky town started playing",
         "featured": false,
         "image": "rotating_ascii_donut.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/rotating_ascii_donut",
         "name": "Rotating ASCII Donut"
     },
@@ -112,7 +160,11 @@
         "description": "can we pretend that airplanes in the night sky are like shooting stars",
         "featured": false,
         "image": "solar_system.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
         "name": "Solar System"
     },
@@ -121,7 +173,11 @@
         "description": "tic tacs like the food",
         "featured": false,
         "image": "tic_tac_toe.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/tic_tac_toe",
         "name": "Tic Tac Toe"
     },
@@ -130,7 +186,11 @@
         "description": "trig wave generator thingamajig",
         "featured": false,
         "image": "trig_wave_generator.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/trig_wave_generator",
         "name": "Trig Wave Generator"
     },
@@ -139,7 +199,11 @@
         "description": "as if it were hard to search for stuff on wikipedia",
         "featured": false,
         "image": "wikipedia_searcher.png",
-        "languages": ["CSS3", "HTML5", "JavaScript"],
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/wikipedia_searcher",
         "name": "Wikipedia Searcher"
     },
@@ -148,7 +212,9 @@
         "description": "if an al goes and rhythms is it an algorithm or an rhythmic al going?",
         "featured": false,
         "image": "algorithms.gif",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/algorithms",
         "name": "Algorithms"
     },
@@ -157,7 +223,9 @@
         "description": "i mean, it's a clock... pyturtle jumpscare",
         "featured": false,
         "image": "analog_clock.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/analog_clock",
         "name": "Analog Clock"
     },
@@ -166,7 +234,9 @@
         "description": "some cool thing chatgpt told me about lol",
         "featured": false,
         "image": "benfords_law.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/benfords_law",
         "name": "Benfords Law"
     },
@@ -175,7 +245,9 @@
         "description": "what do i even write lol",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/check_digits",
         "name": "Check Digits"
     },
@@ -184,7 +256,9 @@
         "description": "uhh ciphers yay!!!",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/ciphers",
         "name": "Ciphers"
     },
@@ -193,7 +267,9 @@
         "description": "what if pong was a circle... i dunno",
         "featured": true,
         "image": "circular_pong.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/circular_pong",
         "name": "Circular Pong"
     },
@@ -202,7 +278,9 @@
         "description": "based off a niche genre of roblox (yes, roblox) games",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/core_game",
         "name": "Core Game"
     },
@@ -211,7 +289,9 @@
         "description": "oh yeah i'm analysing it... and by it... i mean data...",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/data_analysis",
         "name": "Data Analysis"
     },
@@ -220,7 +300,9 @@
         "description": "i made this for some obscure game about defusing bombs",
         "featured": true,
         "image": "defusal_automation.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/defusal_automation",
         "name": "Defusal Automation"
     },
@@ -229,7 +311,9 @@
         "description": "because i just hate typing it out when i need to",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/directory_structure_fetcher",
         "name": "Directory Structure Fetcher"
     },
@@ -238,7 +322,9 @@
         "description": "so... whatchu think about simultaneous equations eh?",
         "featured": false,
         "image": "lin_system_solver.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/lin_system_solver",
         "name": "Lin System Solver"
     },
@@ -247,7 +333,9 @@
         "description": "Converts videos and images into ASCII art.",
         "featured": true,
         "image": "media_to_ascii.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/media_to_ascii",
         "name": "Media To ASCII"
     },
@@ -256,7 +344,9 @@
         "description": "this is the theory of EVERYTHING!!! (those who know)",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/number_theory",
         "name": "Number Theory"
     },
@@ -265,7 +355,9 @@
         "description": "hrrnngggg ascii rabbit hole animation har har",
         "featured": false,
         "image": "rabbit_hole_ascii.jpg",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/rabbit_hole_ascii",
         "name": "Rabbit Hole ASCII"
     },
@@ -274,7 +366,9 @@
         "description": "uuhhh snake game for school open house",
         "featured": false,
         "image": "snake_game.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/snake_game",
         "name": "Snake Game"
     },
@@ -283,7 +377,9 @@
         "description": "downloads song and fetches transcript from youtube to display in terminal with silly colours (optional)",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/song_and_lyrics_player",
         "name": "Song And Lyrics Player"
     },
@@ -292,7 +388,9 @@
         "description": "this all started from learning about classes",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/student_management_system",
         "name": "Student Management System"
     },
@@ -301,7 +399,9 @@
         "description": "simple terminal games, i made some of them as a beginner so they're a little scuffed",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terminal_games",
         "name": "Terminal Games"
     },
@@ -310,7 +410,9 @@
         "description": "this is genuinely the most stupidest thing i've ever thought of why did i do this",
         "featured": false,
         "image": "terrible_calculator.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/terrible_calculator",
         "name": "Terrible Calculator"
     },
@@ -319,7 +421,9 @@
         "description": "hrrrggg grrr turned song into little funny program that sync lyric and audio and then funny yippee visuals!!!",
         "featured": false,
         "image": "world_execute_me.jpg",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/world_execute_me",
         "name": "World Execute Me"
     },
@@ -328,7 +432,9 @@
         "description": "because it's unnecessarily annoying to use those websites to do so",
         "featured": false,
         "image": "youtube_video_downloader.png",
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/youtube_video_downloader",
         "name": "YouTube Video Downloader"
     },
@@ -337,7 +443,9 @@
         "description": "it's exactly the same as the python one but in js",
         "featured": false,
         "image": null,
-        "languages": ["JavaScript"],
+        "languages": [
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/student_management_system",
         "name": "Student Management System"
     },
@@ -346,7 +454,9 @@
         "description": "simple terminal games (game but shh) but in js (cool, or not?)",
         "featured": false,
         "image": null,
-        "languages": ["JavaScript"],
+        "languages": [
+            "JavaScript"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/terminal_games",
         "name": "Terminal Games"
     },
@@ -355,7 +465,9 @@
         "description": "simple terminal games, but in C++ (so cool)^2",
         "featured": false,
         "image": null,
-        "languages": ["C"],
+        "languages": [
+            "C"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
         "name": "Terminal Games"
     },
@@ -364,7 +476,9 @@
         "description": "simple terminal games, but in C++ (so cool)",
         "featured": false,
         "image": null,
-        "languages": ["C++"],
+        "languages": [
+            "C++"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C++/terminal_games",
         "name": "Terminal Games"
     },
@@ -373,7 +487,9 @@
         "description": "simple terminal games, but in Lua (so 1-indexed)",
         "featured": false,
         "image": null,
-        "languages": ["Lua"],
+        "languages": [
+            "Lua"
+        ],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Lua/terminal_games",
         "name": "Terminal Games"
     },
@@ -382,7 +498,9 @@
         "description": "silly little discord bot",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/processor/tree/main/",
         "name": "Processor"
     },
@@ -391,7 +509,9 @@
         "description": "national.... whatever lol! :joy:",
         "featured": false,
         "image": null,
-        "languages": ["Python"],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/olympiad-training-sols/tree/main/",
         "name": "Olympiad Training Sols"
     }
