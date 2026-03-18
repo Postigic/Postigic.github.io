@@ -118,7 +118,7 @@
     },
     {
         "category": "Simulation",
-        "description": "so... you like polyrhythms...?",
+        "description": "A polyrhythm simulator with adjustable base frequency, oscillator, and track shape.",
         "featured": true,
         "image": "polyrhythm_simulator.png",
         "languages": [
