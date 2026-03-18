@@ -1,5 +1,6 @@
 #hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
         url("../../assets/images/bleeehh.jpg") no-repeat center center;
     background-size: cover;
     background-position: center center;
@@ -358,7 +359,9 @@
     text-align: center;
     max-width: 77em;
     margin: 5em auto 5em;
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition:
+        opacity 0.4s ease-out,
+        transform 0.4s ease-out;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     background: var(--background-color);
 }
@@ -383,7 +386,9 @@
     border-radius: 12px;
     text-align: center;
     width: 100%;
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition:
+        opacity 0.4s ease-out,
+        transform 0.4s ease-out;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     background: var(--background-color);
 }
@@ -566,11 +571,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.achievement-preview-card:hover {
+/* .achievement-preview-card:hover {
     transform: translateY(-5px) !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-color: var(--primary-color);
-}
+} */
 
 #projects-preview-container {
     display: grid;
@@ -646,7 +651,7 @@
     color: var(--text-color);
 }
 
-.achievement-preview-card::before,
+/* .achievement-preview-card::before, */
 .project-preview-card::before {
     content: "";
     position: absolute;
@@ -664,7 +669,7 @@
     transition: transform 0.3s ease;
 }
 
-.achievement-preview-card:hover::before,
+/* .achievement-preview-card:hover::before, */
 .project-preview-card:hover::before {
     transform: scaleX(1);
 }
