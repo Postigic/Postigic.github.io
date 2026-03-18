@@ -64,6 +64,11 @@
             "name": "Singapore Junior Physics Olympiad (SJPO) Participation Certificate",
             "category": "Olympiad",
             "type": "Participation"
+        },
+        {
+            "name": "Edusave Scholarship",
+            "category": "Academic",
+            "type": "Award"
         }
     ],
     "2024": [
