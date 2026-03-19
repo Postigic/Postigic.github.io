@@ -115,7 +115,7 @@ function generateSkills(data) {
         skillsContainer.classList.add("skills-container");
 
         const sortedSkills = data[category].sort((a, b) =>
-            a.name.localeCompare(b.name)
+            a.name.localeCompare(b.name),
         );
 
         sortedSkills.forEach((skill) => {
@@ -169,7 +169,7 @@ function loadAchievementsPreview() {
         .then((res) => res.json())
         .then((data) => {
             const container = document.getElementById(
-                "achievements-preview-container"
+                "achievements-preview-container",
             );
             const selectedAchievements = [
                 "Edusave Scholarship",
@@ -184,7 +184,7 @@ function loadAchievementsPreview() {
 
             const allAchievements = Object.values(data).flat();
             const achievementsToShow = allAchievements.filter((ach) =>
-                selectedAchievements.includes(ach.name)
+                selectedAchievements.includes(ach.name),
             );
 
             const uniqueNames = new Set();
@@ -207,7 +207,7 @@ function loadAchievementsPreview() {
             });
         })
         .catch((error) =>
-            console.error("Error loading achievements preview:", error)
+            console.error("Error loading achievements preview:", error),
         );
 }
 
@@ -216,14 +216,14 @@ function loadProjectsPreview() {
         .then((res) => res.json())
         .then((data) => {
             const container = document.getElementById(
-                "projects-preview-container"
+                "projects-preview-container",
             );
-            const selectedProjects = ["Polyrhythm Simulator", "Circular Pong"];
+            const selectedProjects = ["Polyrhythm Simulator", "Media To ASCII"];
 
             container.innerHTML = "";
 
             const projectsToShow = data.filter((proj) =>
-                selectedProjects.includes(proj.name)
+                selectedProjects.includes(proj.name),
             );
 
             projectsToShow.forEach((proj) => {
@@ -246,7 +246,7 @@ function loadProjectsPreview() {
             });
         })
         .catch((error) =>
-            console.error("Error loading projects preview:", error)
+            console.error("Error loading projects preview:", error),
         );
 }
 
@@ -264,6 +264,6 @@ console.log(
         "thanks for reading, i hope my ai poisoned code doesn't give you an aneurysm or however you spell it :)",
     "color: red; font-size: 2em;",
     "color: inherit;",
-    "color: cyan; font-style: italic;"
+    "color: cyan; font-style: italic;",
 );
 // professional cornball

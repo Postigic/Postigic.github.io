@@ -64,7 +64,7 @@
 }
 
 #hero .hero-content h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(3.5rem, 6vw, 5rem);
     color: var(--title-text-color);
     font-weight: 600;
 }
@@ -91,15 +91,20 @@
 }
 
 #hero .hero-content h2 {
-    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     -webkit-text-stroke: 1px var(--title-text-color);
 }
 
-#hero .social-col h3 {
-    font-size: clamp(1rem, 4vw, 1.5rem);
+#hero .hero-content p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
     color: var(--title-text-color);
-    margin-top: 30px;
+}
+
+#hero .social-col p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--title-text-color);
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
@@ -113,7 +118,7 @@
 #hero .social-col .social-link {
     display: flex;
     color: #7b7b7b;
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.7rem, 4vw, 2rem);
     line-height: 30px;
     transition: all 0.3s ease;
 }
