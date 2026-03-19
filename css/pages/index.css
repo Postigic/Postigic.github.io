@@ -64,7 +64,7 @@
 }
 
 #hero .hero-content h1 {
-    font-size: clamp(2rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 6vw, 5rem);
     color: var(--title-text-color);
     font-weight: 600;
 }
@@ -91,7 +91,7 @@
 }
 
 #hero .hero-content h2 {
-    font-size: clamp(1.2rem, 4vw, 3rem);
+    font-size: clamp(1.6rem, 4vw, 3rem);
     font-weight: 600;
     -webkit-text-stroke: 1px var(--title-text-color);
 }

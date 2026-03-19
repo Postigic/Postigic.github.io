@@ -69,7 +69,11 @@ function generateAchievements(data) {
 
         yearContainer.appendChild(gridContainer);
         achievementsSection.appendChild(yearContainer);
-        observeElements({ elements: yearContainer, desktopThreshold: 0.4 });
+        observeElements({
+            elements: yearContainer,
+            desktopThreshold: 0.4,
+            mobileThreshold: 0.1,
+        });
     });
 }
 
