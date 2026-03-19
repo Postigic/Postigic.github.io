@@ -8,7 +8,7 @@ footer {
 
 footer .cols {
     display: flex;
-    align-items: start;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -23,10 +23,11 @@ footer .cols .about-col img {
     border: 5px solid var(--accent-color);
 }
 
-footer .cols .about-col h3 {
+footer .cols .about-col p {
     color: var(--primary-color);
     font-size: 20px;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 /* footer .cols .about-col p {
@@ -39,9 +40,9 @@ footer .cols .spacer {
     flex: 1;
 }
 
-footer .cols .social-col h4 {
+footer .cols .social-col p {
     color: var(--title-text-color);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 footer .cols .social-col ul {

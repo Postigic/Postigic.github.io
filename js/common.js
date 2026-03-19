@@ -22,7 +22,7 @@ function observeElements({
                 .sort(
                     (a, b) =>
                         Array.from(elements).indexOf(a.target) -
-                        Array.from(elements).indexOf(b.target)
+                        Array.from(elements).indexOf(b.target),
                 );
 
             visibleEntries.forEach((entry, i) => {
@@ -41,7 +41,7 @@ function observeElements({
                 }, baseDelay * i);
             });
         },
-        { threshold }
+        { threshold },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -63,7 +63,7 @@ function loadSocials(container) {
                             <i class="${icon}"></i>
                         </a>
                     </li>
-                `
+                `,
                 )
                 .join("");
             container.querySelector(".social-links").innerHTML = socialsHTML;
@@ -94,9 +94,8 @@ function loadFooter() {
             const container = document.getElementById("footer");
             container.innerHTML = data;
             loadSocials(container);
-            document.querySelector(
-                ".footer-text"
-            ).innerHTML += `&copy;${new Date().getFullYear()}`;
+            document.querySelector(".footer-text").innerHTML +=
+                ` &copy;${new Date().getFullYear()}`;
         })
         .catch((error) => console.error("Error loading footer:", error));
 }

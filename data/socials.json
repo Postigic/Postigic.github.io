@@ -1,21 +1,9 @@
 [
     {
-        "url": "https://discord.com/users/654593782670426124",
-        "icon": "bx bxl-discord-alt",
-        "label": "Discord",
-        "color": "#5865f2"
-    },
-    {
         "url": "https://github.com/Postigic",
         "icon": "bx bxl-github",
         "label": "GitHub",
         "color": "#333"
-    },
-    {
-        "url": "https://www.youtube.com/@Postigic",
-        "icon": "bx bxl-youtube",
-        "label": "YouTube",
-        "color": "#ff0000"
     },
     {
         "url": "https://leetcode.com/u/postigic/",
@@ -24,15 +12,9 @@
         "color": "#f79f1b"
     },
     {
-        "url": "https://www.instagram.com/postigic/",
-        "icon": "bx bxl-instagram",
-        "label": "Instagram",
-        "color": "#e1306c"
-    },
-    {
-        "url": "https://x.com/postigic",
-        "icon": "bxl bx-twitter-x",
-        "label": "X",
-        "color": "#fff"
+        "url": "https://discord.com/users/654593782670426124",
+        "icon": "bx bxl-discord-alt",
+        "label": "Discord",
+        "color": "#5865f2"
     }
 ]

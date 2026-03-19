@@ -6,13 +6,33 @@ function initProjectsPage() {
         fetch("data/skills.json").then((response) => response.json()),
     ])
         .then(([projectsData, skillsData]) => {
-            generateProjects(projectsData, skillsData);
-            populateProjectsFilter(projectsData, skillsData);
+            // flattening that bloody skills.json broke this section so badly
+            // i had an epiphany that i fucking suck at javascript
+            // this is why i should stick to python and not web dev
+            // what does all this code even do?
+
+            const skillMap = buildSkillMap(skillsData);
+
+            generateProjects(projectsData, skillMap);
+            populateProjectsFilter(projectsData, skillMap);
         })
         .catch((error) =>
             console.error("Error fetching projects or skills data:", error),
         );
 }
+
+function buildSkillMap(skills) {
+    const map = {};
+    const icons = {};
+
+    skills.forEach((skill) => {
+        map[skill.name] = skill;
+        icons[skill.name] = skill.icon;
+    });
+
+    return { map, icons };
+}
+
 function darkenColor(hex, amount) {
     const col = hex.replace("#", "");
     const num = parseInt(col, 16);
@@ -27,19 +47,11 @@ function darkenColor(hex, amount) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-function populateProjectsFilter(projects, skills) {
+function populateProjectsFilter(projects, skillMap) {
     const buttonContainer = document.getElementById("buttonContainer");
     const languages = new Set();
 
-    const languageData = {};
-    skills["Languages"].forEach((lang) => {
-        languageData[lang.name] = lang;
-    });
-
-    const languageIcons = {};
-    Object.entries(languageData).forEach(([name, data]) => {
-        languageIcons[name] = data.icon;
-    });
+    const { icons: languageIcons } = skillMap;
 
     const categoryIcons = {
         Game: "bx bx-joystick",
@@ -110,11 +122,13 @@ function populateProjectsFilter(projects, skills) {
 
 function generateProjects(
     data,
-    skills,
+    skillMap,
     selectedLanguages = [],
     selectedCategories = [],
 ) {
     const projectsContainer = document.querySelector(".projects");
+
+    const { map: languageMap } = skillMap;
 
     if (projectsContainer.dataset.generating === "true") return;
     projectsContainer.dataset.generating = "true";
@@ -169,9 +183,7 @@ function generateProjects(
                 ${
                     project.languages
                         ?.map((languageName) => {
-                            const language = skills["Languages"].find(
-                                (skill) => skill.name === languageName,
-                            );
+                            const language = languageMap[languageName];
                             if (language) {
                                 const bgColor = darkenColor(
                                     language.color,
@@ -252,9 +264,11 @@ function handleClick(event) {
             fetch("data/projects.json").then((res) => res.json()),
             fetch("data/skills.json").then((res) => res.json()),
         ]).then(([projectsData, skillsData]) => {
+            const skillMap = buildSkillMap(skillsData);
+
             generateProjects(
                 projectsData,
-                skillsData,
+                skillMap,
                 selectedLanguages,
                 selectedCategories,
             );
@@ -271,7 +285,9 @@ function handleClick(event) {
             fetch("data/projects.json").then((res) => res.json()),
             fetch("data/skills.json").then((res) => res.json()),
         ]).then(([projectsData, skillsData]) => {
-            generateProjects(projectsData, skillsData);
+            const skillMap = buildSkillMap(skillsData);
+
+            generateProjects(projectsData, skillMap);
         });
         return;
     }

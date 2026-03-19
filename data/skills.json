@@ -1,90 +1,51 @@
-{
-    "Languages": [
-        {
-            "name": "JavaScript",
-            "icon": "devicon-javascript-plain",
-            "color": "#f7df1e",
-            "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-            "description": "the one that started it all... and the one that i don't remember how to write in anymore..."
-        },
-        {
-            "name": "Python",
-            "icon": "devicon-python-plain",
-            "color": "#306998",
-            "documentation": "https://docs.python.org/3/",
-            "description": "python, oh python... my favourite language... what would i ever do without you?"
-        },
-        {
-            "name": "HTML5",
-            "icon": "devicon-html5-plain",
-            "color": "#e34f26",
-            "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-            "description": "hey wait a second, this isn't a programming language... eh, close enough"
-        },
-        {
-            "name": "CSS3",
-            "icon": "devicon-css3-plain",
-            "color": "#264de4",
-            "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS",
-            "description": "how do i center a div again? uhh... let me just google it real quick..."
-        },
-        {
-            "name": "C++",
-            "icon": "devicon-cplusplus-plain",
-            "color": "#5c2d91",
-            "documentation": "https://en.cppreference.com/w/",
-            "description": "C.... but incremented by 1... does that make it C+1?"
-        },
-        {
-            "name": "C",
-            "icon": "devicon-c-plain",
-            "color": "#00599c",
-            "documentation": "https://en.cppreference.com/w/",
-            "description": "C.... wait, where did the ++ go? does that mean it's C+1-1? wait, that's just C... never mind"
-        },
-        {
-            "name": "Lua",
-            "icon": "devicon-lua-plain",
-            "color": "#2C2D72",
-            "documentation": "https://www.lua.org/",
-            "description": "you call it the roblox scripting language, i call it the 1-indexed language, we are NOT the same...."
-        }
-    ],
-    "Tools": [
-        {
-            "name": "GitHub",
-            "icon": "devicon-github-plain",
-            "color": "#ffffff",
-            "documentation": "https://docs.github.com/en",
-            "description": "i'm not sure what i'd do without GitHub... probably have a lot of unorganised code"
-        },
-        {
-            "name": "SQLite",
-            "icon": "devicon-sqlite-plain",
-            "color": "#003B57",
-            "documentation": "https://www.sqlite.org/docs.html",
-            "description": "it's SQL but with a lite twist... ba dum tss...? no? okay, i'll see myself out"
-        },
-        {
-            "name": "NumPy",
-            "icon": "devicon-numpy-plain",
-            "color": "#4caccc",
-            "documentation": "https://numpy.org/doc/stable/",
-            "description": "umm math something something... guh... i dunno!!!"
-        },
-        {
-            "name": "pandas",
-            "icon": "devicon-pandas-plain",
-            "color": "#150458",
-            "documentation": "https://pandas.pydata.org/docs/",
-            "description": "so... did anyone figure out what pandas have to do with this? cause i haven't..."
-        },
-        {
-            "name": "Matplotlib",
-            "icon": "devicon-matplotlib-plain",
-            "color": "#11557c",
-            "documentation": "https://matplotlib.org/stable/contents.html",
-            "description": "yeah i can draw... what do i draw? graphs! and what do i draw graphs with? matplotlib! um, i think i was trying to be funny here but i forgot"
-        }
-    ]
-}
+[
+    {
+        "name": "JavaScript",
+        "icon": "devicon-javascript-plain",
+        "color": "#f7df1e",
+        "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        "description": "the one that started it all... and the one that i don't remember how to write in anymore..."
+    },
+    {
+        "name": "Python",
+        "icon": "devicon-python-plain",
+        "color": "#306998",
+        "documentation": "https://docs.python.org/3/",
+        "description": "python, oh python... my favourite language... what would i ever do without you?"
+    },
+    {
+        "name": "HTML5",
+        "icon": "devicon-html5-plain",
+        "color": "#e34f26",
+        "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        "description": "hey wait a second, this isn't a programming language... eh, close enough"
+    },
+    {
+        "name": "CSS3",
+        "icon": "devicon-css3-plain",
+        "color": "#264de4",
+        "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+        "description": "how do i center a div again? uhh... let me just google it real quick..."
+    },
+    {
+        "name": "C++",
+        "icon": "devicon-cplusplus-plain",
+        "color": "#5c2d91",
+        "documentation": "https://en.cppreference.com/w/",
+        "description": "C.... but incremented by 1... does that make it C+1?"
+    },
+    {
+        "name": "C",
+        "icon": "devicon-c-plain",
+        "color": "#00599c",
+        "documentation": "https://en.cppreference.com/w/",
+        "description": "C.... wait, where did the ++ go? does that mean it's C+1-1? wait, that's just C... never mind"
+    },
+    {
+        "name": "Lua",
+        "icon": "devicon-lua-plain",
+        "color": "#2C2D72",
+        "documentation": "https://www.lua.org/",
+        "description": "you call it the roblox scripting language, i call it the 1-indexed language, we are NOT the same...."
+    }
+]
