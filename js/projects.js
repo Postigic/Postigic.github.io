@@ -219,7 +219,7 @@ function generateProjects(
         });
 
         allProjects = projectsContainer.querySelectorAll(".project");
-        observeElements({ elements: allProjects, desktopThreshold: 0.8 });
+        observeElements({ elements: allProjects, desktopThreshold: 0.6 });
 
         projectsContainer.dataset.generating = "false";
     });
