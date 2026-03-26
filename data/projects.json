@@ -384,6 +384,17 @@
         "name": "Song And Lyrics Player"
     },
     {
+        "category": null,
+        "description": "A sorting algorithm visualiser with a bit more modern UI/UX.",
+        "featured": false,
+        "image": "sorting_algorithm_visualiser.jpg",
+        "languages": [
+            "Python"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Python/sorting_algorithm_visualiser",
+        "name": "Sorting Algorithm Visualiser"
+    },
+    {
         "category": "Tool",
         "description": "this all started from learning about classes",
         "featured": false,
