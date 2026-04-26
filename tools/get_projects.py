@@ -19,6 +19,10 @@ REPOS = [
     {
         "repo": "Postigic/olympiad-training-sols",
         "recursive": False,
+    },
+    {
+        "repo": "Postigic/sorting-algorithm-visualiser",
+        "recursive": False,
     }
 ]
 
