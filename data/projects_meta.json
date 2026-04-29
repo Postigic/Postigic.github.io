@@ -123,6 +123,10 @@
         "category": "Tool",
         "featured": false
     },
+    "Sorting Algorithm Visualiser": {
+        "category": "Visualiser",
+        "featured": true
+    },
     "Student Management System": {
         "category": "Tool",
         "featured": false

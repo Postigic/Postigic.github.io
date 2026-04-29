@@ -527,9 +527,9 @@
         "name": "Olympiad Training Sols"
     },
     {
-        "category": null,
+        "category": "Visualiser",
         "description": "A sorting algorithm visualiser with a bit more modern UI/UX.",
-        "featured": false,
+        "featured": true,
         "image": ".jpg",
         "languages": [
             "Python"
