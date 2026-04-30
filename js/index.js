@@ -226,13 +226,3 @@ loadSocials(document.getElementById("hero"));
 loadAchievementsPreview();
 loadProjectsPreview();
 observeElements({ elements: document.querySelector(".about") });
-
-console.log(
-    "%coh, hi! before you go snooping around, i thought you should know that...\n%c\n" +
-        "i made this site with:\n- chatg- i mean with REAL human love\n- ten tons of caffeine\n- a stupendous amount of hate for web dev\n\n%c" +
-        "thanks for reading, i hope my ai poisoned code doesn't give you an aneurysm or however you spell it :)",
-    "color: red; font-size: 2em;",
-    "color: inherit;",
-    "color: cyan; font-style: italic;",
-);
-// professional cornball
