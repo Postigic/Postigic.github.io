@@ -530,7 +530,7 @@
         "category": "Visualiser",
         "description": "A sorting algorithm visualiser with a bit more modern UI/UX.",
         "featured": true,
-        "image": ".jpg",
+        "image": "sorting-algorithm-visualiser.jpg",
         "languages": [
             "Python"
         ],
