@@ -49,14 +49,15 @@ README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\
 # behold my incantation (i don't know what this means either)
 
 def load_project_meta():
-    if META_PATH.exists():
+    if META_PATH.exists():  
         with open(META_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
     print(f"[WARNING] No projects_meta.json found at {META_PATH}, skipping metadata")
     return {}
 
-def get_local_image_path(repo_path: str, ext: str) -> Path:
-    return ASSETS_DIR / (Path(repo_path).name + ext)
+def get_local_image_path(repo: str, repo_path: str, ext: str) -> Path:
+    name = Path(repo_path).name or repo.split("/")[-1]
+    return ASSETS_DIR / (name + ext)
 
 def upper_all_keywords(title: str) -> str:
     replacements = {
@@ -157,7 +158,7 @@ def get_project_image(repo: str, repo_path: str) -> str | None:
                     
                     if ext in IMAGE_EXTS:
                         image_url = file["download_url"]
-                        local_path = get_local_image_path(repo_path, ext)
+                        local_path = get_local_image_path(repo, repo_path, ext)
                         ASSETS_DIR.mkdir(parents=True, exist_ok=True)
                         
                         if not local_path.exists():
