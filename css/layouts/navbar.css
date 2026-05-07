@@ -93,3 +93,9 @@ nav .navbar .social-links li .social-link:active {
     scale: 0.95;
     rotate: 0deg;
 } */
+
+@media screen and (max-width: 700px) {
+    nav .navbar .nav-links li .nav-link {
+        font-size: clamp(14px, 4vw, 18px);
+    }
+}

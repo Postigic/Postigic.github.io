@@ -95,3 +95,9 @@ footer .footer-bottom .footer-text {
 /* footer .footer-bottom .footer-text strike {
     color: #313131;
 } */
+
+@media screen and (max-width: 1024px) {
+    footer .cols {
+        flex-wrap: wrap;
+    }
+}

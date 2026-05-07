@@ -30,14 +30,14 @@ jobs:
             - name: Run project updater
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: python tools/get_projects.py
+              run: python .github/scripts/get_projects.py
 
             - name: Commit changes
               run: |
                   git config --global user.name "GitHub Actions"
                   git config --global user.email "actions@github.com"
-                  git add data/projects.json
-                  git add assets/images/project_images/
+                  git add data/generated/projects.json
+                  git add assets/images/projects/
                   if git diff --staged --quiet; then
                       echo "No changes to commit"
                   else

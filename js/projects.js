@@ -2,7 +2,9 @@ function initProjectsPage() {
     if (!document.querySelector(".projects")) return;
 
     Promise.all([
-        fetch("data/projects.json").then((response) => response.json()),
+        fetch("data/generated/projects.json").then((response) =>
+            response.json(),
+        ),
         fetch("data/skills.json").then((response) => response.json()),
     ])
         .then(([projectsData, skillsData]) => {
@@ -176,7 +178,7 @@ function generateProjects(
                 }</p>
                 <img class="animate-target" src="${
                     project.image
-                        ? `assets/images/project_images/${project.image}`
+                        ? `assets/images/projects/${project.image}`
                         : imageUrl
                 }" alt="${project.name}">
                 <div class="languages">
@@ -227,7 +229,7 @@ function generateProjects(
 
 function getProjectImage(project) {
     if (project.image) {
-        return Promise.resolve(`assets/project_images/${project.image}`);
+        return Promise.resolve(`assets/projects/${project.image}`);
     }
 
     const defaultImageUrls = [
@@ -261,7 +263,7 @@ function handleClick(event) {
         });
 
         Promise.all([
-            fetch("data/projects.json").then((res) => res.json()),
+            fetch("data/generated/projects.json").then((res) => res.json()),
             fetch("data/skills.json").then((res) => res.json()),
         ]).then(([projectsData, skillsData]) => {
             const skillMap = buildSkillMap(skillsData);
@@ -282,7 +284,7 @@ function handleClick(event) {
             .forEach((btn) => btn.classList.remove("active"));
 
         Promise.all([
-            fetch("data/projects.json").then((res) => res.json()),
+            fetch("data/generated/projects.json").then((res) => res.json()),
             fetch("data/skills.json").then((res) => res.json()),
         ]).then(([projectsData, skillsData]) => {
             const skillMap = buildSkillMap(skillsData);

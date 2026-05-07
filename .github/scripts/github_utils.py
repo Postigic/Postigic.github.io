@@ -5,7 +5,7 @@ from pathlib import Path
 
 load_dotenv()
 
-WEBSITE_REPO_ROOT = Path(__file__).parent.parent
+WEBSITE_REPO_ROOT = Path(__file__).parent.parent.parent
 
 GITHUB_TOKEN = os.getenv("GH_TOKEN")
 HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}

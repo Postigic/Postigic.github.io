@@ -181,7 +181,7 @@ function loadAchievementsPreview() {
 }
 
 function loadProjectsPreview() {
-    fetch("data/projects.json")
+    fetch("data/generated/projects.json")
         .then((res) => res.json())
         .then((data) => {
             const container = document.getElementById(
@@ -203,7 +203,7 @@ function loadProjectsPreview() {
                 a.rel = "noopener noreferrer";
                 a.innerHTML = `<h3>${proj.name}</h3>
                 <p>${proj.description || "No description"}</p>
-                <img src="assets/images/project_images/${proj.image}" alt="${
+                <img src="assets/images/projects/${proj.image}" alt="${
                     proj.name
                 }">`;
                 container.appendChild(a);

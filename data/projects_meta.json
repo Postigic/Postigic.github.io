@@ -103,13 +103,13 @@
         "category": "Tool",
         "featured": false
     },
-    "Rabbit Hole ASCII": {
-        "category": "Visualiser",
-        "featured": false
-    },
     "RISC Simulator": {
         "category": "Simulation",
         "featured": true
+    },
+    "Rabbit Hole ASCII": {
+        "category": "Visualiser",
+        "featured": false
     },
     "Rotating ASCII Donut": {
         "category": "Visualiser",

@@ -43,11 +43,9 @@ LANG_EXT_MAP = {
 
 EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
 
-ASSETS_DIR = WEBSITE_REPO_ROOT / "assets" / "images" / "project_images"
-# ASSETS_DIR = WEBSITE_REPO_ROOT / "test"
-OUTPUT_PATH = WEBSITE_REPO_ROOT / "data" / "projects.json"
-# OUTPUT_PATH = WEBSITE_REPO_ROOT / "test" / "projects.json"
-META_PATH = WEBSITE_REPO_ROOT / "data" / "projects_meta.json"
+ASSETS_DIR = WEBSITE_REPO_ROOT /"assets"/"images"/"projects"
+OUTPUT_PATH = WEBSITE_REPO_ROOT /"data"/"generated"/"projects.json"
+META_PATH = WEBSITE_REPO_ROOT /"data"/"projects_meta.json"
 
 README_CLEAN_REGEX = re.compile(r"(!?\[.*?\]\(.*?\))|(```.*?```)|(`.*?`)|(\*\*|\*|__|_)")
 # behold my incantation (i don't know what this means either)
