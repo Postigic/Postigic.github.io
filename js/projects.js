@@ -233,9 +233,9 @@ function getProjectImage(project) {
     }
 
     const defaultImageUrls = [
-        "assets/images/neuro_abs_cinema.jpg",
-        "assets/images/gfl-neural-cloud.webp",
-        "assets/images/inabakumori-rainy-boots.gif",
+        "assets/images/ui/neuro_abs_cinema.jpg",
+        "assets/images/ui/gfl-neural-cloud.webp",
+        "assets/images/ui/inabakumori-rainy-boots.gif",
     ];
     return Promise.resolve(
         defaultImageUrls[Math.floor(Math.random() * defaultImageUrls.length)],

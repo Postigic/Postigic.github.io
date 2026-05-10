@@ -50,7 +50,7 @@
 .hero-content > * {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 0.35s forwards;
+    animation: fadeUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 .hero-content h1 {
@@ -212,7 +212,7 @@
 
 .about img {
     width: 280px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     transition: all 0.5s ease;
     object-fit: cover;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
@@ -229,7 +229,7 @@
 .about .info .bio-text {
     background: var(--background-color);
     border: 1px solid var(--accent-color);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     padding: 2em 3em;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -361,7 +361,7 @@
 .skills-section {
     border: 1px solid var(--accent-color);
     padding: 40px 80px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     text-align: center;
     max-width: 77em;
     margin: 5em auto 5em;
@@ -389,7 +389,7 @@
 .skill-category {
     border: 1px solid var(--accent-color);
     padding: 20px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     text-align: center;
     width: 100%;
     transition:
@@ -424,7 +424,7 @@
     background-color: var(--item-background-color);
     padding: 10px 20px;
     border: 1px solid var(--accent-color);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     gap: 15px;
     position: relative;
     height: 70px;
@@ -538,7 +538,7 @@
     margin: 0 auto;
     padding: 2em 3em;
     border: 1px solid var(--accent-color);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     font-size: clamp(1rem, 2vw, 1.1rem);
     background: var(--background-color);
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
@@ -567,7 +567,7 @@
 .achievement-preview-card {
     background: var(--item-background-color);
     border: 1px solid var(--accent-color);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     padding: 1.2em 1.5em;
     color: var(--text-color);
     position: relative;
@@ -592,7 +592,7 @@
 .project-preview-card {
     background: var(--item-background-color);
     border: 1px solid var(--accent-color);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     padding: 1.5em 1.8em;
     color: var(--text-color);
     position: relative;
@@ -648,7 +648,7 @@
     height: auto;
     object-fit: cover;
     object-position: top center;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 .project-preview-card p {

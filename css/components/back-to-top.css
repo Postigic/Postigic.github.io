@@ -7,8 +7,8 @@
     height: 50px;
     background-color: var(--item-background-color);
     color: #fff;
-    border: none;
-    border-radius: 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--radius-sm);
     font-size: 1.5rem;
     visibility: hidden;
     opacity: 0;
@@ -21,7 +21,9 @@
     transition:
         opacity 0.3s ease,
         visibility 0s ease 0.3s,
-        background-color 0.3s ease;
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 #backToTop.show {
@@ -29,11 +31,19 @@
     opacity: 1;
     transition:
         opacity 0.3s ease,
-        background-color 0.3s ease;
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 #backToTop:hover {
     background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+#backToTop:active {
+    transform: translateY(1px);
 }
 
 @media screen and (max-width: 700px) {

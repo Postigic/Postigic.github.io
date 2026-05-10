@@ -58,7 +58,7 @@
     }
 }
 
-@keyframes slideUp {
+/* @keyframes slideUp {
     0% {
         opacity: 0;
         transform: translateY(350px);
@@ -67,7 +67,7 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 @keyframes blink {
     50% {
@@ -75,16 +75,16 @@
     }
 }
 
-@keyframes shimmer {
+/* @keyframes shimmer {
     100% {
         transform: translateX(100%);
     }
-}
+} */
 
 @keyframes float {
     0%,
     100% {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
     50% {
         transform: translateY(-10px);
@@ -117,5 +117,22 @@
     }
     100% {
         left: 125%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-target {
+        transition-duration: 0.01ms !important;
+    }
+
+    .featured::after,
+    .filter-panel,
+    .page-intro,
+    #allCertificatesLink {
+        animation: none;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
     }
 }
