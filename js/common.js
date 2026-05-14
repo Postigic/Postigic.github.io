@@ -78,7 +78,7 @@ function loadNavbar() {
             const container = document.getElementById("navbar");
             const currentPath = window.location.pathname.split("/").pop();
             container.innerHTML = data;
-            document.querySelectorAll(".nav-link").forEach((link) => {
+            container.querySelectorAll(".nav-link").forEach((link) => {
                 if (link.getAttribute("href") === currentPath) {
                     link.classList.add("active");
                 }
@@ -94,7 +94,7 @@ function loadFooter() {
             const container = document.getElementById("footer");
             container.innerHTML = data;
             loadSocials(container);
-            document.querySelector(".footer-text").innerHTML +=
+            container.querySelector(".footer-text").innerHTML +=
                 ` &copy;${new Date().getFullYear()}`;
         })
         .catch((error) => console.error("Error loading footer:", error));
