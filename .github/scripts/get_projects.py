@@ -28,6 +28,10 @@ REPOS = [
         "repo": "Postigic/risc-simulator",
         "recursive": False,
     },
+    {
+        "repo": "Postigic/latex-stuff",
+        "recursive": False,
+    }
 ]
 
 IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".gif"]
@@ -39,6 +43,7 @@ LANG_EXT_MAP = {
     ".c": "C",
     ".cpp": "C++",
     ".lua": "Lua",
+    ".tex": "LaTeX",
 }
 
 EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
@@ -66,6 +71,7 @@ def upper_all_keywords(title: str) -> str:
         "Ascii": "ASCII",
         "Youtube": "YouTube",
         "Risc": "RISC",
+        "Latex": "LaTeX",
     } # will add more on demand
 
     for wrong, right in replacements.items():
