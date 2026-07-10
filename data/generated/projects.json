@@ -120,7 +120,7 @@
         "category": "Simulation",
         "description": "A polyrhythm simulator with adjustable base frequency, oscillator, and track shape.",
         "featured": true,
-        "image": null,
+        "image": "polyrhythm_simulator.png",
         "languages": [
             "CSS3",
             "HTML5",
@@ -520,7 +520,9 @@
         "description": "national.... whatever lol! :joy:",
         "featured": false,
         "image": null,
-        "languages": [],
+        "languages": [
+            "Python"
+        ],
         "link": "https://github.com/Postigic/olympiad-training-sols/tree/main/",
         "name": "Olympiad Training Sols"
     },
