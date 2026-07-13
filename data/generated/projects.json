@@ -4,11 +4,7 @@
         "description": "yatta! balls! yatta!",
         "featured": false,
         "image": "bouncy_ball_simulator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
+        "languages": [],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/bouncy_ball_simulator",
         "name": "Bouncy Ball Simulator"
     },
@@ -68,12 +64,8 @@
         "category": "Tool",
         "description": "displays current time and date (hence datetime...)",
         "featured": false,
-        "image": "datetime_clock.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
+        "image": null,
+        "languages": [],
         "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/datetime_clock",
         "name": "Datetime Clock"
     },
@@ -81,7 +73,7 @@
         "category": "Tool",
         "description": "i used to roollll the dice",
         "featured": false,
-        "image": "dice_roller.png",
+        "image": null,
         "languages": [
             "CSS3",
             "HTML5",
