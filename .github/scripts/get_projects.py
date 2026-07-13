@@ -4,7 +4,7 @@ import json
 import requests
 import re
 from pathlib import Path
-from github_utils import fetch_json, format_repo_name, WEBSITE_REPO_ROOT
+from github_utils import fetch_json, fetch_tree, get_default_branch, format_repo_name, SESSION, WEBSITE_REPO_ROOT
 
 REPOS = [
     {
@@ -59,11 +59,14 @@ def load_project_meta():
     if META_PATH.exists():  
         with open(META_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
+    
     print(f"[WARNING] No projects_meta.json found at {META_PATH}, skipping metadata")
+
     return {}
 
 def get_local_image_path(repo: str, repo_path: str, ext: str) -> Path:
     name = Path(repo_path).name or repo.split("/")[-1]
+
     return ASSETS_DIR / (name + ext)
 
 def upper_all_keywords(title: str) -> str:
@@ -78,68 +81,51 @@ def upper_all_keywords(title: str) -> str:
         title = title.replace(wrong, right)
     return title
 
-def get_projects_from_github(repo: str, base_dirs: list) -> list:
+def get_projects_from_tree(tree: list, base_dirs: list) -> list:
     projects = []
 
-    for base_dir in base_dirs:
-        url = f"https://api.github.com/repos/{repo}/contents/{base_dir}"
-        response = fetch_json(url)
-
-        if response:
-            for item in response:
-                if item["type"] == "dir" and item["name"] not in EXCLUDE_DIRS:
-                    full_path = f"{base_dir}/{item['name']}"
-                    projects.append({
-                        "path": full_path,
-                        "name": upper_all_keywords(format_repo_name(item["name"])),
-                        "languages": detect_languages(repo, full_path)
-                    })
+    for entry in tree:
+        if entry["type"] != "tree":
+            continue
+        
+        parts = entry["path"].split("/")
+        
+        if len(parts) == 2 and parts[0] in base_dirs and parts[1] not in EXCLUDE_DIRS:
+            full_path = entry["path"]
+            projects.append({
+                "path": full_path,
+                "name": upper_all_keywords(format_repo_name(parts[1])),
+                "languages": detect_languages(tree, full_path)
+            })
     
     return projects
 
-def detect_languages(repo: str, repo_path: str) -> list:
-    url = f"https://api.github.com/repos/{repo}/contents/{repo_path}"
-    response = fetch_json(url)
+def detect_languages(tree: list, repo_path: str) -> list:
+    prefix = f"{repo_path}/" if repo_path else ""
     langs = set()
-    
-    if response:
-        for item in response:
-            if item["type"] == "file":
-                ext = Path(item["name"]).suffix.lower()
-                lang = LANG_EXT_MAP.get(ext)              
-                if lang:
-                    langs.add(lang)                 
-            elif item["type"] == "dir":
-                langs.update(detect_languages(repo, f"{repo_path}/{item['name']}"))
-    
-    return sorted(langs)
 
-# wha... why do i have this function??? just use detect_languages
-# i'm such an npc
-#
-# def get_repo_languages(repo: str) -> list:
-#     url = f"https://api.github.com/repos/{repo}/languages"
-#     response = fetch_json(url)
-#     langs = set()
-    
-#     if response:
-#         for lang in response:
-#             mapped = LANG_EXT_MAP.get(f".{lang.lower()}", lang)
-#             langs.add(mapped)
-    
-#     return sorted(langs)
+    for entry in tree:
+        if entry["type"] == "blob" and entry["path"].startswith(prefix):
+            ext = Path(entry["path"]).suffix.lower()
+            lang = LANG_EXT_MAP.get(ext)
+            if lang:
+                langs.add(lang)
+
+    return sorted(langs)
 
 def fetch_text(url: str, timeout: int = 5) -> str | None:
     try:
         response = requests.get(url, headers={"Accept": "text/plain"}, timeout=timeout)
         response.raise_for_status()
+
         return response.text
     except Exception as e:
         print(f"[ERROR] Failed to fetch {url}: {e}")
+
         return None
     
-def get_project_description(repo: str, repo_path: str) -> str:
-    url = f"https://raw.githubusercontent.com/{repo}/main/{repo_path}/README.md"
+def get_project_description(repo: str, branch: str, repo_path: str) -> str:
+    url = f"https://raw.githubusercontent.com/{repo}/{branch}/{repo_path}/README.md"
 
     try:
         text = fetch_text(url)
@@ -154,32 +140,32 @@ def get_project_description(repo: str, repo_path: str) -> str:
     
     return "No description available"
 
-def get_project_image(repo: str, repo_path: str) -> str | None:
-    url = f"https://api.github.com/repos/{repo}/contents/{repo_path}/__project_image__"
+def get_project_image(repo: str, branch: str, tree: list, repo_path: str) -> str | None:
+    prefix = f"{repo_path}/__project_image__/" if repo_path else "__project_image__/"
 
     try:
-        response = fetch_json(url)
+        for entry in tree:
+            if entry["type"] != "blob" or not entry["path"].startswith(prefix):
+                continue
 
-        if response:
-            for file in response:
-                if file["type"] == "file":
-                    ext = Path(file["name"]).suffix.lower()
-                    
-                    if ext in IMAGE_EXTS:
-                        image_url = file["download_url"]
-                        local_path = get_local_image_path(repo, repo_path, ext)
-                        ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-                        
-                        if not local_path.exists():
-                            img_data = requests.get(image_url).content
+            ext = Path(entry["path"]).suffix.lower()
+            if ext not in IMAGE_EXTS:
+                continue
 
-                            with open(local_path, "wb") as f:
-                                f.write(img_data)
-                        
-                        return local_path.name
+            local_path = get_local_image_path(repo, repo_path, ext)
+            ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+
+            if not local_path.exists():
+                image_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{entry['path']}"
+                img_data = SESSION.get(image_url).content
+
+                with open(local_path, "wb") as f:
+                    f.write(img_data)
+
+            return local_path.name
     except Exception as e:
         print(f"Error fetching image for {repo_path}: {str(e)}")
-    
+
     return None
 
 def generate_projects_json():
@@ -187,14 +173,18 @@ def generate_projects_json():
     projects_data = []
     
     for repo in REPOS:
+        repo_name = repo["repo"]
+        branch = get_default_branch(repo_name)
+        tree = fetch_tree(repo_name, branch)
+
         if repo["recursive"]:
-            projects = get_projects_from_github(repo["repo"], repo["base_dirs"])
+            projects = get_projects_from_tree(tree, repo["base_dirs"])
         else:
             projects = [
                 {
                     "path": "",
-                    "name": upper_all_keywords(format_repo_name(repo["repo"].split("/")[-1])),
-                    "languages": detect_languages(repo["repo"], "")
+                    "name": upper_all_keywords(format_repo_name(repo_name.split("/")[-1])),
+                    "languages": detect_languages(tree, "")
                 }
             ]
 
@@ -211,10 +201,10 @@ def generate_projects_json():
 
             projects_data.append({
                 "name": name,
-                "description": get_project_description(repo["repo"], project["path"]),
-                "link": f"https://github.com/{repo['repo']}/tree/main/{project['path']}",
+                "description": get_project_description(repo_name, branch, project["path"]),
+                "link": f"https://github.com/{repo_name}/tree/{branch}/{project['path']}",
                 "languages": project["languages"],
-                "image": get_project_image(repo["repo"], project["path"]),
+                "image": get_project_image(repo_name, branch, tree, project["path"]),
                 "category": project_meta.get("category"),
                 "featured": project_meta.get("featured", False)
             })

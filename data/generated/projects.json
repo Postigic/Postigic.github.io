@@ -1,203 +1,58 @@
 [
     {
-        "category": "Simulation",
-        "description": "yatta! balls! yatta!",
-        "featured": false,
-        "image": "bouncy_ball_simulator.png",
-        "languages": [],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/bouncy_ball_simulator",
-        "name": "Bouncy Ball Simulator"
-    },
-    {
-        "category": "Tool",
-        "description": "somewhat scientific calculator",
-        "featured": false,
-        "image": "calculator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/calculator",
-        "name": "Calculator"
-    },
-    {
-        "category": "Tool",
-        "description": "generates charts... because we all love them obviously",
-        "featured": false,
-        "image": "chart_generator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/chart_generator",
-        "name": "Chart Generator"
-    },
-    {
-        "category": "Tool",
-        "description": "if you flip a coin... it is a probability... (ted talk)",
-        "featured": false,
-        "image": "coin_flipper.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/coin_flipper",
-        "name": "Coin Flipper"
-    },
-    {
-        "category": "Tool",
-        "description": "converts data units (e.g. megabytes) into other ones",
-        "featured": false,
-        "image": "data_unit_converter.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/data_unit_converter",
-        "name": "Data Unit Converter"
-    },
-    {
-        "category": "Tool",
-        "description": "displays current time and date (hence datetime...)",
-        "featured": false,
-        "image": null,
-        "languages": [],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/datetime_clock",
-        "name": "Datetime Clock"
-    },
-    {
-        "category": "Tool",
-        "description": "i used to roollll the dice",
+        "category": "Game",
+        "description": "simple terminal games, but in C++ (so cool)",
         "featured": false,
         "image": null,
         "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
+            "C++"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/dice_roller",
-        "name": "Dice Roller"
-    },
-    {
-        "category": "Tool",
-        "description": "interest compounds... compounding... i dunno",
-        "featured": false,
-        "image": "interest_calculator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/interest_calculator",
-        "name": "Interest Calculator"
-    },
-    {
-        "category": "Tool",
-        "description": "\"make your password stronger\" \ud83d\udcaa\ud83d\udcaa\ud83d\udcaa",
-        "featured": false,
-        "image": "password_generator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/password_generator",
-        "name": "Password Generator"
-    },
-    {
-        "category": "Simulation",
-        "description": "A polyrhythm simulator with adjustable base frequency, oscillator, and track shape.",
-        "featured": true,
-        "image": "polyrhythm_simulator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/polyrhythm_simulator",
-        "name": "Polyrhythm Simulator"
-    },
-    {
-        "category": "Tool",
-        "description": "some kinda full-stack product store thing",
-        "featured": false,
-        "image": "product_store.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/product_store",
-        "name": "Product Store"
-    },
-    {
-        "category": "Visualiser",
-        "description": "what if funky town started playing",
-        "featured": false,
-        "image": "rotating_ascii_donut.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/rotating_ascii_donut",
-        "name": "Rotating ASCII Donut"
-    },
-    {
-        "category": "Simulation",
-        "description": "can we pretend that airplanes in the night sky are like shooting stars",
-        "featured": false,
-        "image": "solar_system.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
-        "name": "Solar System"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C++/terminal_games",
+        "name": "Terminal Games"
     },
     {
         "category": "Game",
-        "description": "tic tacs like the food",
+        "description": "simple terminal games, but in C++ (so cool)^2",
         "featured": false,
-        "image": "tic_tac_toe.png",
+        "image": null,
         "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
+            "C"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/tic_tac_toe",
-        "name": "Tic Tac Toe"
-    },
-    {
-        "category": "Visualiser",
-        "description": "trig wave generator thingamajig",
-        "featured": false,
-        "image": "trig_wave_generator.png",
-        "languages": [
-            "CSS3",
-            "HTML5",
-            "JavaScript"
-        ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/trig_wave_generator",
-        "name": "Trig Wave Generator"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
+        "name": "Terminal Games"
     },
     {
         "category": "Tool",
-        "description": "as if it were hard to search for stuff on wikipedia",
+        "description": "it's exactly the same as the python one but in js",
         "featured": false,
-        "image": "wikipedia_searcher.png",
+        "image": null,
         "languages": [
-            "CSS3",
-            "HTML5",
             "JavaScript"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/wikipedia_searcher",
-        "name": "Wikipedia Searcher"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/student_management_system",
+        "name": "Student Management System"
+    },
+    {
+        "category": "Game",
+        "description": "simple terminal games (game but shh) but in js (cool, or not?)",
+        "featured": false,
+        "image": null,
+        "languages": [
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/terminal_games",
+        "name": "Terminal Games"
+    },
+    {
+        "category": "Game",
+        "description": "simple terminal games, but in Lua (so 1-indexed)",
+        "featured": false,
+        "image": null,
+        "languages": [
+            "Lua"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Lua/terminal_games",
+        "name": "Terminal Games"
     },
     {
         "category": "Algorithm",
@@ -442,59 +297,212 @@
         "name": "YouTube Video Downloader"
     },
     {
+        "category": "Simulation",
+        "description": "yatta! balls! yatta!",
+        "featured": false,
+        "image": "bouncy_ball_simulator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/bouncy_ball_simulator",
+        "name": "Bouncy Ball Simulator"
+    },
+    {
         "category": "Tool",
-        "description": "it's exactly the same as the python one but in js",
+        "description": "somewhat scientific calculator",
         "featured": false,
-        "image": null,
+        "image": "calculator.png",
         "languages": [
+            "CSS3",
+            "HTML5",
             "JavaScript"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/student_management_system",
-        "name": "Student Management System"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/calculator",
+        "name": "Calculator"
     },
     {
-        "category": "Game",
-        "description": "simple terminal games (game but shh) but in js (cool, or not?)",
+        "category": "Tool",
+        "description": "generates charts... because we all love them obviously",
         "featured": false,
-        "image": null,
+        "image": "chart_generator.png",
         "languages": [
+            "CSS3",
+            "HTML5",
             "JavaScript"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/JavaScript/terminal_games",
-        "name": "Terminal Games"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/chart_generator",
+        "name": "Chart Generator"
+    },
+    {
+        "category": "Tool",
+        "description": "if you flip a coin... it is a probability... (ted talk)",
+        "featured": false,
+        "image": "coin_flipper.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/coin_flipper",
+        "name": "Coin Flipper"
+    },
+    {
+        "category": "Tool",
+        "description": "converts data units (e.g. megabytes) into other ones",
+        "featured": false,
+        "image": "data_unit_converter.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/data_unit_converter",
+        "name": "Data Unit Converter"
+    },
+    {
+        "category": "Tool",
+        "description": "displays current time and date (hence datetime...)",
+        "featured": false,
+        "image": "datetime_clock.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/datetime_clock",
+        "name": "Datetime Clock"
+    },
+    {
+        "category": "Tool",
+        "description": "i used to roollll the dice",
+        "featured": false,
+        "image": "dice_roller.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/dice_roller",
+        "name": "Dice Roller"
+    },
+    {
+        "category": "Tool",
+        "description": "interest compounds... compounding... i dunno",
+        "featured": false,
+        "image": "interest_calculator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/interest_calculator",
+        "name": "Interest Calculator"
+    },
+    {
+        "category": "Tool",
+        "description": "\"make your password stronger\" \ud83d\udcaa\ud83d\udcaa\ud83d\udcaa",
+        "featured": false,
+        "image": "password_generator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/password_generator",
+        "name": "Password Generator"
+    },
+    {
+        "category": "Simulation",
+        "description": "A polyrhythm simulator with adjustable base frequency, oscillator, and track shape.",
+        "featured": true,
+        "image": "polyrhythm_simulator.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/polyrhythm_simulator",
+        "name": "Polyrhythm Simulator"
+    },
+    {
+        "category": "Tool",
+        "description": "some kinda full-stack product store thing",
+        "featured": false,
+        "image": "product_store.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/product_store",
+        "name": "Product Store"
+    },
+    {
+        "category": "Visualiser",
+        "description": "what if funky town started playing",
+        "featured": false,
+        "image": "rotating_ascii_donut.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/rotating_ascii_donut",
+        "name": "Rotating ASCII Donut"
+    },
+    {
+        "category": "Simulation",
+        "description": "can we pretend that airplanes in the night sky are like shooting stars",
+        "featured": false,
+        "image": "solar_system.png",
+        "languages": [
+            "CSS3",
+            "HTML5",
+            "JavaScript"
+        ],
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/solar_system",
+        "name": "Solar System"
     },
     {
         "category": "Game",
-        "description": "simple terminal games, but in C++ (so cool)^2",
+        "description": "tic tacs like the food",
         "featured": false,
-        "image": null,
+        "image": "tic_tac_toe.png",
         "languages": [
-            "C"
+            "CSS3",
+            "HTML5",
+            "JavaScript"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C/terminal_games",
-        "name": "Terminal Games"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/tic_tac_toe",
+        "name": "Tic Tac Toe"
     },
     {
-        "category": "Game",
-        "description": "simple terminal games, but in C++ (so cool)",
+        "category": "Visualiser",
+        "description": "trig wave generator thingamajig",
         "featured": false,
-        "image": null,
+        "image": "trig_wave_generator.png",
         "languages": [
-            "C++"
+            "CSS3",
+            "HTML5",
+            "JavaScript"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/C++/terminal_games",
-        "name": "Terminal Games"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/trig_wave_generator",
+        "name": "Trig Wave Generator"
     },
     {
-        "category": "Game",
-        "description": "simple terminal games, but in Lua (so 1-indexed)",
+        "category": "Tool",
+        "description": "as if it were hard to search for stuff on wikipedia",
         "featured": false,
-        "image": null,
+        "image": "wikipedia_searcher.png",
         "languages": [
-            "Lua"
+            "CSS3",
+            "HTML5",
+            "JavaScript"
         ],
-        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Lua/terminal_games",
-        "name": "Terminal Games"
+        "link": "https://github.com/Postigic/code-dump-lmao/tree/main/Websites/wikipedia_searcher",
+        "name": "Wikipedia Searcher"
     },
     {
         "category": "Bot",
@@ -541,7 +549,7 @@
         "name": "RISC Simulator"
     },
     {
-        "category": null,
+        "category": "Uncategorised",
         "description": "Dump of LaTeX practice proofs (sufficient rigor up for debate).",
         "featured": false,
         "image": "latex-stuff.jpg",
