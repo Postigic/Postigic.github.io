@@ -532,7 +532,9 @@
         "featured": true,
         "image": "sorting-algorithm-visualiser.jpg",
         "languages": [
-            "Python"
+            "CSS3",
+            "HTML5",
+            "JavaScript"
         ],
         "link": "https://github.com/Postigic/sorting-algorithm-visualiser/tree/main/",
         "name": "Sorting Algorithm Visualiser"
