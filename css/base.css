@@ -5,17 +5,26 @@
     box-sizing: border-box;
 }
 
+/* is this lowkey tailwind @theme coded? :eyes: */
 :root {
     --primary-color: #ff8200;
+    --primary-color-light: #ffaa00;
+
     --background-color: #0d0e0e;
-    --item-background-color: rgba(30, 30, 45, 0.5);
     --accent-color: #27272a;
+
     --title-text-color: #fff;
     --text-color: #ccc;
-    --card-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 24px;
+    --text-muted-color: #7b7b7b;
+
+    /* hacky but i don't care */
+    --radius-sm: 5px;
+    --radius-md: 5px;
+    --radius-lg: 5px;
+
+    --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.35);
+
+    --font-mono: ui-monospace, "DM Mono", monospace;
 }
 
 html {

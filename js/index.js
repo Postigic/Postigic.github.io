@@ -2,6 +2,21 @@ fetch("data/skills.json")
     .then((response) => response.json())
     .then((data) => generateSkills(data));
 
+const achievementFallbackImages = [
+    "assets/images/ui/neuro_abs_cinema.jpg",
+    "assets/images/ui/gfl-neural-cloud.webp",
+    "assets/images/ui/inabakumori-rainy-boots.gif",
+];
+
+function getAchievementImage(achievement) {
+    if (achievement.image) {
+        return `assets/images/achievements/${achievement.image}`;
+    }
+    return achievementFallbackImages[
+        Math.floor(Math.random() * achievementFallbackImages.length)
+    ];
+}
+
 // {
 //     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
 //     const typewriterElement = document.getElementById("typewriter");
@@ -166,13 +181,24 @@ function loadAchievementsPreview() {
 
             uniqueAchievements.forEach((ach) => {
                 const div = document.createElement("div");
-                div.className = "achievement-preview-card animate-target";
-                div.textContent = ach.name;
+                div.className = "card achievement-preview-card animate-target";
+
+                const img = document.createElement("img");
+                img.src = getAchievementImage(ach);
+                img.alt = ach.name;
+                div.appendChild(img);
+
+                const name = document.createElement("p");
+                name.textContent = ach.name;
+                div.appendChild(name);
+
                 container.appendChild(div);
             });
 
             observeElements({
                 elements: document.querySelector(".achievements-preview"),
+                desktopThreshold: 0.3,
+                mobileThreshold: 0.2,
             });
         })
         .catch((error) =>
@@ -197,7 +223,8 @@ function loadProjectsPreview() {
 
             projectsToShow.forEach((proj) => {
                 const a = document.createElement("a");
-                a.className = "project-preview-card animate-target";
+                a.className =
+                    "card card--interactive project-preview-card animate-target";
                 a.href = proj.link;
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";

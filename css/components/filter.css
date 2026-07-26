@@ -15,44 +15,40 @@
     align-items: center;
     gap: 8px;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--title-text-color);
-    background: linear-gradient(
-        145deg,
-        rgba(30, 30, 46, 0.8),
-        rgba(25, 25, 40, 0.8)
-    );
-    border: 1px solid rgba(125, 125, 255, 0.3);
+    color: var(--text-muted-color);
+    background: var(--background-color);
+    border: 1px solid var(--accent-color);
     border-radius: var(--radius-sm);
     padding: 0.8rem 1.5rem;
     cursor: pointer;
     transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    box-shadow: var(--shadow-card);
     z-index: 10;
     position: relative;
 }
 
 #toggleFilters:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(
-        145deg,
-        rgba(40, 40, 60, 0.9),
-        rgba(30, 30, 50, 0.9)
-    );
+    transform: translateY(-4px);
     border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+#toggleFilters.active {
+    border-color: var(--primary-color);
+    color: var(--title-text-color);
 }
 
 #toggleFilters:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+    color: var(--title-text-color);
 }
 
 #toggleFilters i {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 #toggleFilters i.rotated {
@@ -65,18 +61,17 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    border: 1px solid rgba(125, 125, 255, 0.2);
+    border: 1px solid var(--accent-color);
     padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    background: rgba(25, 25, 40, 0.85);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-radius: var(--radius-md);
+    background: var(--background-color);
+    box-shadow: var(--shadow-card);
     width: 90vw;
     max-width: 1000px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.25s ease-out;
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, 20px);
+    transform: translate(-50%, 10px);
 }
 
 #filterContainer:not(.hidden) {
@@ -84,7 +79,6 @@
     visibility: visible;
     transform: translate(-50%, 0);
 }
-/* wtf was i doing? whatever, not gonna change it */
 
 .filter-group {
     display: flex;
@@ -93,7 +87,7 @@
     justify-content: center;
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(125, 125, 255, 0.1);
+    border-bottom: 1px solid var(--accent-color);
 }
 
 .filter-group:last-child {
@@ -142,78 +136,44 @@
     align-items: center;
     justify-content: center;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-    color: var(--text-color);
-    background: rgba(40, 40, 60, 0.7);
-    border: 1px solid rgba(125, 125, 255, 0.2);
+    color: var(--text-muted-color);
+    background: var(--background-color);
+    border: 1px solid var(--accent-color);
     border-radius: var(--radius-md);
     padding: 0.8rem 0.5rem;
     margin: 0;
     cursor: pointer;
     min-height: 80px;
     transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     position: relative;
     overflow: hidden;
 }
 
-.filter-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
-}
-
 .filter-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-color);
-    color: white;
-}
-
-.filter-button:hover::before {
-    transform: translateX(100%);
+    border-color: var(--text-muted-color);
+    color: var(--text-color);
 }
 
 .filter-button:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .filter-button.active {
-    background: linear-gradient(
-        145deg,
-        rgba(255, 130, 0, 0.15),
-        rgba(255, 90, 0, 0.1)
-    );
+    background: rgba(255, 130, 0, 0.08);
     border-color: var(--primary-color);
-    color: white;
-    box-shadow:
-        0 0 15px rgba(255, 130, 0, 0.3),
-        inset 0 0 10px rgba(255, 255, 255, 0.05);
+    color: var(--title-text-color);
 }
 
 .filter-button i {
     font-size: 1.5rem;
     margin-bottom: 8px;
     transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .filter-button.active i {
@@ -225,62 +185,26 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     border-radius: var(--radius-md);
     padding: 0.8rem 2rem;
-    background: linear-gradient(
-        145deg,
-        rgba(40, 40, 60, 0.9),
-        rgba(30, 30, 50, 0.9)
-    );
+    background: var(--item-background-color);
     border: 1px solid var(--accent-color);
-    color: var(--title-text-color);
+    color: var(--text-muted-color);
     cursor: pointer;
     transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     margin-top: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-#clearFilters::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
-    z-index: -1;
+    box-shadow: var(--shadow-card);
 }
 
 #clearFilters:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     border-color: var(--primary-color);
-    background: linear-gradient(
-        145deg,
-        rgba(50, 50, 70, 0.95),
-        rgba(35, 35, 55, 0.95)
-    );
-}
-
-#clearFilters:hover::before {
-    transform: translateX(100%);
+    color: var(--text-color);
 }
 
 #clearFilters:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 700px) {

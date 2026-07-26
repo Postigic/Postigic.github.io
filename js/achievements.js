@@ -13,6 +13,21 @@ function initAchievementsPage() {
         );
 }
 
+const achievementFallbackImages = [
+    "assets/images/ui/neuro_abs_cinema.jpg",
+    "assets/images/ui/gfl-neural-cloud.webp",
+    "assets/images/ui/inabakumori-rainy-boots.gif",
+];
+
+function getAchievementImage(achievement) {
+    if (achievement.image) {
+        return `assets/images/achievements/${achievement.image}`;
+    }
+    return achievementFallbackImages[
+        Math.floor(Math.random() * achievementFallbackImages.length)
+    ];
+}
+
 function generateAchievements(data) {
     const achievementsSection = document.querySelector(".achievements");
     achievementsSection.innerHTML = "";
@@ -37,9 +52,20 @@ function generateAchievements(data) {
 
         sortedTitles.forEach((achievement) => {
             const achievementCard = document.createElement("div");
-            achievementCard.classList.add("achievement-card", "animate-target");
+            achievementCard.classList.add(
+                "card",
+                "achievement-card",
+                "animate-target",
+            );
             achievementCard.setAttribute("data-category", achievement.category);
             achievementCard.setAttribute("data-type", achievement.type);
+
+            achievementCard.classList.add("achievement-card--has-image");
+
+            const achievementImage = document.createElement("img");
+            achievementImage.src = getAchievementImage(achievement);
+            achievementImage.alt = achievement.name;
+            achievementCard.appendChild(achievementImage);
 
             const achievementName = document.createElement("div");
             achievementName.classList.add("achievement-name");
@@ -71,7 +97,7 @@ function generateAchievements(data) {
         achievementsSection.appendChild(yearContainer);
         observeElements({
             elements: yearContainer,
-            desktopThreshold: 0.4,
+            desktopThreshold: 0.2,
             mobileThreshold: 0.1,
         });
     });
@@ -214,9 +240,8 @@ function handleClick(event) {
 
         const isHidden = filterContainer.classList.contains("hidden");
         filterContainer.classList.toggle("hidden");
-
         icon.classList.toggle("rotated", isHidden);
-        console.log("toggleFilters clicked " + isHidden);
+        toggleButton.classList.toggle("active", isHidden);
         return;
     }
 }

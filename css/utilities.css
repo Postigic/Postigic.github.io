@@ -16,7 +16,6 @@
 .noscript-warning p {
     background: #ff4444;
     padding: 20px;
-    border-radius: 10px;
     margin-top: 20px;
     display: inline-block;
 }
@@ -29,7 +28,6 @@
     opacity: 0;
     pointer-events: none;
 }
-/* i honestly don't know what is using this but i'm just not gonna touch it */
 
 .animate-target {
     opacity: 0;
@@ -42,4 +40,40 @@
     opacity: 1;
     pointer-events: all;
     transform: translateY(0);
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: var(--item-background-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+}
+
+.card--interactive:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+.card--interactive:active {
+    transform: translateY(1px);
+}
+
+.card--featured {
+    border-color: var(--primary-color);
+}
+
+.card-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    color: var(--background-color);
+    background: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: var(--radius-sm) 0 var(--radius-sm) 0;
 }

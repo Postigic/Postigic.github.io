@@ -165,8 +165,14 @@ function generateProjects(
         try {
             const imageUrl = await getProjectImage(project.link);
             const projectElement = document.createElement("a");
-            projectElement.classList.add("project", "animate-target");
-            if (project.featured) projectElement.classList.add("featured");
+            projectElement.classList.add(
+                "card",
+                "card--interactive",
+                "project",
+                "animate-target",
+            );
+            if (project.featured)
+                projectElement.classList.add("card--featured");
             projectElement.href = project.link;
             projectElement.target = "_blank";
             projectElement.rel = "noopener noreferrer";
@@ -176,7 +182,7 @@ function generateProjects(
                 <p class="animate-target">${
                     project.description || "No description available"
                 }</p>
-                <img class="animate-target" src="${
+                <img src="${
                     project.image
                         ? `assets/images/projects/${project.image}`
                         : imageUrl
@@ -189,7 +195,7 @@ function generateProjects(
                             if (language) {
                                 const bgColor = darkenColor(
                                     language.color,
-                                    0.5,
+                                    0.75,
                                 );
 
                                 return `
@@ -204,7 +210,7 @@ function generateProjects(
                         .join("") || "No languages available"
                 }
                 </div>
-                ${project.featured ? '<div class="featured-badge">FEATURED</div>' : ""}
+                ${project.featured ? '<div class="card-badge">featured</div>' : ""}
             `;
             return projectElement;
         } catch (error) {
@@ -302,6 +308,7 @@ function handleClick(event) {
         const isHidden = filterContainer.classList.contains("hidden");
         filterContainer.classList.toggle("hidden");
         icon.classList.toggle("rotated", isHidden);
+        toggleButton.classList.toggle("active", isHidden);
         return;
     }
 }

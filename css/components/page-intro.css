@@ -9,22 +9,9 @@
     height: 400px;
     object-fit: cover;
     min-height: 300px;
-    border-radius: var(--radius-md);
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
-    /* border: 3px solid transparent;
-    background: linear-gradient(
-            45deg,
-            var(--primary-color),
-            var(--accent-color)
-        )
-        border-box;
-    transition: transform 0.5s ease, box-shadow 0.5s ease; */
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
 }
-
-/* .page-intro .intro-img:hover {
-    transform: scale(1.03) rotate(-2deg);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
-} */
 
 .page-intro h1 {
     font-size: clamp(2rem, 4vw, 3rem);
@@ -33,22 +20,5 @@
 }
 
 .page-intro h1 span {
-    background: linear-gradient(120deg, var(--primary-color), #ffaa00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-    display: inline-block;
-    font-style: italic;
-}
-
-.page-intro h1 span::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0.3em;
-    width: 100%;
-    height: 3px;
-    border-radius: 3px;
-    background: linear-gradient(120deg, var(--primary-color), #ffaa00);
+    color: var(--primary-color);
 }

@@ -1,12 +1,3 @@
-/* #awards-intro h1 span {
-    color: var(--primary-color);
-    position: relative;
-    text-shadow: 20px 10px 5px rgba(255, 130, 0, 0.6),
-        0 0 20px rgba(255, 130, 0, 0.5), 0 0 30px rgba(255, 130, 0, 0.4),
-        2px 2px 5px rgba(255, 130, 0, 0.2), 0 0 10px rgba(255, 130, 0, 0.6),
-        0 0 20px rgba(255, 130, 0, 0.5), 0 0 30px rgba(255, 130, 0, 0.4);
-} */
-
 .achievements {
     padding-top: 5em;
     max-width: 70em;
@@ -18,42 +9,32 @@
     width: fit-content;
     margin: 2rem auto;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--title-text-color);
-    background: linear-gradient(
-        145deg,
-        rgba(255, 120, 50, 0.3),
-        rgba(255, 90, 0, 0.3)
-    );
-    border: 1px solid rgba(255, 166, 125, 0.3);
+    color: var(--text-muted-color);
+    background: var(--background-color);
+    border: 1px solid var(--accent-color);
     border-radius: var(--radius-sm);
     padding: 0.8rem 1.5rem;
     cursor: pointer;
     transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    box-shadow: var(--shadow-card);
     z-index: 10;
     position: relative;
     animation: fadeIn 0.35s ease-out;
 }
 
 #allCertificatesLink:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(
-        145deg,
-        rgba(255, 140, 70, 0.4),
-        rgba(255, 100, 20, 0.4)
-    );
-    border-color: rgba(125, 125, 255, 0.7);
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 #allCertificatesLink:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+    color: var(--title-text-color);
 }
 
 .year-container {
@@ -61,26 +42,9 @@
     padding: 20px 5vw;
     border: 1px solid var(--accent-color);
     border-radius: var(--radius-md);
-    transition:
-        opacity 0.4s ease-out,
-        transform 0.4s ease-out,
-        box-shadow 0.3s ease;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--shadow-card);
     background: var(--background-color);
 }
-
-/* .year-container:hover {
-    transition: transform 0.3s ease;
-    transform: scale(1.01);
-} */
-
-/* .year-container:first-child {
-    background: linear-gradient(
-        to top left,
-        var(--accent-color) 0%,
-        rgba(0, 0, 255, 0) 60%
-    );
-} */
 
 .year-container h2 {
     color: var(--title-text-color);
@@ -97,46 +61,43 @@
 }
 
 .achievement-card {
-    background: var(--item-background-color);
-    border: 1px solid var(--accent-color);
-    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    aspect-ratio: 4 / 5;
     padding: 20px;
-    transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    box-shadow: var(--card-shadow);
-    position: relative;
-    overflow: hidden;
+    gap: 8px;
 }
 
-/* .achievement-card::before {
+.achievement-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+}
+
+.achievement-card::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
+    inset: 0;
+    z-index: 0;
     background: linear-gradient(
-        90deg,
-        var(--primary-color),
-        var(--accent-color)
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.6) 35%,
+        rgba(0, 0, 0, 0.2) 65%,
+        rgba(0, 0, 0, 0) 100%
     );
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-} */
-
-/* .achievement-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: var(--primary-color);
 }
 
-.achievement-card:hover::before {
-    transform: scaleX(1);
-} */
+.achievement-card .achievement-name,
+.achievement-card .achievement-tags {
+    position: relative;
+    z-index: 1;
+}
 
 .achievement-name {
     font-weight: 600;
@@ -152,17 +113,19 @@
 }
 
 .achievement-tag {
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     padding: 4px 12px;
-    border-radius: 20px;
-    background: rgba(125, 125, 255, 0.15);
+    border-radius: var(--radius-sm);
+    background: transparent;
     color: var(--text-color);
-    border: 1px solid rgba(125, 125, 255, 0.3);
+    border: 1px solid var(--accent-color);
 }
 
 .achievement-category {
-    background: rgba(255, 130, 0, 0.15);
-    border: 1px solid rgba(255, 130, 0, 0.3);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .year-header {
@@ -170,7 +133,7 @@
     display: inline-block;
 }
 
-.year-header::after {
+/* .year-header::after {
     content: "";
     position: absolute;
     bottom: 5px;
@@ -185,4 +148,4 @@
         transparent
     );
     border-radius: 2px;
-}
+} */

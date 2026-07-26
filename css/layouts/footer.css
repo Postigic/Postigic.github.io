@@ -30,12 +30,6 @@ footer .cols .about-col p {
     font-weight: 600;
 }
 
-/* footer .cols .about-col p {
-    color: var(--text-color);
-    font-size: 13px;
-    margin-bottom: 10px;
-} */
-
 footer .cols .spacer {
     flex: 1;
 }
@@ -54,7 +48,7 @@ footer .cols .social-col ul {
 
 footer .cols .social-col .social-link {
     display: flex;
-    color: #7b7b7b;
+    color: var(--text-muted-color);
     font-size: 24px;
     line-height: 30px;
     transition: all 0.3s ease;
@@ -91,10 +85,6 @@ footer .footer-bottom .footer-text {
     font-size: clamp(12px, 2vw, 14px);
     color: var(--text-color);
 }
-
-/* footer .footer-bottom .footer-text strike {
-    color: #313131;
-} */
 
 @media screen and (max-width: 1024px) {
     footer .cols {

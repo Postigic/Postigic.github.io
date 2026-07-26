@@ -130,6 +130,12 @@ document.addEventListener("turbo:load", () => {
     if (noscriptWarning) noscriptWarning.remove();
 });
 
+document.addEventListener("turbo:click", (event) => {
+    if (event.detail.url === window.location.href) {
+        event.preventDefault();
+    }
+});
+
 loadNavbar();
 loadFooter();
 loadBackToTop();
