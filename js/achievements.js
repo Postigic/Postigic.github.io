@@ -98,7 +98,7 @@ function generateAchievements(data) {
         observeElements({
             elements: yearContainer,
             desktopThreshold: 0.2,
-            mobileThreshold: 0.1,
+            mobileThreshold: 0.05,
         });
     });
 }
