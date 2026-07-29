@@ -12,7 +12,7 @@ function observeElements({
         elements = [elements];
     }
 
-    const isMobile = window.innerWidth <= 700;
+    const isMobile = window.innerWidth <= 768;
     const threshold = isMobile ? mobileThreshold : desktopThreshold;
 
     const observer = new IntersectionObserver(
