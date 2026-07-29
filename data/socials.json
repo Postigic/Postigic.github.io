@@ -10,11 +10,5 @@
         "icon": "bxl bx-leetcode",
         "label": "LeetCode",
         "color": "#f79f1b"
-    },
-    {
-        "url": "https://discord.com/users/654593782670426124",
-        "icon": "bx bxl-discord-alt",
-        "label": "Discord",
-        "color": "#5865f2"
     }
 ]
