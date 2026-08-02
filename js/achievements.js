@@ -1,3 +1,5 @@
+import { observeElements, getAchievementImage } from "./common.js";
+
 function initAchievementsPage() {
     if (!document.querySelector(".achievements")) return;
 
@@ -13,23 +15,10 @@ function initAchievementsPage() {
         );
 }
 
-const achievementFallbackImages = [
-    "assets/images/ui/neuro_abs_cinema.jpg",
-    "assets/images/ui/gfl-neural-cloud.webp",
-    "assets/images/ui/inabakumori-rainy-boots.gif",
-];
-
-function getAchievementImage(achievement) {
-    if (achievement.image) {
-        return `assets/images/achievements/${achievement.image}`;
-    }
-    return achievementFallbackImages[
-        Math.floor(Math.random() * achievementFallbackImages.length)
-    ];
-}
-
 function generateAchievements(data) {
     const achievementsSection = document.querySelector(".achievements");
+    if (!achievementsSection) return;
+
     achievementsSection.innerHTML = "";
 
     const sortedYears = Object.keys(data).sort((a, b) => b - a);
@@ -104,7 +93,11 @@ function generateAchievements(data) {
 }
 
 function populateAchievementsFilter(achievements) {
+    if (!document.querySelector(".achievements")) return;
+
     const buttonContainer = document.getElementById("buttonContainer");
+    if (!buttonContainer) return;
+
     const categories = new Set();
     const types = new Set();
 
@@ -170,7 +163,7 @@ function populateAchievementsFilter(achievements) {
     createFilterSection("Type", types, "type", typeIcons);
 }
 
-function handleClick(event) {
+function handleAchievementsClick(event) {
     if (!document.querySelector(".achievements")) return;
 
     const button = event.target.closest(".filter-button");
@@ -246,9 +239,9 @@ function handleClick(event) {
     }
 }
 
-initAchievementsPage();
+document.addEventListener("turbo:load", initAchievementsPage);
 
 if (!window.isAchievementsListenerAdded) {
-    document.addEventListener("click", handleClick);
+    document.addEventListener("click", handleAchievementsClick);
     window.isAchievementsListenerAdded = true;
 }

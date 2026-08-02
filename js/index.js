@@ -1,21 +1,4 @@
-fetch("data/skills.json")
-    .then((response) => response.json())
-    .then((data) => generateSkills(data));
-
-const achievementFallbackImages = [
-    "assets/images/ui/neuro_abs_cinema.jpg",
-    "assets/images/ui/gfl-neural-cloud.webp",
-    "assets/images/ui/inabakumori-rainy-boots.gif",
-];
-
-function getAchievementImage(achievement) {
-    if (achievement.image) {
-        return `assets/images/achievements/${achievement.image}`;
-    }
-    return achievementFallbackImages[
-        Math.floor(Math.random() * achievementFallbackImages.length)
-    ];
-}
+import { observeElements, loadSocials, getAchievementImage } from "./common.js";
 
 // {
 //     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
@@ -118,6 +101,7 @@ function getAchievementImage(achievement) {
 
 function generateSkills(data) {
     const skillsSection = document.querySelector(".skills");
+    if (!skillsSection) return;
 
     skillsSection.innerHTML = "";
 
@@ -155,6 +139,8 @@ function loadAchievementsPreview() {
             const container = document.getElementById(
                 "achievements-preview-container",
             );
+            if (!container) return;
+
             const selectedAchievements = [
                 "Edusave Scholarship",
                 "Edusave Award for Achievement, Good Leadership and Service (EAGLES)",
@@ -213,6 +199,8 @@ function loadProjectsPreview() {
             const container = document.getElementById(
                 "projects-preview-container",
             );
+            if (!container) return;
+
             const selectedProjects = ["Polyrhythm Simulator", "Media To ASCII"];
 
             container.innerHTML = "";
@@ -246,10 +234,20 @@ function loadProjectsPreview() {
         );
 }
 
-// setInterval(updateTime, 1000);
-// updateTime();
-// calculateAge();
-loadSocials(document.getElementById("hero"));
-loadAchievementsPreview();
-loadProjectsPreview();
-observeElements({ elements: document.querySelector(".about") });
+function initIndexPage() {
+    if (!document.getElementById("index-main-container")) return;
+
+    // setInterval(updateTime, 1000);
+    // updateTime();
+    // calculateAge();
+    fetch("data/skills.json")
+        .then((response) => response.json())
+        .then((data) => generateSkills(data));
+
+    loadSocials(document.getElementById("hero"));
+    loadAchievementsPreview();
+    loadProjectsPreview();
+    observeElements({ elements: document.querySelector(".about") });
+}
+
+document.addEventListener("turbo:load", initIndexPage);

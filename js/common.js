@@ -1,4 +1,4 @@
-function observeElements({
+export function observeElements({
     elements,
     childSelector = ".animate-target",
     desktopThreshold = 0.9,
@@ -47,10 +47,29 @@ function observeElements({
     elements.forEach((el) => observer.observe(el));
 }
 
-function loadSocials(container) {
+export const achievementFallbackImages = [
+    "assets/images/ui/neuro_abs_cinema.jpg",
+    "assets/images/ui/gfl-neural-cloud.webp",
+    "assets/images/ui/inabakumori-rainy-boots.gif",
+];
+
+export function getAchievementImage(achievement) {
+    if (achievement.image) {
+        return `assets/images/achievements/${achievement.image}`;
+    }
+    return achievementFallbackImages[
+        Math.floor(Math.random() * achievementFallbackImages.length)
+    ];
+}
+
+export function loadSocials(container) {
+    if (!container) return;
+
     fetch("data/socials.json")
         .then((response) => response.json())
         .then((data) => {
+            if (!container.isConnected) return;
+
             const socialsHTML = data
                 .map(
                     ({ url, label, icon, color }) => `
@@ -66,7 +85,8 @@ function loadSocials(container) {
                 `,
                 )
                 .join("");
-            container.querySelector(".social-links").innerHTML = socialsHTML;
+            const target = container.querySelector(".social-links");
+            if (target) target.innerHTML = socialsHTML;
         })
         .catch((error) => console.error("Error loading socials:", error));
 }
@@ -110,17 +130,23 @@ function loadBackToTop() {
             document.body.appendChild(container);
 
             const backToTopButton = document.getElementById("backToTop");
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add("show");
-                } else {
-                    backToTopButton.classList.remove("show");
-                }
-            });
 
             backToTopButton.addEventListener("click", () => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
             });
+
+            if (!window.isBackToTopScrollListenerAdded) {
+                window.addEventListener("scroll", () => {
+                    const btn = document.getElementById("backToTop");
+                    if (!btn) return;
+                    if (window.scrollY > 300) {
+                        btn.classList.add("show");
+                    } else {
+                        btn.classList.remove("show");
+                    }
+                });
+                window.isBackToTopScrollListenerAdded = true;
+            }
         })
         .catch((error) => console.error("Error loading back-to-top:", error));
 }
@@ -128,6 +154,10 @@ function loadBackToTop() {
 document.addEventListener("turbo:load", () => {
     const noscriptWarning = document.querySelector(".noscript-warning");
     if (noscriptWarning) noscriptWarning.remove();
+
+    loadNavbar();
+    loadFooter();
+    loadBackToTop();
 });
 
 document.addEventListener("turbo:click", (event) => {
@@ -135,7 +165,3 @@ document.addEventListener("turbo:click", (event) => {
         event.preventDefault();
     }
 });
-
-loadNavbar();
-loadFooter();
-loadBackToTop();

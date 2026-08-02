@@ -1,3 +1,5 @@
+import { observeElements } from "./common.js";
+
 function initProjectsPage() {
     if (!document.querySelector(".projects")) return;
 
@@ -50,7 +52,11 @@ function darkenColor(hex, amount) {
 }
 
 function populateProjectsFilter(projects, skillMap) {
+    if (!document.querySelector(".projects")) return;
+
     const buttonContainer = document.getElementById("buttonContainer");
+    if (!buttonContainer) return;
+
     const languages = new Set();
 
     const { icons: languageIcons } = skillMap;
@@ -129,6 +135,7 @@ function generateProjects(
     selectedCategories = [],
 ) {
     const projectsContainer = document.querySelector(".projects");
+    if (!projectsContainer) return;
 
     const { map: languageMap } = skillMap;
 
@@ -226,7 +233,7 @@ function generateProjects(
             }
         });
 
-        allProjects = projectsContainer.querySelectorAll(".project");
+        const allProjects = projectsContainer.querySelectorAll(".project");
         observeElements({ elements: allProjects, desktopThreshold: 0.6 });
 
         projectsContainer.dataset.generating = "false";
@@ -248,7 +255,7 @@ function getProjectImage(project) {
     );
 }
 
-function handleClick(event) {
+function handleProjectsClick(event) {
     if (!document.querySelector(".projects")) return;
 
     const button = event.target.closest(".filter-button");
@@ -313,9 +320,9 @@ function handleClick(event) {
     }
 }
 
-initProjectsPage();
+document.addEventListener("turbo:load", initProjectsPage);
 
 if (!window.isProjectsListenerAdded) {
-    document.addEventListener("click", handleClick);
+    document.addEventListener("click", handleProjectsClick);
     window.isProjectsListenerAdded = true;
 }
