@@ -326,3 +326,5 @@ if (!window.isProjectsListenerAdded) {
     document.addEventListener("click", handleProjectsClick);
     window.isProjectsListenerAdded = true;
 }
+
+initProjectsPage();

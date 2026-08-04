@@ -251,3 +251,5 @@ function initIndexPage() {
 }
 
 document.addEventListener("turbo:load", initIndexPage);
+
+initIndexPage();

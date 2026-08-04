@@ -245,3 +245,5 @@ if (!window.isAchievementsListenerAdded) {
     document.addEventListener("click", handleAchievementsClick);
     window.isAchievementsListenerAdded = true;
 }
+
+initAchievementsPage();
