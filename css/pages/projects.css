@@ -85,6 +85,7 @@
 
 .language-item p {
     color: var(--title-text-color);
+    font-family: var(--font-mono);
     font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
