@@ -177,7 +177,7 @@
     },
     {
         "category": "Tool",
-        "description": "Converts videos and images into ASCII art.",
+        "description": "Converts videos and images into ASCII art, optionally with bitcrushed audio.",
         "featured": true,
         "image": "media_to_ascii.png",
         "languages": [
