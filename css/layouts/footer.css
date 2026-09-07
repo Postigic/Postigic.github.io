@@ -51,7 +51,9 @@ footer .cols .social-col .social-link {
     color: var(--text-muted-color);
     font-size: 24px;
     line-height: 30px;
-    transition: all 0.3s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 footer .cols .social-col .social-link:hover {

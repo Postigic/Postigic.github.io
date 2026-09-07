@@ -53,7 +53,7 @@ function generateAchievements(data) {
 
             const achievementImage = document.createElement("img");
             achievementImage.src = getAchievementImage(achievement);
-            achievementImage.alt = achievement.name;
+            achievementImage.alt = "";
             achievementCard.appendChild(achievementImage);
 
             const achievementName = document.createElement("div");

@@ -86,7 +86,7 @@ export function loadSocials(container) {
                 )
                 .join("");
             const target = container.querySelector(".social-links");
-            if (target) target.innerHTML = socialsHTML;
+            target.innerHTML = socialsHTML;
         })
         .catch((error) => console.error("Error loading socials:", error));
 }

@@ -193,7 +193,7 @@ function generateProjects(
                     project.image
                         ? `assets/images/projects/${project.image}`
                         : imageUrl
-                }" alt="${project.name}">
+                }" alt="">
                 <div class="languages">
                 ${
                     project.languages

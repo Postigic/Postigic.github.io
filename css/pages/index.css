@@ -51,6 +51,7 @@
 
 #hero .hero-content h1 span {
     color: var(--primary-color);
+    font-style: italic;
 }
 
 #hero .hero-content h2 {
@@ -83,11 +84,18 @@
     color: var(--text-muted-color);
     font-size: clamp(1.7rem, 4vw, 2rem);
     line-height: 30px;
-    transition: color 0.2s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 #hero .social-col .social-link:hover {
     color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+#hero .social-col .social-link:active {
+    transform: translateY(2px);
 }
 
 #index-main-container section {
@@ -332,6 +340,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    justify-items: center;
 }
 
 .project-preview-card {
@@ -343,6 +352,7 @@
     padding: 20px;
     gap: 8px;
     color: var(--text-color);
+    max-width: 450px;
 }
 
 .project-preview-card img {

@@ -15,7 +15,7 @@
     align-items: center;
     gap: 8px;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--text-muted-color);
+    color: var(--text-color);
     background: var(--background-color);
     border: 1px solid var(--accent-color);
     border-radius: var(--radius-sm);
@@ -33,18 +33,15 @@
 #toggleFilters:hover {
     transform: translateY(-4px);
     border-color: var(--primary-color);
-    color: var(--text-color);
 }
 
 #toggleFilters.active {
     border-color: var(--primary-color);
-    color: var(--title-text-color);
 }
 
 #toggleFilters:active {
     transform: translateY(1px);
     border-color: var(--primary-color);
-    color: var(--title-text-color);
 }
 
 #toggleFilters i {
@@ -59,7 +56,6 @@
     position: absolute;
     top: 120%;
     left: 50%;
-    transform: translateX(-50%);
     z-index: 1000;
     border: 1px solid var(--accent-color);
     padding: 1.5rem;
@@ -187,7 +183,7 @@
     padding: 0.8rem 2rem;
     background: var(--item-background-color);
     border: 1px solid var(--accent-color);
-    color: var(--text-muted-color);
+    color: var(--text-color);
     cursor: pointer;
     transition:
         border-color 0.2s ease,
@@ -200,7 +196,6 @@
 #clearFilters:hover {
     transform: translateY(-3px);
     border-color: var(--primary-color);
-    color: var(--text-color);
 }
 
 #clearFilters:active {
