@@ -1,4 +1,9 @@
-import { observeElements, loadSocials, getAchievementImage } from "./common.js";
+import {
+    observeElements,
+    loadSocials,
+    getAchievementImage,
+    preventDupeInit,
+} from "./common.js";
 
 // {
 //     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
@@ -250,6 +255,6 @@ function initIndexPage() {
     observeElements({ elements: document.querySelector(".about") });
 }
 
-document.addEventListener("turbo:load", initIndexPage);
-
-initIndexPage();
+const init = preventDupeInit(initIndexPage);
+document.addEventListener("turbo:load", init);
+init();

@@ -71,3 +71,7 @@ i {
     line-height: 1;
     vertical-align: middle;
 }
+
+.turbo-progress-bar {
+    background-color: var(--accent-color) !important;
+}

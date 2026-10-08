@@ -1,4 +1,4 @@
-import { observeElements } from "./common.js";
+import { observeElements, preventDupeInit } from "./common.js";
 
 function initProjectsPage() {
     if (!document.querySelector(".projects")) return;
@@ -170,7 +170,7 @@ function generateProjects(
 
     const projectPromises = sortedFeaturedProjects.map(async (project) => {
         try {
-            const imageUrl = await getProjectImage(project.link);
+            const imageUrl = await getProjectImage();
             const projectElement = document.createElement("a");
             projectElement.classList.add(
                 "card",
@@ -240,11 +240,7 @@ function generateProjects(
     });
 }
 
-function getProjectImage(project) {
-    if (project.image) {
-        return Promise.resolve(`assets/projects/${project.image}`);
-    }
-
+function getProjectImage() {
     const defaultImageUrls = [
         "assets/images/ui/neuro_abs_cinema.jpg",
         "assets/images/ui/inabakumori-plush.jpg",
@@ -322,11 +318,11 @@ function handleProjectsClick(event) {
     }
 }
 
-document.addEventListener("turbo:load", initProjectsPage);
-
 if (!window.isProjectsListenerAdded) {
     document.addEventListener("click", handleProjectsClick);
     window.isProjectsListenerAdded = true;
 }
 
-initProjectsPage();
+const init = preventDupeInit(initProjectsPage);
+document.addEventListener("turbo:load", init);
+init();

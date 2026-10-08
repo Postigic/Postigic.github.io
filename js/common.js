@@ -49,8 +49,10 @@ export function observeElements({
 
 export const achievementFallbackImages = [
     "assets/images/ui/neuro_abs_cinema.jpg",
-    "assets/images/ui/gfl-neural-cloud.webp",
+    "assets/images/ui/inabakumori-plush.jpg",
     "assets/images/ui/inabakumori-rainy-boots.gif",
+    "assets/images/ui/iu_.png",
+    "assets/images/ui/mliczki9986h1.jpeg",
 ];
 
 export function getAchievementImage(achievement) {
@@ -91,18 +93,38 @@ export function loadSocials(container) {
         .catch((error) => console.error("Error loading socials:", error));
 }
 
+export function preventDupeInit(fn) {
+    let lastBody = null;
+    return () => {
+        if (document.body === lastBody) return;
+        lastBody = document.body;
+        fn();
+    };
+}
+
+function updateActiveNavLink() {
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll("#navbar .nav-link").forEach((link) => {
+        link.classList.toggle(
+            "active",
+            link.getAttribute("href") === currentPath,
+        );
+    });
+}
+
 function loadNavbar() {
+    const container = document.getElementById("navbar");
+
+    if (container.childElementCount > 0) {
+        updateActiveNavLink();
+        return;
+    }
+
     fetch("partials/navbar.html")
         .then((response) => response.text())
         .then((data) => {
-            const container = document.getElementById("navbar");
-            const currentPath = window.location.pathname.split("/").pop();
             container.innerHTML = data;
-            container.querySelectorAll(".nav-link").forEach((link) => {
-                if (link.getAttribute("href") === currentPath) {
-                    link.classList.add("active");
-                }
-            });
+            updateActiveNavLink();
         })
         .catch((error) => console.error("Error loading navbar:", error));
 }
@@ -121,6 +143,8 @@ function loadFooter() {
 }
 
 function loadBackToTop() {
+    if (document.getElementById("backToTop")) return;
+
     fetch("partials/back-to-top.html")
         .then((response) => response.text())
         .then((data) => {
@@ -164,4 +188,12 @@ document.addEventListener("turbo:click", (event) => {
     if (event.detail.url === window.location.href) {
         event.preventDefault();
     }
+});
+
+document.addEventListener("turbo:before-cache", () => {
+    document
+        .querySelectorAll(
+            ".achievements, .projects, .skills, #achievements-preview-container, #projects-preview-container",
+        )
+        .forEach((el) => (el.innerHTML = ""));
 });

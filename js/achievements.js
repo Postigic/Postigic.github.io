@@ -1,4 +1,8 @@
-import { observeElements, getAchievementImage } from "./common.js";
+import {
+    observeElements,
+    getAchievementImage,
+    preventDupeInit,
+} from "./common.js";
 
 function initAchievementsPage() {
     if (!document.querySelector(".achievements")) return;
@@ -239,11 +243,11 @@ function handleAchievementsClick(event) {
     }
 }
 
-document.addEventListener("turbo:load", initAchievementsPage);
-
 if (!window.isAchievementsListenerAdded) {
     document.addEventListener("click", handleAchievementsClick);
     window.isAchievementsListenerAdded = true;
 }
 
-initAchievementsPage();
+const init = preventDupeInit(initAchievementsPage);
+document.addEventListener("turbo:load", init);
+init();
