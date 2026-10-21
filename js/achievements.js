@@ -118,6 +118,7 @@ function populateAchievementsFilter(achievements) {
         Award: "bx-award",
         Participation: "bx-user",
         Placement: "bx-list-ol",
+        Completion: "bx-check-circle",
     };
 
     Object.values(achievements)
@@ -126,6 +127,13 @@ function populateAchievementsFilter(achievements) {
             if (achievement.category) categories.add(achievement.category);
             if (achievement.type) types.add(achievement.type);
         });
+
+    const sortedCategories = Array.from(categories).sort((a, b) => {
+        if (a === "Miscellaneous") return 1;
+        if (b === "Miscellaneous") return -1;
+        return a.localeCompare(b);
+    });
+    const sortedTypes = Array.from(types).sort((a, b) => a.localeCompare(b));
 
     buttonContainer.innerHTML = "";
 
@@ -163,8 +171,13 @@ function populateAchievementsFilter(achievements) {
         buttonContainer.appendChild(filterGroup);
     }
 
-    createFilterSection("Category", categories, "category", categoryIcons);
-    createFilterSection("Type", types, "type", typeIcons);
+    createFilterSection(
+        "Category",
+        sortedCategories,
+        "category",
+        categoryIcons,
+    );
+    createFilterSection("Type", sortedTypes, "type", typeIcons);
 }
 
 function handleAchievementsClick(event) {

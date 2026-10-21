@@ -62,14 +62,15 @@ function populateProjectsFilter(projects, skillMap) {
     const { icons: languageIcons } = skillMap;
 
     const categoryIcons = {
+        Algorithm: "bx bx-code-curly",
+        Bot: "bx bx-bot",
+        Competitive: "bx bx-trophy",
         Game: "bx bx-joystick",
         Simulation: "bx bx-cog",
         Tool: "bx bx-wrench",
-        Algorithm: "bx bx-code-curly",
         Visualiser: "bx bx-bar-chart-alt-2",
-        Bot: "bx bx-bot",
-        Competitive: "bx bx-trophy",
         Uncategorised: "bx bx-category",
+        // should've called this "Miscellaneous" as well but i'm too lazy to change em
     };
 
     projects.forEach((project) => {

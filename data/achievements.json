@@ -5,6 +5,12 @@
             "category": "Academic",
             "type": "Award",
             "image": "excellence_award_national_exam.jpg"
+        },
+        {
+            "name": "AI For Essential Digital Skills (AI4EDS) Certificate",
+            "category": "Miscellaneous",
+            "type": "Completion",
+            "image": "ai4eds.jpg"
         }
     ],
     "2025": [
