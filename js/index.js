@@ -2,7 +2,6 @@ import {
     observeElements,
     loadSocials,
     getAchievementImage,
-    preventDupeInit,
 } from "./common.js";
 
 // {
@@ -177,6 +176,8 @@ function loadAchievementsPreview() {
                 const img = document.createElement("img");
                 img.src = getAchievementImage(ach);
                 img.alt = ach.name;
+                img.loading = "lazy";
+                img.decoding = "async";
                 div.appendChild(img);
 
                 const name = document.createElement("p");
@@ -225,7 +226,7 @@ function loadProjectsPreview() {
                 <p>${proj.description || "No description"}</p>
                 <img src="assets/images/projects/${proj.image}" alt="${
                     proj.name
-                }">`;
+                }" loading="lazy" decoding="async">`;
                 container.appendChild(a);
             });
 
@@ -255,6 +256,4 @@ function initIndexPage() {
     observeElements({ elements: document.querySelector(".about") });
 }
 
-const init = preventDupeInit(initIndexPage);
-document.addEventListener("turbo:load", init);
-init();
+initIndexPage();

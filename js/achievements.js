@@ -1,8 +1,4 @@
-import {
-    observeElements,
-    getAchievementImage,
-    preventDupeInit,
-} from "./common.js";
+import { observeElements, getAchievementImage } from "./common.js";
 
 function initAchievementsPage() {
     if (!document.querySelector(".achievements")) return;
@@ -58,6 +54,8 @@ function generateAchievements(data) {
             const achievementImage = document.createElement("img");
             achievementImage.src = getAchievementImage(achievement);
             achievementImage.alt = "";
+            achievementImage.loading = "lazy";
+            achievementImage.decoding = "async";
             achievementCard.appendChild(achievementImage);
 
             const achievementName = document.createElement("div");
@@ -153,6 +151,7 @@ function populateAchievementsFilter(achievements) {
             const button = document.createElement("button");
             button.className = "filter-button";
             button.value = value;
+            button.setAttribute("aria-pressed", "false");
             button.id = `filter-${prefix}-${value}`;
 
             // why did i do this??? not that it needs to be fixed but why???
@@ -185,7 +184,8 @@ function handleAchievementsClick(event) {
 
     const button = event.target.closest(".filter-button");
     if (button) {
-        button.classList.toggle("active");
+        const pressed = button.classList.toggle("active");
+        button.setAttribute("aria-pressed", String(pressed));
 
         const selectedButtons = document.querySelectorAll(
             "#buttonContainer .filter-button.active",
@@ -235,6 +235,7 @@ function handleAchievementsClick(event) {
             .querySelectorAll("#buttonContainer .filter-button.active")
             .forEach((button) => {
                 button.classList.remove("active");
+                button.setAttribute("aria-pressed", "false");
             });
 
         fetch("data/achievements.json")
@@ -252,15 +253,10 @@ function handleAchievementsClick(event) {
         filterContainer.classList.toggle("hidden");
         icon.classList.toggle("rotated", isHidden);
         toggleButton.classList.toggle("active", isHidden);
+        toggleButton.setAttribute("aria-expanded", String(isHidden));
         return;
     }
 }
 
-if (!window.isAchievementsListenerAdded) {
-    document.addEventListener("click", handleAchievementsClick);
-    window.isAchievementsListenerAdded = true;
-}
-
-const init = preventDupeInit(initAchievementsPage);
-document.addEventListener("turbo:load", init);
-init();
+document.addEventListener("click", handleAchievementsClick);
+initAchievementsPage();

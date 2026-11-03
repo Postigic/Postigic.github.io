@@ -1,7 +1,7 @@
 #hero {
     background:
         linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url("../../assets/images/ui/bleeehh.jpg") no-repeat center center;
+        url("../../assets/images/ui/bleeehh.webp") no-repeat center center;
     background-size: cover;
     background-position: center center;
     min-height: 100vh;

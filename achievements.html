@@ -37,10 +37,6 @@
         <link rel="stylesheet" href="css/components/filter.css" />
         <link rel="stylesheet" href="css/components/page-intro.css" />
         <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-        <script
-            src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"
-            defer
-        ></script>
         <script src="js/common.js" type="module"></script>
         <script src="js/achievements.js" type="module"></script>
         <title>achievements</title>
@@ -55,7 +51,7 @@
         </noscript>
 
         <header>
-            <nav id="navbar" data-turbo-permanent></nav>
+            <nav id="navbar"></nav>
         </header>
 
         <main>
@@ -70,7 +66,11 @@
                 </section>
 
                 <section class="filter-panel">
-                    <button id="toggleFilters">
+                    <button
+                        id="toggleFilters"
+                        aria-expanded="false"
+                        aria-controls="filterContainer"
+                    >
                         <i class="bx bx-chevron-down"></i>Filters
                     </button>
                     <div id="filterContainer" class="hidden">

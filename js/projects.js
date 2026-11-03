@@ -1,4 +1,4 @@
-import { observeElements, preventDupeInit } from "./common.js";
+import { observeElements } from "./common.js";
 
 function initProjectsPage() {
     if (!document.querySelector(".projects")) return;
@@ -97,6 +97,7 @@ function populateProjectsFilter(projects, skillMap) {
             const button = document.createElement("button");
             button.className = "filter-button";
             button.value = value;
+            button.setAttribute("aria-pressed", "false");
             button.id = `filter-${prefix}-${value}`;
 
             const icon = document.createElement("i");
@@ -194,7 +195,7 @@ function generateProjects(
                     project.image
                         ? `assets/images/projects/${project.image}`
                         : imageUrl
-                }" alt="">
+                }" alt="" loading="lazy" decoding="async">
                 <div class="languages">
                 ${
                     project.languages
@@ -243,11 +244,11 @@ function generateProjects(
 
 function getProjectImage() {
     const defaultImageUrls = [
-        "assets/images/ui/neuro_abs_cinema.jpg",
-        "assets/images/ui/inabakumori-plush.jpg",
-        "assets/images/ui/inabakumori-rainy-boots.gif",
-        "assets/images/ui/iu_.png",
-        "assets/images/ui/mliczki9986h1.jpeg",
+        "assets/images/ui/neuro_abs_cinema.webp",
+        "assets/images/ui/inabakumori-plush.webp",
+        "assets/images/ui/inabakumori-rainy-boots.webp",
+        "assets/images/ui/iu_.webp",
+        "assets/images/ui/mliczki9986h1.webp",
     ];
     return Promise.resolve(
         defaultImageUrls[Math.floor(Math.random() * defaultImageUrls.length)],
@@ -259,7 +260,8 @@ function handleProjectsClick(event) {
 
     const button = event.target.closest(".filter-button");
     if (button) {
-        button.classList.toggle("active");
+        const pressed = button.classList.toggle("active");
+        button.setAttribute("aria-pressed", String(pressed));
 
         const activeButtons = document.querySelectorAll(
             "#buttonContainer .filter-button.active",
@@ -293,7 +295,10 @@ function handleProjectsClick(event) {
     if (event.target.closest("#clearFilters")) {
         document
             .querySelectorAll("#buttonContainer .filter-button.active")
-            .forEach((btn) => btn.classList.remove("active"));
+            .forEach((btn) => {
+                btn.classList.remove("active");
+                btn.setAttribute("aria-pressed", "false");
+            });
 
         Promise.all([
             fetch("data/generated/projects.json").then((res) => res.json()),
@@ -315,15 +320,10 @@ function handleProjectsClick(event) {
         filterContainer.classList.toggle("hidden");
         icon.classList.toggle("rotated", isHidden);
         toggleButton.classList.toggle("active", isHidden);
+        toggleButton.setAttribute("aria-expanded", String(isHidden));
         return;
     }
 }
 
-if (!window.isProjectsListenerAdded) {
-    document.addEventListener("click", handleProjectsClick);
-    window.isProjectsListenerAdded = true;
-}
-
-const init = preventDupeInit(initProjectsPage);
-document.addEventListener("turbo:load", init);
-init();
+document.addEventListener("click", handleProjectsClick);
+initProjectsPage();

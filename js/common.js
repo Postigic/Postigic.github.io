@@ -48,11 +48,11 @@ export function observeElements({
 }
 
 export const achievementFallbackImages = [
-    "assets/images/ui/neuro_abs_cinema.jpg",
-    "assets/images/ui/inabakumori-plush.jpg",
-    "assets/images/ui/inabakumori-rainy-boots.gif",
-    "assets/images/ui/iu_.png",
-    "assets/images/ui/mliczki9986h1.jpeg",
+    "assets/images/ui/neuro_abs_cinema.webp",
+    "assets/images/ui/inabakumori-plush.webp",
+    "assets/images/ui/inabakumori-rainy-boots.webp",
+    "assets/images/ui/iu_.webp",
+    "assets/images/ui/mliczki9986h1.webp",
 ];
 
 export function getAchievementImage(achievement) {
@@ -93,15 +93,6 @@ export function loadSocials(container) {
         .catch((error) => console.error("Error loading socials:", error));
 }
 
-export function preventDupeInit(fn) {
-    let lastBody = null;
-    return () => {
-        if (document.body === lastBody) return;
-        lastBody = document.body;
-        fn();
-    };
-}
-
 function updateActiveNavLink() {
     const currentPath = window.location.pathname.split("/").pop();
     document.querySelectorAll("#navbar .nav-link").forEach((link) => {
@@ -114,11 +105,6 @@ function updateActiveNavLink() {
 
 function loadNavbar() {
     const container = document.getElementById("navbar");
-
-    if (container.childElementCount > 0) {
-        updateActiveNavLink();
-        return;
-    }
 
     fetch("partials/navbar.html")
         .then((response) => response.text())
@@ -143,8 +129,6 @@ function loadFooter() {
 }
 
 function loadBackToTop() {
-    if (document.getElementById("backToTop")) return;
-
     fetch("partials/back-to-top.html")
         .then((response) => response.text())
         .then((data) => {
@@ -159,41 +143,14 @@ function loadBackToTop() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
             });
 
-            if (!window.isBackToTopScrollListenerAdded) {
-                window.addEventListener("scroll", () => {
-                    const btn = document.getElementById("backToTop");
-                    if (!btn) return;
-                    if (window.scrollY > 300) {
-                        btn.classList.add("show");
-                    } else {
-                        btn.classList.remove("show");
-                    }
-                });
-                window.isBackToTopScrollListenerAdded = true;
-            }
+            window.addEventListener("scroll", () => {
+                backToTopButton.classList.toggle("show", window.scrollY > 300);
+            });
         })
         .catch((error) => console.error("Error loading back-to-top:", error));
 }
 
-document.addEventListener("turbo:load", () => {
-    const noscriptWarning = document.querySelector(".noscript-warning");
-    if (noscriptWarning) noscriptWarning.remove();
-
-    loadNavbar();
-    loadFooter();
-    loadBackToTop();
-});
-
-document.addEventListener("turbo:click", (event) => {
-    if (event.detail.url === window.location.href) {
-        event.preventDefault();
-    }
-});
-
-document.addEventListener("turbo:before-cache", () => {
-    document
-        .querySelectorAll(
-            ".achievements, .projects, .skills, #achievements-preview-container, #projects-preview-container",
-        )
-        .forEach((el) => (el.innerHTML = ""));
-});
+// module scripts are deferred, so the DOM is already parsed here
+loadNavbar();
+loadFooter();
+loadBackToTop();
