@@ -1,8 +1,9 @@
-import { observeElements } from "./common.js";
+import { observeElements, getRandomImage } from "./common.js";
+
+let projects = null;
+let skillMap = null;
 
 function initProjectsPage() {
-    if (!document.querySelector(".projects")) return;
-
     Promise.all([
         fetch("data/generated/projects.json").then((response) =>
             response.json(),
@@ -15,7 +16,8 @@ function initProjectsPage() {
             // this is why i should stick to python and not web dev
             // what does all this code even do?
 
-            const skillMap = buildSkillMap(skillsData);
+            projects = projectsData;
+            skillMap = buildSkillMap(skillsData);
 
             generateProjects(projectsData, skillMap);
             populateProjectsFilter(projectsData, skillMap);
@@ -51,16 +53,10 @@ function darkenColor(hex, amount) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-function populateProjectsFilter(projects, skillMap) {
-    if (!document.querySelector(".projects")) return;
-
+function populateProjectsFilter(projectsData, skillMapData) {
     const buttonContainer = document.getElementById("buttonContainer");
-    if (!buttonContainer) return;
-
     const languages = new Set();
-
-    const { icons: languageIcons } = skillMap;
-
+    const { icons: languageIcons } = skillMapData;
     const categoryIcons = {
         Algorithm: "bx bx-code-curly",
         Bot: "bx bx-bot",
@@ -73,7 +69,7 @@ function populateProjectsFilter(projects, skillMap) {
         // should've called this "Miscellaneous" as well but i'm too lazy to change em
     };
 
-    projects.forEach((project) => {
+    projectsData.forEach((project) => {
         project.languages.forEach((language) => {
             languages.add(language);
         });
@@ -131,27 +127,21 @@ function populateProjectsFilter(projects, skillMap) {
 }
 
 function generateProjects(
-    data,
-    skillMap,
+    projectsData,
+    skillMapData,
     selectedLanguages = [],
     selectedCategories = [],
 ) {
     const projectsContainer = document.querySelector(".projects");
-    if (!projectsContainer) return;
-
-    const { map: languageMap } = skillMap;
-
-    if (projectsContainer.dataset.generating === "true") return;
-    projectsContainer.dataset.generating = "true";
+    const { map: languageMap } = skillMapData;
 
     projectsContainer.innerHTML = "";
 
-    const sortedProjects = data.sort((a, b) => a.name.localeCompare(b.name));
+    const sortedProjects = projectsData.toSorted((a, b) =>
+        a.name.localeCompare(b.name),
+    );
 
     const filteredProjects = sortedProjects.filter((project) => {
-        if (selectedLanguages.length === 0 && selectedCategories.length === 0)
-            return true;
-
         const languageMatch =
             selectedLanguages.length === 0 ||
             selectedLanguages.some((selected) =>
@@ -170,31 +160,29 @@ function generateProjects(
         ...filteredProjects.filter((project) => !project.featured),
     ];
 
-    const projectPromises = sortedFeaturedProjects.map(async (project) => {
-        try {
-            const imageUrl = await getProjectImage();
-            const projectElement = document.createElement("a");
-            projectElement.classList.add(
-                "card",
-                "card--interactive",
-                "project",
-                "animate-target",
-            );
-            if (project.featured)
-                projectElement.classList.add("card--featured");
-            projectElement.href = project.link;
-            projectElement.target = "_blank";
-            projectElement.rel = "noopener noreferrer";
+    const projectElements = sortedFeaturedProjects.map((project) => {
+        const projectElement = document.createElement("a");
 
-            projectElement.innerHTML = `
-                <h2 class="animate-target">${project.name}</h2>
-                <p class="animate-target">${
-                    project.description || "No description available"
-                }</p>
+        projectElement.classList.add(
+            "card",
+            "card--interactive",
+            "project",
+            "animate-target",
+        );
+
+        if (project.featured) projectElement.classList.add("card--featured");
+
+        projectElement.href = project.link;
+        projectElement.target = "_blank";
+        projectElement.rel = "noopener noreferrer";
+
+        projectElement.innerHTML = `
+                <h2 class="animate-target"></h2>
+                <p class="animate-target"></p>
                 <img src="${
                     project.image
                         ? `assets/images/projects/${project.image}`
-                        : imageUrl
+                        : getRandomImage()
                 }" alt="" loading="lazy" decoding="async">
                 <div class="languages">
                 ${
@@ -221,43 +209,19 @@ function generateProjects(
                 </div>
                 ${project.featured ? '<div class="card-badge">featured</div>' : ""}
             `;
-            return projectElement;
-        } catch (error) {
-            console.error("Error generating project element:", error);
-            return null;
-        }
+
+        projectElement.querySelector("h2").textContent = project.name;
+        projectElement.querySelector("p").textContent =
+            project.description || "No description available";
+
+        return projectElement;
     });
 
-    Promise.all(projectPromises).then((projectElements) => {
-        projectElements.forEach((projectElement) => {
-            if (projectElement) {
-                projectsContainer.appendChild(projectElement);
-            }
-        });
-
-        const allProjects = projectsContainer.querySelectorAll(".project");
-        observeElements({ elements: allProjects, desktopThreshold: 0.6 });
-
-        projectsContainer.dataset.generating = "false";
-    });
-}
-
-function getProjectImage() {
-    const defaultImageUrls = [
-        "assets/images/ui/neuro_abs_cinema.webp",
-        "assets/images/ui/inabakumori-plush.webp",
-        "assets/images/ui/inabakumori-rainy-boots.webp",
-        "assets/images/ui/iu_.webp",
-        "assets/images/ui/mliczki9986h1.webp",
-    ];
-    return Promise.resolve(
-        defaultImageUrls[Math.floor(Math.random() * defaultImageUrls.length)],
-    );
+    projectsContainer.append(...projectElements);
+    observeElements({ elements: projectElements, desktopThreshold: 0.6 });
 }
 
 function handleProjectsClick(event) {
-    if (!document.querySelector(".projects")) return;
-
     const button = event.target.closest(".filter-button");
     if (button) {
         const pressed = button.classList.toggle("active");
@@ -276,23 +240,18 @@ function handleProjectsClick(event) {
                 selectedCategories.push(btn.value);
         });
 
-        Promise.all([
-            fetch("data/generated/projects.json").then((res) => res.json()),
-            fetch("data/skills.json").then((res) => res.json()),
-        ]).then(([projectsData, skillsData]) => {
-            const skillMap = buildSkillMap(skillsData);
-
-            generateProjects(
-                projectsData,
-                skillMap,
-                selectedLanguages,
-                selectedCategories,
-            );
-        });
+        generateProjects(
+            projects,
+            skillMap,
+            selectedLanguages,
+            selectedCategories,
+        );
         return;
     }
 
     if (event.target.closest("#clearFilters")) {
+        if (skillMap === null) return;
+
         document
             .querySelectorAll("#buttonContainer .filter-button.active")
             .forEach((btn) => {
@@ -300,14 +259,7 @@ function handleProjectsClick(event) {
                 btn.setAttribute("aria-pressed", "false");
             });
 
-        Promise.all([
-            fetch("data/generated/projects.json").then((res) => res.json()),
-            fetch("data/skills.json").then((res) => res.json()),
-        ]).then(([projectsData, skillsData]) => {
-            const skillMap = buildSkillMap(skillsData);
-
-            generateProjects(projectsData, skillMap);
-        });
+        generateProjects(projects, skillMap);
         return;
     }
 

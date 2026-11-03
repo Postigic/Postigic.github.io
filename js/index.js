@@ -1,107 +1,4 @@
-import {
-    observeElements,
-    loadSocials,
-    getAchievementImage,
-} from "./common.js";
-
-// {
-//     const words = ["Student", "Programmer", "STEM Fanatic", "Weeb"];
-//     const typewriterElement = document.getElementById("typewriter");
-//     let wordIndex = 0;
-//     let charIndex = 0;
-//     let isDeleting = false;
-//     let typingSpeed = 100;
-
-//     function typeEffect() {
-//         const currentWord = words[wordIndex];
-
-//         if (!isDeleting) {
-//             typewriterElement.textContent = currentWord.substring(
-//                 0,
-//                 charIndex + 1
-//             );
-//             charIndex++;
-//             if (charIndex === currentWord.length) {
-//                 isDeleting = true;
-//                 setTimeout(typeEffect, 2500);
-//                 return;
-//             }
-//         } else {
-//             typewriterElement.textContent = currentWord.substring(
-//                 0,
-//                 charIndex - 1
-//             );
-//             charIndex--;
-//             if (charIndex === 0) {
-//                 isDeleting = false;
-//                 wordIndex = (wordIndex + 1) % words.length;
-//             }
-//         }
-
-//         setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
-//     }
-
-//     typeEffect();
-// } // i don't even know... whatever i give up it just works okay
-
-// function updateTime() {
-//     const timeElement = document.getElementById("current-time");
-
-//     if (timeElement) {
-//         const currentTime = new Date().toLocaleTimeString([], {
-//             timeZone: "Asia/Singapore",
-//             hour: "2-digit",
-//             minute: "2-digit",
-//             hour12: false,
-//         });
-//         timeElement.innerHTML = `<i class="bx bxs-time-five"></i> ${currentTime}`;
-//     }
-// }
-
-// function calculateAge() {
-//     const birthday = new Date("2009-07-20"); // do you guys like my birthday :)
-//     const today = new Date();
-//     let age = today.getFullYear() - birthday.getFullYear();
-//     const monthDiff = today.getMonth() - birthday.getMonth();
-
-//     if (
-//         monthDiff < 0 ||
-//         (monthDiff === 0 && today.getDate() < birthday.getDate())
-//     ) {
-//         age--;
-//     }
-
-//     document
-//         .querySelectorAll(".age")
-//         .forEach((el) => (el.textContent = `${age} years old`));
-// }
-
-// function loadSocials() {
-//     fetch("data/socials.json")
-//         .then((response) => response.json())
-//         .then((data) => {
-//             const container = document.getElementById("socials-grid");
-//             const socialsHTML = data
-//                 .map(
-//                     ({ url, label, icon, color }) => `
-//                         <a class="social-card animate-target" href="${url}"
-//                             target="_blank"
-//                             rel="noopener noreferrer"
-//                             aria-label="${label}"
-//                             style="background-color: ${color};">
-//                             <i class="${icon}"></i>
-//                             <span>${label}</span>
-//                         </a>
-//                 `
-//                 )
-//                 .join("");
-//             container.innerHTML = socialsHTML;
-
-//             observeElements({ elements: document.querySelector(".socials") });
-//             // stuffing this in here fixes a bug so whatever
-//         })
-//         .catch((error) => console.error("Error loading socials:", error));
-// }
+import { observeElements, loadSocials } from "./common.js";
 
 function generateSkills(data) {
     const skillsSection = document.querySelector(".skills");
@@ -174,8 +71,8 @@ function loadAchievementsPreview() {
                 div.className = "card achievement-preview-card animate-target";
 
                 const img = document.createElement("img");
-                img.src = getAchievementImage(ach);
-                img.alt = ach.name;
+                img.src = `assets/images/achievements/${ach.image}`;
+                img.alt = "";
                 img.loading = "lazy";
                 img.decoding = "async";
                 div.appendChild(img);
@@ -222,12 +119,16 @@ function loadProjectsPreview() {
                 a.href = proj.link;
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
-                a.innerHTML = `<h3>${proj.name}</h3>
-                <p>${proj.description || "No description"}</p>
-                <img src="assets/images/projects/${proj.image}" alt="${
-                    proj.name
-                }" loading="lazy" decoding="async">`;
+                a.innerHTML = `
+                    <h3></h3>
+                    <p></p>
+                    <img src="assets/images/projects/${proj.image}" alt="" loading="lazy" decoding="async">
+                `;
                 container.appendChild(a);
+
+                a.querySelector("h3").textContent = proj.name;
+                a.querySelector("p").textContent =
+                    proj.description || "No description";
             });
 
             observeElements({

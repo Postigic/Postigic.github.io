@@ -47,7 +47,7 @@ export function observeElements({
     elements.forEach((el) => observer.observe(el));
 }
 
-export const achievementFallbackImages = [
+const fallbackImages = [
     "assets/images/ui/neuro_abs_cinema.webp",
     "assets/images/ui/inabakumori-plush.webp",
     "assets/images/ui/inabakumori-rainy-boots.webp",
@@ -55,13 +55,8 @@ export const achievementFallbackImages = [
     "assets/images/ui/mliczki9986h1.webp",
 ];
 
-export function getAchievementImage(achievement) {
-    if (achievement.image) {
-        return `assets/images/achievements/${achievement.image}`;
-    }
-    return achievementFallbackImages[
-        Math.floor(Math.random() * achievementFallbackImages.length)
-    ];
+export function getRandomImage() {
+    return fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
 }
 
 export function loadSocials(container) {

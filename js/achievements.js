@@ -1,12 +1,13 @@
-import { observeElements, getAchievementImage } from "./common.js";
+import { observeElements, getRandomImage } from "./common.js";
+
+let achievements = null;
 
 function initAchievementsPage() {
-    if (!document.querySelector(".achievements")) return;
+    fetch("data/achievements.json")
+        .then((response) => response.json())
+        .then((achievementsData) => {
+            achievements = achievementsData;
 
-    Promise.all([
-        fetch("data/achievements.json").then((response) => response.json()),
-    ])
-        .then(([achievementsData]) => {
             generateAchievements(achievementsData);
             populateAchievementsFilter(achievementsData);
         })
@@ -17,7 +18,6 @@ function initAchievementsPage() {
 
 function generateAchievements(data) {
     const achievementsSection = document.querySelector(".achievements");
-    if (!achievementsSection) return;
 
     achievementsSection.innerHTML = "";
 
@@ -35,9 +35,9 @@ function generateAchievements(data) {
         const gridContainer = document.createElement("div");
         gridContainer.classList.add("achievements-grid");
 
-        const sortedTitles = data[year]
-            .slice()
-            .sort((a, b) => a.name.localeCompare(b.name));
+        const sortedTitles = data[year].toSorted((a, b) =>
+            a.name.localeCompare(b.name),
+        );
 
         sortedTitles.forEach((achievement) => {
             const achievementCard = document.createElement("div");
@@ -52,7 +52,9 @@ function generateAchievements(data) {
             achievementCard.classList.add("achievement-card--has-image");
 
             const achievementImage = document.createElement("img");
-            achievementImage.src = getAchievementImage(achievement);
+            achievementImage.src = achievement.image
+                ? `assets/images/achievements/${achievement.image}`
+                : getRandomImage();
             achievementImage.alt = "";
             achievementImage.loading = "lazy";
             achievementImage.decoding = "async";
@@ -94,11 +96,8 @@ function generateAchievements(data) {
     });
 }
 
-function populateAchievementsFilter(achievements) {
-    if (!document.querySelector(".achievements")) return;
-
+function populateAchievementsFilter(data) {
     const buttonContainer = document.getElementById("buttonContainer");
-    if (!buttonContainer) return;
 
     const categories = new Set();
     const types = new Set();
@@ -119,7 +118,7 @@ function populateAchievementsFilter(achievements) {
         Completion: "bx-check-circle",
     };
 
-    Object.values(achievements)
+    Object.values(data)
         .flat()
         .forEach((achievement) => {
             if (achievement.category) categories.add(achievement.category);
@@ -180,9 +179,8 @@ function populateAchievementsFilter(achievements) {
 }
 
 function handleAchievementsClick(event) {
-    if (!document.querySelector(".achievements")) return;
-
     const button = event.target.closest(".filter-button");
+
     if (button) {
         const pressed = button.classList.toggle("active");
         button.setAttribute("aria-pressed", String(pressed));
@@ -201,36 +199,34 @@ function handleAchievementsClick(event) {
             }
         });
 
-        fetch("data/achievements.json")
-            .then((response) => response.json())
-            .then((achievementsData) => {
-                const filteredData = {};
+        const filteredData = {};
 
-                for (const year in achievementsData) {
-                    const filteredAchievements = achievementsData[year].filter(
-                        (achievement) => {
-                            return (
-                                (selectedCategories.length === 0 ||
-                                    selectedCategories.includes(
-                                        achievement.category,
-                                    )) &&
-                                (selectedTypes.length === 0 ||
-                                    selectedTypes.includes(achievement.type))
-                            );
-                        },
+        for (const year in achievements) {
+            const filteredAchievements = achievements[year].filter(
+                (achievement) => {
+                    return (
+                        (selectedCategories.length === 0 ||
+                            selectedCategories.includes(
+                                achievement.category,
+                            )) &&
+                        (selectedTypes.length === 0 ||
+                            selectedTypes.includes(achievement.type))
                     );
+                },
+            );
 
-                    if (filteredAchievements.length > 0) {
-                        filteredData[year] = filteredAchievements;
-                    }
-                }
+            if (filteredAchievements.length > 0) {
+                filteredData[year] = filteredAchievements;
+            }
+        }
 
-                generateAchievements(filteredData);
-            });
+        generateAchievements(filteredData);
         return;
     }
 
     if (event.target.closest("#clearFilters")) {
+        if (achievements === null) return;
+
         document
             .querySelectorAll("#buttonContainer .filter-button.active")
             .forEach((button) => {
@@ -238,9 +234,7 @@ function handleAchievementsClick(event) {
                 button.setAttribute("aria-pressed", "false");
             });
 
-        fetch("data/achievements.json")
-            .then((response) => response.json())
-            .then(generateAchievements);
+        generateAchievements(achievements);
         return;
     }
 
