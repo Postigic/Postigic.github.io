@@ -58,7 +58,7 @@
         "category": "Algorithm",
         "description": "if an al goes and rhythms is it an algorithm or an rhythmic al going?",
         "featured": false,
-        "image": "algorithms.gif",
+        "image": "algorithms.webp",
         "languages": [
             "Python"
         ],
@@ -69,7 +69,7 @@
         "category": "Tool",
         "description": "i mean, it's a clock... pyturtle jumpscare",
         "featured": false,
-        "image": "analog_clock.png",
+        "image": "analog_clock.webp",
         "languages": [
             "Python"
         ],
@@ -80,7 +80,7 @@
         "category": "Visualiser",
         "description": "some cool thing chatgpt told me about lol",
         "featured": false,
-        "image": "benfords_law.png",
+        "image": "benfords_law.webp",
         "languages": [
             "Python"
         ],
@@ -113,7 +113,7 @@
         "category": "Game",
         "description": "what if pong was a circle... i dunno",
         "featured": false,
-        "image": "circular_pong.png",
+        "image": "circular_pong.webp",
         "languages": [
             "Python"
         ],
@@ -146,7 +146,7 @@
         "category": "Tool",
         "description": "i made this for some obscure game about defusing bombs",
         "featured": false,
-        "image": "defusal_automation.png",
+        "image": "defusal_automation.webp",
         "languages": [
             "Python"
         ],
@@ -168,7 +168,7 @@
         "category": "Tool",
         "description": "so... whatchu think about simultaneous equations eh?",
         "featured": false,
-        "image": "lin_system_solver.png",
+        "image": "lin_system_solver.webp",
         "languages": [
             "Python"
         ],
@@ -179,7 +179,7 @@
         "category": "Tool",
         "description": "Converts videos and images into ASCII art, optionally with bitcrushed audio.",
         "featured": true,
-        "image": "media_to_ascii.png",
+        "image": "media_to_ascii.webp",
         "languages": [
             "Python"
         ],
@@ -201,7 +201,7 @@
         "category": "Visualiser",
         "description": "hrrnngggg ascii rabbit hole animation har har",
         "featured": false,
-        "image": "rabbit_hole_ascii.jpg",
+        "image": "rabbit_hole_ascii.webp",
         "languages": [
             "Python"
         ],
@@ -212,7 +212,7 @@
         "category": "Game",
         "description": "uuhhh snake game for school open house",
         "featured": false,
-        "image": "snake_game.png",
+        "image": "snake_game.webp",
         "languages": [
             "Python"
         ],
@@ -256,7 +256,7 @@
         "category": "Tool",
         "description": "this is genuinely the most stupidest thing i've ever thought of why did i do this",
         "featured": false,
-        "image": "terrible_calculator.png",
+        "image": "terrible_calculator.webp",
         "languages": [
             "Python"
         ],
@@ -267,7 +267,7 @@
         "category": "Tool",
         "description": "Given an integer, generates an equation whose left-hand side evaluates to the input number.",
         "featured": false,
-        "image": "uncalculator.jpg",
+        "image": "uncalculator.webp",
         "languages": [
             "Python"
         ],
@@ -278,7 +278,7 @@
         "category": "Visualiser",
         "description": "hrrrggg grrr turned song into little funny program that sync lyric and audio and then funny yippee visuals!!!",
         "featured": false,
-        "image": "world_execute_me.jpg",
+        "image": "world_execute_me.webp",
         "languages": [
             "Python"
         ],
@@ -289,7 +289,7 @@
         "category": "Tool",
         "description": "because it's unnecessarily annoying to use those websites to do so",
         "featured": false,
-        "image": "youtube_video_downloader.png",
+        "image": "youtube_video_downloader.webp",
         "languages": [
             "Python"
         ],
@@ -300,7 +300,7 @@
         "category": "Simulation",
         "description": "yatta! balls! yatta!",
         "featured": false,
-        "image": "bouncy_ball_simulator.png",
+        "image": "bouncy_ball_simulator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -313,7 +313,7 @@
         "category": "Tool",
         "description": "somewhat scientific calculator",
         "featured": false,
-        "image": "calculator.png",
+        "image": "calculator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -326,7 +326,7 @@
         "category": "Tool",
         "description": "generates charts... because we all love them obviously",
         "featured": false,
-        "image": "chart_generator.png",
+        "image": "chart_generator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -339,7 +339,7 @@
         "category": "Tool",
         "description": "if you flip a coin... it is a probability... (ted talk)",
         "featured": false,
-        "image": "coin_flipper.png",
+        "image": "coin_flipper.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -352,7 +352,7 @@
         "category": "Tool",
         "description": "converts data units (e.g. megabytes) into other ones",
         "featured": false,
-        "image": "data_unit_converter.png",
+        "image": "data_unit_converter.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -365,7 +365,7 @@
         "category": "Tool",
         "description": "displays current time and date (hence datetime...)",
         "featured": false,
-        "image": "datetime_clock.png",
+        "image": "datetime_clock.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -378,7 +378,7 @@
         "category": "Tool",
         "description": "i used to roollll the dice",
         "featured": false,
-        "image": "dice_roller.png",
+        "image": "dice_roller.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -391,7 +391,7 @@
         "category": "Tool",
         "description": "interest compounds... compounding... i dunno",
         "featured": false,
-        "image": "interest_calculator.png",
+        "image": "interest_calculator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -404,7 +404,7 @@
         "category": "Tool",
         "description": "\"make your password stronger\" \ud83d\udcaa\ud83d\udcaa\ud83d\udcaa",
         "featured": false,
-        "image": "password_generator.png",
+        "image": "password_generator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -417,7 +417,7 @@
         "category": "Simulation",
         "description": "A polyrhythm simulator with adjustable base frequency, oscillator, and track shape.",
         "featured": true,
-        "image": "polyrhythm_simulator.png",
+        "image": "polyrhythm_simulator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -430,7 +430,7 @@
         "category": "Tool",
         "description": "some kinda full-stack product store thing",
         "featured": false,
-        "image": "product_store.png",
+        "image": "product_store.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -443,7 +443,7 @@
         "category": "Visualiser",
         "description": "what if funky town started playing",
         "featured": false,
-        "image": "rotating_ascii_donut.png",
+        "image": "rotating_ascii_donut.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -456,7 +456,7 @@
         "category": "Simulation",
         "description": "can we pretend that airplanes in the night sky are like shooting stars",
         "featured": false,
-        "image": "solar_system.png",
+        "image": "solar_system.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -469,7 +469,7 @@
         "category": "Game",
         "description": "tic tacs like the food",
         "featured": false,
-        "image": "tic_tac_toe.png",
+        "image": "tic_tac_toe.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -482,7 +482,7 @@
         "category": "Visualiser",
         "description": "trig wave generator thingamajig",
         "featured": false,
-        "image": "trig_wave_generator.png",
+        "image": "trig_wave_generator.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -495,7 +495,7 @@
         "category": "Tool",
         "description": "as if it were hard to search for stuff on wikipedia",
         "featured": false,
-        "image": "wikipedia_searcher.png",
+        "image": "wikipedia_searcher.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -530,7 +530,7 @@
         "category": "Visualiser",
         "description": "A sorting algorithm visualiser with a bit more modern UI/UX.",
         "featured": true,
-        "image": "sorting-algorithm-visualiser.jpg",
+        "image": "sorting-algorithm-visualiser.webp",
         "languages": [
             "CSS3",
             "HTML5",
@@ -543,7 +543,7 @@
         "category": "Simulation",
         "description": "A MIPS-inspired RISC CPU simulator with a custom assembler.",
         "featured": true,
-        "image": "risc-simulator.jpeg",
+        "image": "risc-simulator.webp",
         "languages": [
             "Python"
         ],
@@ -554,7 +554,7 @@
         "category": "Uncategorised",
         "description": "Dump of LaTeX math practice (sufficient rigor up for debate).",
         "featured": false,
-        "image": "latex-stuff.jpg",
+        "image": "latex-stuff.webp",
         "languages": [
             "LaTeX"
         ],

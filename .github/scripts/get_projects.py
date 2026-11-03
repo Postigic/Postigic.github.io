@@ -3,7 +3,9 @@
 import json
 import requests
 import re
+from io import BytesIO
 from pathlib import Path
+from PIL import Image, ImageOps
 from github_utils import fetch_json, fetch_tree, get_default_branch, format_repo_name, SESSION, WEBSITE_REPO_ROOT
 
 REPOS = [
@@ -48,6 +50,8 @@ LANG_EXT_MAP = {
 
 EXCLUDE_DIRS = {"header_file_test", "random_or_unmarked"}
 
+MAX_IMAGE_PX = 1000  # longest edge; cards never render larger than this
+
 ASSETS_DIR = WEBSITE_REPO_ROOT /"assets"/"images"/"projects"
 OUTPUT_PATH = WEBSITE_REPO_ROOT /"data"/"generated"/"projects.json"
 META_PATH = WEBSITE_REPO_ROOT /"data"/"projects_meta.json"
@@ -64,10 +68,30 @@ def load_project_meta():
 
     return {}
 
-def get_local_image_path(repo: str, repo_path: str, ext: str) -> Path:
+def get_local_image_path(repo: str, repo_path: str) -> Path:
     name = Path(repo_path).name or repo.split("/")[-1]
 
-    return ASSETS_DIR / (name + ext)
+    return ASSETS_DIR / (name + ".webp")
+
+def save_as_webp(data: bytes, path: Path) -> None:
+    im = Image.open(BytesIO(data))
+
+    if getattr(im, "is_animated", False):
+        frames, durations = [], []
+        for i in range(im.n_frames):
+            im.seek(i)
+            frame = im.convert("RGBA")
+            frame.thumbnail((MAX_IMAGE_PX, MAX_IMAGE_PX))
+            frames.append(frame)
+            durations.append(im.info.get("duration", 100))
+        frames[0].save(path, "WEBP", save_all=True, append_images=frames[1:],
+                       duration=durations, loop=0, quality=75)
+        return
+
+    im = ImageOps.exif_transpose(im)
+    im = im.convert("RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB")
+    im.thumbnail((MAX_IMAGE_PX, MAX_IMAGE_PX))
+    im.save(path, "WEBP", quality=80)
 
 def upper_all_keywords(title: str) -> str:
     replacements = {
@@ -152,15 +176,14 @@ def get_project_image(repo: str, branch: str, tree: list, repo_path: str) -> str
             if ext not in IMAGE_EXTS:
                 continue
 
-            local_path = get_local_image_path(repo, repo_path, ext)
+            local_path = get_local_image_path(repo, repo_path)
             ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 
             if not local_path.exists():
                 image_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{entry['path']}"
-                img_data = SESSION.get(image_url).content
-
-                with open(local_path, "wb") as f:
-                    f.write(img_data)
+                response = SESSION.get(image_url, timeout=30)
+                response.raise_for_status()
+                save_as_webp(response.content, local_path)
 
             return local_path.name
     except Exception as e:
