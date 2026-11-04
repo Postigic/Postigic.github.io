@@ -54,7 +54,7 @@ function generateAchievements(data) {
             const achievementImage = document.createElement("img");
             achievementImage.src = achievement.image
                 ? `assets/images/achievements/${achievement.image}`
-                : getRandomImage();
+                : getRandomImage(achievement.name);
             achievementImage.alt = "";
             achievementImage.loading = "lazy";
             achievementImage.decoding = "async";

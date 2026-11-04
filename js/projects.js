@@ -182,7 +182,7 @@ function generateProjects(
                 <img src="${
                     project.image
                         ? `assets/images/projects/${project.image}`
-                        : getRandomImage()
+                        : getRandomImage(project.name)
                 }" alt="" loading="lazy" decoding="async">
                 <div class="languages">
                 ${

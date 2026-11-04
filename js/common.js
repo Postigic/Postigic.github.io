@@ -55,8 +55,19 @@ const fallbackImages = [
     "assets/images/ui/mliczki9986h1.webp",
 ];
 
-export function getRandomImage() {
-    return fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
+function hashString(str) {
+    let h = 0x811c9dc5;
+
+    for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 0x01000193);
+    }
+
+    return h >>> 0;
+}
+
+export function getRandomImage(name) {
+    return fallbackImages[hashString(name) % fallbackImages.length];
 }
 
 export function loadSocials(container) {
